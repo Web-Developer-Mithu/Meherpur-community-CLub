@@ -1,0 +1,3266 @@
+<!DOCTYPE html>
+<html lang="bn" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link
+    href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&family=Noto+Serif+Bengali:wght@400;600;700&display=swap"
+    rel="stylesheet">
+    <link rel="shortcut icon" href="./assests/logo.png" type="image/x-icon">
+  <style>
+    :root {
+      --pink: #c0185a;
+      --pink-light: #e83d7a;
+      --pink-dark: #8c0f3f;
+      --pink-soft: #fce4ec;
+      --accent: #ff6b9d;
+      --gold: #d4a017;
+      --bg: #ffffff;
+      --bg2: #fdf5f8;
+      --bg3: #fff0f5;
+      --text: #1a0a10;
+      --text2: #4a2535;
+      --text3: #7a4560;
+      --border: #f0c4d4;
+      --card: #ffffff;
+      --shadow: rgba(192, 24, 90, 0.12);
+      --nav-bg: rgba(255, 255, 255, 0.95);
+    }
+
+    [data-theme="dark"] {
+      --bg: #0e0508;
+      --bg2: #1a0910;
+      --bg3: #220c15;
+      --text: #fce8ef;
+      --text2: #f0b8cc;
+      --text3: #c07090;
+      --border: #4a1530;
+      --card: #1e0b12;
+      --shadow: rgba(192, 24, 90, 0.25);
+      --nav-bg: rgba(14, 5, 8, 0.97);
+      --pink-soft: #2a0515;
+    }
+
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Hind Siliguri', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      transition: background 0.3s, color 0.3s;
+      line-height: 1.7;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 100;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 0 1.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      height: 65px;
+      transition: background 0.3s;
+    }
+
+    .nav-logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      text-decoration: none;
+    }
+
+    .nav-logo-img {
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--pink-light));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.3rem;
+      color: #fff;
+      font-weight: 700;
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .nav-logo-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .nav-logo-text {
+      line-height: 1.2;
+    }
+
+    .nav-logo-text .main {
+      font-weight: 700;
+      font-size: 0.95rem;
+      color: var(--pink);
+    }
+
+    .nav-logo-text .sub {
+      font-size: 0.7rem;
+      color: var(--text3);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 0.25rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      color: var(--text2);
+      text-decoration: none;
+      font-size: 0.82rem;
+      padding: 0.35rem 0.7rem;
+      border-radius: 6px;
+      transition: all 0.2s;
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      background: var(--pink-soft);
+      color: var(--pink);
+    }
+
+    .nav-actions {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .lang-btn,
+    .theme-btn {
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      color: var(--text2);
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: inherit;
+      font-size: 0.78rem;
+      font-weight: 600;
+      padding: 0.35rem 0.65rem;
+      transition: all 0.2s;
+    }
+
+    .lang-btn:hover,
+    .theme-btn:hover {
+      background: var(--pink-soft);
+      color: var(--pink);
+      border-color: var(--pink);
+    }
+
+    .theme-btn {
+      font-size: 1rem;
+      padding: 0.3rem 0.55rem;
+    }
+
+    .join-btn-nav {
+      background: var(--pink);
+      color: #fff;
+      border: none;
+      border-radius: 8px;
+      padding: 0.4rem 1rem;
+      font-size: 0.82rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+      text-decoration: none;
+      display: inline-block;
+    }
+
+    .join-btn-nav:hover {
+      background: var(--pink-dark);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px;
+    }
+
+    .hamburger span {
+      width: 24px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    /* HERO */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      padding-top: 65px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(ellipse 70% 60% at 80% 40%, var(--pink-soft) 0%, transparent 65%),
+        radial-gradient(ellipse 40% 40% at 10% 80%, var(--pink-soft) 0%, transparent 60%);
+      opacity: 0.7;
+    }
+
+    [data-theme="dark"] .hero-bg {
+      opacity: 0.3;
+    }
+
+    .hero-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 1.5rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: var(--pink-soft);
+      color: var(--pink);
+      border: 1px solid var(--border);
+      border-radius: 30px;
+      padding: 0.35rem 1rem;
+      font-size: 0.78rem;
+      font-weight: 600;
+      margin-bottom: 1.2rem;
+      max-width: 100%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .hero-badge .dot {
+      width: 6px;
+      height: 6px;
+      background: var(--pink);
+      border-radius: 50%;
+      flex-shrink: 0;
+      animation: pulse 1.5s infinite;
+    }
+
+    @keyframes pulse {
+
+      0%,
+      100% {
+        opacity: 1;
+        transform: scale(1)
+      }
+
+      50% {
+        opacity: 0.5;
+        transform: scale(1.3)
+      }
+    }
+
+    .hero-title {
+      font-family: 'Noto Serif Bengali', serif;
+      font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      font-weight: 700;
+      line-height: 1.25;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-title span {
+      color: var(--pink);
+    }
+
+    .hero-subtitle {
+      font-size: 1rem;
+      color: var(--text3);
+      margin-bottom: 1.5rem;
+      line-height: 1.8;
+    }
+
+    .hero-tagline {
+      font-style: italic;
+      color: var(--pink);
+      font-size: 0.9rem;
+      border-left: 3px solid var(--pink);
+      padding-left: 0.8rem;
+      margin-bottom: 1.8rem;
+    }
+
+    .hero-btns {
+      display: flex;
+      gap: 0.8rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--pink);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 0.7rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+      box-shadow: 0 4px 18px var(--shadow);
+    }
+
+    .btn-primary:hover {
+      background: var(--pink-dark);
+      transform: translateY(-2px);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--pink);
+      border: 2px solid var(--pink);
+      border-radius: 10px;
+      padding: 0.7rem 1.5rem;
+      font-size: 0.9rem;
+      font-weight: 600;
+      cursor: pointer;
+      font-family: inherit;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    .btn-outline:hover {
+      background: var(--pink-soft);
+      transform: translateY(-2px);
+    }
+
+    .hero-stats {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      text-align: center;
+    }
+
+    .stat-num {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: var(--pink);
+      line-height: 1;
+    }
+
+    .stat-label {
+      font-size: 0.72rem;
+      color: var(--text3);
+    }
+
+    .hero-visual {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      align-items: center;
+    }
+
+    .hero-img-main {
+      width: 100%;
+      max-width: 380px;
+      aspect-ratio: 4/3;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--bg2);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      box-shadow: 0 8px 40px var(--shadow);
+    }
+
+    .hero-img-main img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .hero-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.75rem;
+      width: 100%;
+      max-width: 380px;
+    }
+
+    .hero-mini-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 0.8rem;
+      text-align: center;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .hero-mini-card .icon {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-mini-card .label {
+      font-size: 0.72rem;
+      color: var(--text3);
+      font-weight: 500;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 4rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 2.5rem;
+    }
+
+    .section-tag {
+      display: inline-block;
+      background: var(--pink-soft);
+      color: var(--pink);
+      border-radius: 20px;
+      padding: 0.25rem 0.9rem;
+      font-size: 0.75rem;
+      font-weight: 600;
+      margin-bottom: 0.7rem;
+      border: 1px solid var(--border);
+    }
+
+    .section-title {
+      font-family: 'Noto Serif Bengali', serif;
+      font-size: clamp(1.3rem, 2.5vw, 2rem);
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.5rem;
+    }
+
+    .section-desc {
+      color: var(--text3);
+      font-size: 0.9rem;
+      max-width: 560px;
+      margin: 0 auto;
+    }
+
+    /* ABOUT */
+    #about {
+      background: var(--bg2);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .about-img {
+      width: 100%;
+      aspect-ratio: 1;
+      border-radius: 16px;
+      overflow: hidden;
+      background: var(--bg3);
+      border: 2px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 5rem;
+      box-shadow: 0 6px 30px var(--shadow);
+    }
+
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .about-text h3 {
+      font-family: 'Noto Serif Bengali', serif;
+      font-size: 1.4rem;
+      color: var(--text);
+      margin-bottom: 1rem;
+      font-weight: 700;
+    }
+
+    .about-text p {
+      color: var(--text2);
+      font-size: 0.92rem;
+      margin-bottom: 0.9rem;
+      line-height: 1.8;
+    }
+
+    .mv-cards {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+      margin-top: 1.2rem;
+    }
+
+    .mv-card {
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem;
+      border-top: 3px solid var(--pink);
+    }
+
+    .mv-card h4 {
+      font-size: 0.85rem;
+      font-weight: 700;
+      color: var(--pink);
+      margin-bottom: 0.4rem;
+    }
+
+    .mv-card p {
+      font-size: 0.8rem;
+      color: var(--text3);
+      line-height: 1.6;
+    }
+
+    /* ACTIVITIES */
+    #activities {
+      background: var(--bg);
+    }
+
+    .activities-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+      gap: 1rem;
+    }
+
+    .activity-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem 1.2rem;
+      transition: all 0.25s;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .activity-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 28px var(--shadow);
+      border-color: var(--pink);
+    }
+
+    .activity-icon {
+      font-size: 1.8rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .activity-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .activity-card p {
+      font-size: 0.82rem;
+      color: var(--text3);
+      line-height: 1.6;
+    }
+
+    /* MEMBERSHIP */
+    #membership {
+      background: var(--bg2);
+    }
+
+    .membership-inner {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: start;
+    }
+
+    .mem-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem;
+      box-shadow: 0 2px 16px var(--shadow);
+    }
+
+    .mem-box h3 {
+      font-family: 'Noto Serif Bengali', serif;
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .mem-box ul {
+      list-style: none;
+    }
+
+    .mem-box ul li {
+      font-size: 0.88rem;
+      color: var(--text2);
+      padding: 0.5rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: flex-start;
+      gap: 0.6rem;
+    }
+
+    .mem-box ul li:last-child {
+      border-bottom: none;
+    }
+
+    .mem-box ul li::before {
+      content: "✦";
+      color: var(--pink);
+      flex-shrink: 0;
+      font-size: 0.7rem;
+      margin-top: 3px;
+    }
+
+    .rules-box {
+      background: linear-gradient(135deg, var(--pink) 0%, var(--pink-dark) 100%);
+      color: #fff;
+    }
+
+    .rules-box h3 {
+      color: #fff;
+    }
+
+    .rules-box ul li {
+      color: rgba(255, 255, 255, 0.9);
+      border-bottom-color: rgba(255, 255, 255, 0.15);
+    }
+
+    .rules-box ul li::before {
+      color: #ffb3cf;
+    }
+
+    /* EVENTS */
+    #events {
+      background: var(--bg);
+    }
+
+    .events-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: 1rem;
+    }
+
+    .event-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      box-shadow: 0 2px 10px var(--shadow);
+      transition: all 0.25s;
+    }
+
+    .event-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 8px 24px var(--shadow);
+    }
+
+    .event-img {
+      width: 100%;
+      height: 130px;
+      background: var(--bg2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+      overflow: hidden;
+      position: relative;
+    }
+
+    .event-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .event-body {
+      padding: 1rem;
+    }
+
+    .event-tag {
+      display: inline-block;
+      background: var(--pink-soft);
+      color: var(--pink);
+      font-size: 0.68rem;
+      font-weight: 600;
+      padding: 0.2rem 0.6rem;
+      border-radius: 20px;
+      margin-bottom: 0.5rem;
+    }
+
+    .event-body h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .event-body p {
+      font-size: 0.78rem;
+      color: var(--text3);
+    }
+
+    /* EMERGENCY */
+    #emergency {
+      background: var(--bg2);
+    }
+
+    .emergency-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .emergency-card {
+      background: var(--card);
+      border: 2px solid var(--border);
+      border-radius: 14px;
+      padding: 1.4rem 1rem;
+      text-align: center;
+      transition: all 0.2s;
+      cursor: pointer;
+    }
+
+    .emergency-card:hover {
+      border-color: var(--pink);
+      background: var(--pink-soft);
+    }
+
+    .emergency-card .icon {
+      font-size: 2rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .emergency-card h4 {
+      font-size: 0.9rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .emergency-card p {
+      font-size: 0.78rem;
+      color: var(--text3);
+    }
+
+    /* GALLERY */
+    #gallery {
+      background: var(--bg);
+    }
+
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      grid-template-rows: auto auto;
+      gap: 0.75rem;
+    }
+
+    .gallery-item {
+      border-radius: 12px;
+      overflow: hidden;
+      background: var(--bg2);
+      border: 1px solid var(--border);
+      aspect-ratio: 1;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2.5rem;
+      transition: transform 0.2s;
+      cursor: pointer;
+    }
+
+    .gallery-item:hover {
+      transform: scale(1.03);
+    }
+
+    .gallery-item.wide {
+      grid-column: span 2;
+      aspect-ratio: 2/1;
+    }
+
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    /* CONTACT */
+    #contact {
+      background: linear-gradient(135deg, var(--pink-dark) 0%, var(--pink) 100%);
+      color: #fff;
+    }
+
+    #contact .section-title {
+      color: #fff;
+    }
+
+    #contact .section-desc {
+      color: rgba(255, 255, 255, 0.8);
+    }
+
+    #contact .section-tag {
+      background: rgba(255, 255, 255, 0.15);
+      color: #fff;
+      border-color: rgba(255, 255, 255, 0.3);
+    }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+    }
+
+    .contact-info h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 1rem;
+    }
+
+    .contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.8rem;
+      margin-bottom: 1rem;
+      padding: 0.8rem;
+      border-radius: 10px;
+      background: rgba(255, 255, 255, 0.1);
+    }
+
+    .contact-item .icon {
+      font-size: 1.2rem;
+      flex-shrink: 0;
+    }
+
+    .contact-item .detail h5 {
+      font-size: 0.8rem;
+      opacity: 0.75;
+      margin-bottom: 0.2rem;
+    }
+
+    .contact-item .detail p {
+      font-size: 0.9rem;
+      font-weight: 600;
+    }
+
+    .contact-join {
+      background: rgba(255, 255, 255, 0.12);
+      border-radius: 16px;
+      padding: 1.8rem;
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .contact-join h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+
+    .contact-join p {
+      font-size: 0.85rem;
+      opacity: 0.85;
+      margin-bottom: 1.2rem;
+    }
+
+    .join-steps {
+      list-style: none;
+      margin-bottom: 1.5rem;
+    }
+
+    .join-steps li {
+      font-size: 0.85rem;
+      padding: 0.4rem 0;
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .join-steps li:last-child {
+      border-bottom: none;
+    }
+
+    .step-num {
+      width: 22px;
+      height: 22px;
+      background: rgba(255, 255, 255, 0.2);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.7rem;
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .btn-white {
+      background: #fff;
+      color: var(--pink);
+      font-weight: 700;
+      border: none;
+      border-radius: 10px;
+      padding: 0.75rem 1.5rem;
+      font-size: 0.9rem;
+      cursor: pointer;
+      font-family: inherit;
+      text-decoration: none;
+      display: inline-block;
+      transition: all 0.2s;
+    }
+
+    .btn-white:hover {
+      background: var(--pink-soft);
+      transform: translateY(-2px);
+    }
+
+    /* ══════════════════════════════════════════
+     FOOTER — Rich dark navy style
+  ══════════════════════════════════════════ */
+    footer {
+      background: #0d1b3e;
+      color: #e8edf8;
+      font-family: 'Hind Siliguri', sans-serif;
+    }
+
+    /* top bar */
+    .footer-top {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.8rem 1.5rem 2rem;
+      display: grid;
+      grid-template-columns: 1.4fr 1fr 1fr;
+      gap: 2.5rem;
+    }
+
+    /* brand col */
+    .ft-brand {}
+
+    .ft-brand-row {
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+      margin-bottom: 0.9rem;
+    }
+
+    .ft-logo-circle {
+      width: 52px;
+      height: 52px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+      border: 2px solid rgba(255, 255, 255, 0.15);
+    }
+
+    .ft-brand-name {
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.3;
+    }
+
+    .ft-brand-sub {
+      font-size: 0.72rem;
+      color: #8eaad4;
+    }
+
+    .ft-desc {
+      font-size: 0.83rem;
+      color: #8eaad4;
+      line-height: 1.8;
+      margin-bottom: 1.1rem;
+    }
+
+    .ft-tagline {
+      font-style: italic;
+      font-size: 0.8rem;
+      color: #a0b8d8;
+      border-left: 3px solid var(--pink);
+      padding-left: 0.7rem;
+      line-height: 1.6;
+    }
+
+    /* links col */
+    .ft-col h4 {
+      font-size: 0.78rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #c0d4f0;
+      margin-bottom: 1rem;
+      padding-bottom: 0.5rem;
+      border-bottom: 2px solid var(--pink);
+      display: inline-block;
+    }
+
+    .ft-col ul {
+      list-style: none;
+    }
+
+    .ft-col ul li {
+      margin-bottom: 0.55rem;
+    }
+
+    .ft-col ul li a {
+      color: #8eaad4;
+      text-decoration: none;
+      font-size: 0.84rem;
+      display: flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: color 0.2s;
+    }
+
+    .ft-col ul li a:hover {
+      color: #fff;
+    }
+
+    .ft-col ul li a::before {
+      content: "›";
+      color: var(--pink);
+      font-weight: 700;
+    }
+
+    /* contact col */
+    .ft-contact-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.65rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .ft-contact-item .ico {
+      font-size: 1rem;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .ft-contact-item p {
+      font-size: 0.82rem;
+      color: #8eaad4;
+      line-height: 1.5;
+    }
+
+    /* social icons row */
+    .ft-social {
+      display: flex;
+      gap: 0.6rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .ft-social a {
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      text-decoration: none;
+      transition: background 0.2s, transform 0.2s;
+    }
+
+    .ft-social a:hover {
+      background: var(--pink);
+      transform: translateY(-2px);
+    }
+
+    /* sponsor strip */
+    .footer-sponsor {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+      background: rgba(255, 255, 255, 0.04);
+      padding: 1rem 1.5rem;
+    }
+
+    .sponsor-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .sponsor-badge {
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      color: var(--gold);
+      border: 1px solid var(--gold);
+      padding: 0.18rem 0.55rem;
+      border-radius: 4px;
+      text-transform: uppercase;
+      flex-shrink: 0;
+    }
+
+    .sponsor-card {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 10px;
+      padding: 0.55rem 1rem;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .sponsor-card:hover {
+      background: rgba(255, 255, 255, 0.12);
+    }
+
+    .sponsor-avatar {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #4267b2, #1877f2);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+      overflow: hidden;
+    }
+
+    .sponsor-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 50%;
+    }
+
+    .sponsor-info {}
+
+    .sponsor-name {
+      font-size: 0.88rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .sponsor-role {
+      font-size: 0.72rem;
+      color: #8eaad4;
+    }
+
+    .sponsor-fb {
+      display: flex;
+      align-items: center;
+      gap: 0.3rem;
+      font-size: 0.7rem;
+      color: #6b9de8;
+      margin-top: 0.15rem;
+      text-decoration: none;
+    }
+
+    .sponsor-fb:hover {
+      color: #fff;
+    }
+
+    /* important links */
+    .footer-imp-links {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.2rem 1.5rem 0;
+    }
+
+    .footer-imp-links h5 {
+      font-size: 0.75rem;
+      font-weight: 700;
+      color: #c0d4f0;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      margin-bottom: 0.7rem;
+    }
+
+    .imp-links-row {
+      display: flex;
+      gap: 0.6rem;
+      flex-wrap: wrap;
+    }
+
+    .imp-link-item {
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+      background: rgba(255, 255, 255, 0.06);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 8px;
+      padding: 0.4rem 0.8rem;
+      text-decoration: none;
+      color: #8eaad4;
+      font-size: 0.8rem;
+      transition: all 0.2s;
+    }
+
+    .imp-link-item:hover {
+      background: var(--pink);
+      color: #fff;
+      border-color: var(--pink);
+    }
+
+    /* bottom bar */
+    .footer-bottom {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 1rem 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    .footer-bottom-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+
+    .footer-copy {
+      font-size: 0.75rem;
+      color: #5a7aaa;
+    }
+
+    .footer-devby {
+      font-size: 0.75rem;
+      color: #5a7aaa;
+      display: flex;
+      align-items: center;
+      gap: 0.35rem;
+    }
+
+    .footer-devby a {
+      color: var(--pink);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer-devby a:hover {
+      color: #fff;
+    }
+
+    @media (max-width: 900px) {
+      .footer-top {
+        grid-template-columns: 1fr;
+        gap: 1.8rem;
+        padding-bottom: 1.5rem;
+      }
+
+      .footer-bottom-inner {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .sponsor-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    /* MOBILE NAV DRAWER */
+    .mobile-nav {
+      display: none;
+      position: fixed;
+      top: 65px;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: var(--nav-bg);
+      backdrop-filter: blur(12px);
+      z-index: 99;
+      flex-direction: column;
+      padding: 2rem 1.5rem;
+      gap: 0.5rem;
+    }
+
+    .mobile-nav.open {
+      display: flex;
+    }
+
+    .mobile-nav a {
+      color: var(--text2);
+      text-decoration: none;
+      padding: 0.8rem 1rem;
+      border-radius: 10px;
+      font-size: 1rem;
+      font-weight: 500;
+      border: 1px solid transparent;
+      transition: all 0.2s;
+    }
+
+    .mobile-nav a:hover {
+      background: var(--pink-soft);
+      color: var(--pink);
+      border-color: var(--border);
+    }
+
+    .mobile-nav .join-btn-nav {
+      margin-top: 0.5rem;
+      text-align: center;
+      padding: 0.8rem;
+    }
+
+    /* DIVIDER */
+    .divider {
+      width: 50px;
+      height: 3px;
+      background: var(--pink);
+      margin: 0 auto 1rem;
+      border-radius: 2px;
+    }
+
+    /* RESPONSIVE */
+    @media (max-width: 900px) {
+      .nav-links {
+        display: none;
+      }
+
+      .join-btn-nav.desktop {
+        display: none;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .hero-content {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+
+      .hero-btns {
+        justify-content: center;
+      }
+
+      .hero-stats {
+        justify-content: center;
+      }
+
+      .hero-visual {
+        order: -1;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .membership-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-item.wide {
+        grid-column: span 2;
+      }
+
+      .mv-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .hero-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .activities-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .events-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    /* ANIMATIONS */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 0.5s, transform 0.5s;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: none;
+    }
+
+    /* ── LEADERSHIP / COMMITTEE SECTION ── */
+    #leadership {
+      background: var(--bg2);
+    }
+
+    .leadership-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1.5rem;
+      justify-items: center;
+    }
+
+    .leader-card {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 0.6rem;
+    }
+
+    .leader-avatar {
+      width: 90px;
+      height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--pink), var(--pink-light));
+      border: 3px solid var(--border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+      overflow: hidden;
+      box-shadow: 0 4px 18px var(--shadow);
+      transition: transform 0.2s, border-color 0.2s;
+    }
+
+    .leader-card:hover .leader-avatar {
+      transform: translateY(-4px);
+      border-color: var(--pink);
+    }
+
+    .leader-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .leader-name {
+      font-weight: 700;
+      font-size: 0.88rem;
+      color: var(--text);
+      font-family: 'Noto Serif Bengali', serif;
+    }
+
+    .leader-role {
+      font-size: 0.72rem;
+      color: var(--pink);
+      font-weight: 600;
+      background: var(--pink-soft);
+      padding: 0.18rem 0.7rem;
+      border-radius: 20px;
+      border: 1px solid var(--border);
+    }
+
+    /* ── BANI (MESSAGE) SECTION ── */
+    #bani {
+      background: var(--bg);
+    }
+
+    .bani-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .bani-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      overflow: hidden;
+      box-shadow: 0 4px 20px var(--shadow);
+      transition: box-shadow 0.25s;
+    }
+
+    .bani-card:hover {
+      box-shadow: 0 8px 32px var(--shadow);
+    }
+
+    .bani-top {
+      background: linear-gradient(135deg, var(--pink-soft), var(--bg3));
+      padding: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .bani-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      background: linear-gradient(135deg, var(--pink), var(--pink-dark));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 1.8rem;
+      overflow: hidden;
+      border: 3px solid #fff;
+      box-shadow: 0 2px 12px var(--shadow);
+    }
+
+    .bani-avatar img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .bani-person {}
+
+    .bani-name {
+      font-family: 'Noto Serif Bengali', serif;
+      font-weight: 700;
+      font-size: 1rem;
+      color: var(--text);
+      margin-bottom: 0.2rem;
+    }
+
+    .bani-role {
+      font-size: 0.73rem;
+      color: var(--pink);
+      font-weight: 600;
+      background: rgba(192, 24, 90, 0.1);
+      padding: 0.18rem 0.65rem;
+      border-radius: 20px;
+      display: inline-block;
+    }
+
+    .bani-body {
+      padding: 1.3rem;
+    }
+
+    .bani-quote-icon {
+      font-size: 1.5rem;
+      color: var(--pink);
+      opacity: 0.4;
+      line-height: 1;
+      margin-bottom: 0.4rem;
+    }
+
+    .bani-preview {
+      font-size: 0.88rem;
+      color: var(--text2);
+      line-height: 1.8;
+    }
+
+    .bani-full {
+      display: none;
+      font-size: 0.88rem;
+      color: var(--text2);
+      line-height: 1.8;
+      margin-top: 0.5rem;
+    }
+
+    .bani-full.open {
+      display: block;
+    }
+
+    .bani-readmore {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.35rem;
+      color: var(--pink);
+      font-size: 0.8rem;
+      font-weight: 600;
+      background: none;
+      border: none;
+      cursor: pointer;
+      font-family: inherit;
+      padding: 0.5rem 0;
+      margin-top: 0.4rem;
+      transition: gap 0.2s;
+    }
+
+    .bani-readmore:hover {
+      gap: 0.55rem;
+    }
+
+    .bani-readmore .arrow {
+      transition: transform 0.3s;
+      font-style: normal;
+    }
+
+    .bani-readmore.open .arrow {
+      transform: rotate(180deg);
+    }
+
+    @media (max-width: 600px) {
+      .bani-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .leadership-grid {
+        grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+      }
+    }
+
+    /* MAP SECTION */
+    #map-section {
+      background: var(--bg);
+    }
+
+    .map-wrapper {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .bd-map-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .bd-map-container svg {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .district-path {
+      fill: var(--pink-soft);
+      stroke: #fff;
+      stroke-width: 0.8;
+      transition: fill 0.2s;
+      cursor: pointer;
+    }
+
+    .district-path:hover {
+      fill: var(--accent);
+    }
+
+    .district-path.highlight-meherpur {
+      fill: var(--pink);
+    }
+
+    .district-path.highlight-dhaka {
+      fill: var(--gold);
+    }
+
+    .map-legend {
+      display: flex;
+      gap: 1.5rem;
+      margin-top: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-size: 0.82rem;
+      color: var(--text2);
+    }
+
+    .legend-dot {
+      width: 14px;
+      height: 14px;
+      border-radius: 3px;
+      flex-shrink: 0;
+    }
+
+    .map-info {
+      padding: 1rem 0;
+    }
+
+    .map-info h3 {
+      font-family: 'Noto Serif Bengali', serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 1rem;
+    }
+
+    .map-highlight-cards {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .map-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1rem 1.2rem;
+      border-left: 4px solid var(--pink);
+      box-shadow: 0 2px 10px var(--shadow);
+    }
+
+    .map-card.dhaka {
+      border-left-color: var(--gold);
+    }
+
+    .map-card h4 {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.25rem;
+    }
+
+    .map-card p {
+      font-size: 0.82rem;
+      color: var(--text3);
+    }
+
+    .map-card .badge {
+      display: inline-block;
+      font-size: 0.68rem;
+      font-weight: 700;
+      padding: 0.15rem 0.5rem;
+      border-radius: 20px;
+      margin-bottom: 0.3rem;
+    }
+
+    .map-card .badge.meherpur {
+      background: var(--pink-soft);
+      color: var(--pink);
+    }
+
+    .map-card .badge.dhaka {
+      background: #fff8e1;
+      color: #b8860b;
+    }
+
+    @media (max-width: 900px) {
+      .map-wrapper {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* REGISTRATION SECTION */
+    #registration {
+      background: var(--bg2);
+    }
+
+    .reg-inner {
+      display: grid;
+      grid-template-columns: 1fr 1.2fr;
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .reg-info h3 {
+      font-family: 'Noto Serif Bengali', serif;
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.8rem;
+    }
+
+    .reg-info p {
+      color: var(--text3);
+      font-size: 0.9rem;
+      margin-bottom: 1.2rem;
+      line-height: 1.8;
+    }
+
+    .reg-benefits {
+      list-style: none;
+    }
+
+    .reg-benefits li {
+      font-size: 0.88rem;
+      color: var(--text2);
+      padding: 0.45rem 0;
+      border-bottom: 1px solid var(--border);
+      display: flex;
+      align-items: center;
+      gap: 0.6rem;
+    }
+
+    .reg-benefits li:last-child {
+      border-bottom: none;
+    }
+
+    .reg-benefits li::before {
+      content: "✓";
+      color: var(--pink);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+
+    .reg-form-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2rem;
+      box-shadow: 0 4px 24px var(--shadow);
+    }
+
+    .reg-form-box h3 {
+      font-family: 'Noto Serif Bengali', serif;
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.3rem;
+    }
+
+    .reg-form-box .sub {
+      font-size: 0.8rem;
+      color: var(--text3);
+      margin-bottom: 1.5rem;
+    }
+
+    .form-group {
+      margin-bottom: 1rem;
+    }
+
+    .form-group label {
+      display: block;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: var(--text2);
+      margin-bottom: 0.35rem;
+    }
+
+    .form-group input,
+    .form-group select {
+      width: 100%;
+      padding: 0.65rem 0.9rem;
+      border: 1.5px solid var(--border);
+      border-radius: 10px;
+      background: var(--bg);
+      color: var(--text);
+      font-family: inherit;
+      font-size: 0.88rem;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-group input:focus,
+    .form-group select:focus {
+      border-color: var(--pink);
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 0.8rem;
+    }
+
+    .btn-reg {
+      width: 100%;
+      background: var(--pink);
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      padding: 0.8rem;
+      font-size: 0.95rem;
+      font-weight: 700;
+      cursor: pointer;
+      font-family: inherit;
+      transition: background 0.2s;
+      margin-top: 0.5rem;
+    }
+
+    .btn-reg:hover {
+      background: var(--pink-dark);
+    }
+
+    .reg-note {
+      font-size: 0.75rem;
+      color: var(--text3);
+      text-align: center;
+      margin-top: 0.6rem;
+    }
+
+    .reg-success {
+      display: none;
+      text-align: center;
+      padding: 1.5rem;
+    }
+
+    .reg-success .check {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .reg-success h4 {
+      font-size: 1rem;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 0.4rem;
+    }
+
+    .reg-success p {
+      font-size: 0.85rem;
+      color: var(--text3);
+    }
+
+    @media (max-width: 900px) {
+      .reg-inner {
+        grid-template-columns: 1fr;
+      }
+
+      .form-row {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- NAV -->
+  <nav>
+    <a href="#hero" class="nav-logo">
+      <div class="nav-logo-img">
+        <img src="./assests/logo.png" alt="Logo">
+
+      </div>
+      <div class="nav-logo-text">
+        <div class="main" id="nav-title">মেহেরপুর জেলা কমিউনিটি ক্লাব</div>
+        <div class="sub" id="nav-sub">ঢাকা, বাংলাদেশ</div>
+      </div>
+    </a>
+
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about" id="nav-about">আমাদের সম্পর্কে</a></li>
+      <li><a href="#activities" id="nav-activities">কার্যক্রম</a></li>
+      <li><a href="#bani" id="nav-bani">বাণী</a></li>
+      <li><a href="#leadership" id="nav-leadership">কমিটি</a></li>
+      <li><a href="#membership" id="nav-membership">সদস্যপদ</a></li>
+      <li><a href="#events" id="nav-events">ইভেন্ট</a></li>
+      <li><a href="#gallery" id="nav-gallery">গ্যালারি</a></li>
+      <li><a href="#registration" id="nav-reg">নিবন্ধন</a></li>
+      <li><a href="#contact" id="nav-contact">যোগাযোগ</a></li>
+    </ul>
+
+    <div class="nav-actions">
+      <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
+      <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
+      <a href="https://facebook.com" target="_blank" class="join-btn-nav desktop" id="joinBtnNav">যোগ দিন</a>
+      <button class="hamburger" onclick="toggleMenu()" id="hamburger">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MOBILE NAV -->
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#about" onclick="closeMenu()" id="mn-about">আমাদের সম্পর্কে</a>
+    <a href="#activities" onclick="closeMenu()" id="mn-activities">কার্যক্রম</a>
+    <a href="#bani" onclick="closeMenu()" id="mn-bani">বাণী</a>
+    <a href="#leadership" onclick="closeMenu()" id="mn-leadership">কমিটি</a>
+    <a href="#membership" onclick="closeMenu()" id="mn-membership">সদস্যপদ</a>
+    <a href="#events" onclick="closeMenu()" id="mn-events">ইভেন্ট</a>
+    <a href="#gallery" onclick="closeMenu()" id="mn-gallery">গ্যালারি</a>
+    <a href="#registration" onclick="closeMenu()">নিবন্ধন</a>
+    <a href="#contact" onclick="closeMenu()" id="mn-contact">যোগাযোগ</a>
+    <a href="https://facebook.com" target="_blank" class="join-btn-nav" id="mn-join">যোগ দিন →</a>
+  </div>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-content">
+      <div>
+        <div class="hero-badge">
+          <span class="dot"></span>
+          <span id="badge-text">সক্রিয় কমিউনিটি • ঢাকা</span>
+        </div>
+        <h1 class="hero-title" id="hero-title">
+          মেহেরপুর জেলা<br>
+          <span>কমিউনিটি ক্লাব</span><br>
+          ঢাকা
+        </h1>
+        <p class="hero-subtitle" id="hero-subtitle">
+          ঢাকায় বসবাসকারী মেহেরপুর জেলার মানুষদের একটি অরাজনৈতিক সামাজিক প্ল্যাটফর্ম — যেখানে পাওয়া যায় সহযোগিতা,
+          সুযোগ ও আপনজনের সান্নিধ্য।
+        </p>
+        <div class="hero-tagline" id="hero-tagline">
+          "ঢাকায় প্রতিটি মেহেরপুরবাসীর জন্য — ঐক্য, সহায়তা ও সুযোগ"
+        </div>
+        <div class="hero-btns">
+          <a href="https://facebook.com" target="_blank" class="btn-primary" id="hero-join">🤝 যোগ দিন</a>
+          <a href="#about" class="btn-outline" id="hero-learn">আরও জানুন →</a>
+        </div>
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-num">৫০০+</div>
+            <div class="stat-label" id="stat1">সদস্য</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">৫+</div>
+            <div class="stat-label" id="stat2">বছর</div>
+          </div>
+          <div class="stat">
+            <div class="stat-num">৩০+</div>
+            <div class="stat-label" id="stat3">ইভেন্ট</div>
+          </div>
+        </div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-img-main">
+          <!-- Replace src with your image: <img src="hero.jpg" alt="Community"> -->
+          🏘️
+        </div>
+        <div class="hero-cards">
+          <div class="hero-mini-card">
+            <div class="icon">💼</div>
+            <div class="label" id="mc1">চাকরির সুযোগ</div>
+          </div>
+          <div class="hero-mini-card">
+            <div class="icon">🩸</div>
+            <div class="label" id="mc2">রক্তদান</div>
+          </div>
+          <div class="hero-mini-card">
+            <div class="icon">🎓</div>
+            <div class="label" id="mc3">শিক্ষা সহায়তা</div>
+          </div>
+          <div class="hero-mini-card">
+            <div class="icon">🎉</div>
+            <div class="label" id="mc4">সামাজিক অনুষ্ঠান</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-img fade-in">
+          <!-- Replace with: <img src="about.jpg" alt="About"> -->
+          🌍
+        </div>
+        <div class="about-text fade-in">
+          <div class="section-tag" id="about-tag">আমাদের সম্পর্কে</div>
+          <h3 id="about-title">মেহেরপুরবাসীদের ঢাকায় একটি পরিবার</h3>
+          <p id="about-p1">মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা হলো মেহেরপুর জেলার মানুষদের দ্বারা গঠিত একটি জেলাভিত্তিক
+            সামাজিক সংগঠন যারা বর্তমানে ঢাকায় বসবাস করছেন।</p>
+          <p id="about-p2">এই কমিউনিটি যোগাযোগ, সহযোগিতা ও পারস্পরিক সহায়তার জন্য একটি শক্তিশালী নেটওয়ার্ক তৈরি করে
+            মেহেরপুরের মানুষদের মধ্যে সেতুবন্ধন হিসেবে কাজ করে।</p>
+          <p id="about-p3">এটি কোনো রাজনৈতিক সংগঠন নয় এবং কোনো সরকারি কর্তৃপক্ষের অধীনে পরিচালিত হয় না। এটি সম্পূর্ণ
+            স্বেচ্ছাসেবী একটি সামাজিক উদ্যোগ।</p>
+          <div class="mv-cards">
+            <div class="mv-card">
+              <h4 id="mission-title">🎯 মিশন</h4>
+              <p id="mission-text">ঢাকায় মেহেরপুরের মানুষদের জন্য একটি শক্তিশালী, ঐক্যবদ্ধ ও সহায়তামূলক নেটওয়ার্ক
+                তৈরি করা।</p>
+            </div>
+            <div class="mv-card">
+              <h4 id="vision-title">👁️ ভিশন</h4>
+              <p id="vision-text">একটি সুসংগঠিত কমিউনিটি গড়ে তোলা যেখানে প্রতিটি সদস্য সহায়তা, সুযোগ ও আপনজনের
+                সান্নিধ্য পাবেন।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACTIVITIES -->
+  <section id="activities">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag" id="act-tag">মূল কার্যক্রম</div>
+        <div class="divider"></div>
+        <h2 class="section-title" id="act-title">আমরা যা করি</h2>
+        <p class="section-desc" id="act-desc">আমাদের কমিউনিটি সদস্যদের জীবনকে সহজ ও সুন্দর করতে বিভিন্ন কার্যক্রম
+          পরিচালনা করে</p>
+      </div>
+      <div class="activities-grid">
+        <div class="activity-card fade-in">
+          <div class="activity-icon">🤝</div>
+          <h4 id="a1-title">সামাজিক নেটওয়ার্কিং</h4>
+          <p id="a1-desc">ঢাকায় মেহেরপুরের মানুষদের মধ্যে পারস্পরিক যোগাযোগ ও সম্পর্ক তৈরি করা।</p>
+        </div>
+        <div class="activity-card fade-in">
+          <div class="activity-icon">🏠</div>
+          <h4 id="a2-title">নতুনদের সহায়তা</h4>
+          <p id="a2-desc">ঢাকায় নতুন আসা সদস্যদের থিতু হতে সহায়তা করা ও গাইড করা।</p>
+        </div>
+        <div class="activity-card fade-in">
+          <div class="activity-icon">💼</div>
+          <h4 id="a3-title">চাকরির সুযোগ শেয়ার</h4>
+          <p id="a3-desc">ঢাকা ও সারাদেশে চাকরির সার্কুলার এবং ক্যারিয়ার আপডেট শেয়ার করা।</p>
+        </div>
+        <div class="activity-card fade-in">
+          <div class="activity-icon">🎓</div>
+          <h4 id="a4-title">শিক্ষা সহায়তা</h4>
+          <p id="a4-desc">শিক্ষামূলক সহায়তা, গাইডেন্স, টিউশন ও স্কলারশিপ তথ্য প্রদান।</p>
+        </div>
+        <div class="activity-card fade-in">
+          <div class="activity-icon">🎉</div>
+          <h4 id="a5-title">সামাজিক অনুষ্ঠান</h4>
+          <p id="a5-desc">সামাজিক ইভেন্ট ও সম্মিলনী আয়োজন করে পারস্পরিক বন্ধন দৃঢ় করা।</p>
+        </div>
+        <div class="activity-card fade-in">
+          <div class="activity-icon">🩸</div>
+          <h4 id="a6-title">জরুরি সহায়তা</h4>
+          <p id="a6-desc">রক্তদান, চিকিৎসা সহায়তা ও জরুরি প্রয়োজনে পাশে থাকা।</p>
+        </div>
+        <div class="activity-card fade-in">
+          <div class="activity-icon">🎭</div>
+          <h4 id="a7-title">সাংস্কৃতিক অনুষ্ঠান</h4>
+          <p id="a7-desc">সাংস্কৃতিক অনুষ্ঠান ও পুনর্মিলনী আয়োজন করে ঐতিহ্য ধরে রাখা।</p>
+        </div>
+        <div class="activity-card fade-in">
+          <div class="activity-icon">💡</div>
+          <h4 id="a8-title">ফ্রিল্যান্স ও ব্যবসা</h4>
+          <p id="a8-desc">ফ্রিল্যান্স, ব্যবসা প্রমোশন ও দক্ষতা উন্নয়নের সুযোগ তৈরি করা।</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MEMBERSHIP -->
+  <section id="membership">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag" id="mem-tag">সদস্যপদ</div>
+        <div class="divider"></div>
+        <h2 class="section-title" id="mem-title">আমাদের সাথে যোগ দিন</h2>
+        <p class="section-desc" id="mem-desc">সদস্যপদ বিনামূল্যে এবং সম্পূর্ণ স্বেচ্ছাসেবী</p>
+      </div>
+      <div class="membership-inner">
+        <div class="mem-box fade-in">
+          <h3>👥 <span id="who-can-join">যারা যোগ দিতে পারবেন</span></h3>
+          <ul>
+            <li id="mq1">মেহেরপুর জেলার মূল বাসিন্দা</li>
+            <li id="mq2">মেহেরপুরের সাথে শক্তিশালী সম্পর্ক আছে এমন যেকেউ</li>
+            <li id="mq3">ঢাকায় বসবাসরত ও কমিউনিটিতে আগ্রহী যেকেউ</li>
+            <li id="mq4">সদস্যপদ সম্পূর্ণ বিনামূল্যে ও স্বেচ্ছাসেবী</li>
+          </ul>
+        </div>
+        <div class="mem-box rules-box fade-in">
+          <h3>📜 <span id="rules-title">কমিউনিটি নিয়ম</span></h3>
+          <ul>
+            <li id="r1">সকল সদস্যের প্রতি সম্মান বজায় রাখুন</li>
+            <li id="r2">কোনো রাজনৈতিক বিতর্ক বা ঘৃণামূলক বক্তব্য নয়</li>
+            <li id="r3">স্প্যাম বা অপ্রাসঙ্গিক বিজ্ঞাপন দেবেন না</li>
+            <li id="r4">শুধুমাত্র যাচাইকৃত ও উপকারী তথ্য শেয়ার করুন</li>
+            <li id="r5">পোস্ট ও মন্তব্যে শৃঙ্খলা বজায় রাখুন</li>
+            <li id="r6">কমিউনিটির মূল্যবোধ ও ঐক্য সমুন্নত রাখুন</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EVENTS -->
+  <section id="events">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag" id="ev-tag">ইভেন্ট ও অনুষ্ঠান</div>
+        <div class="divider"></div>
+        <h2 class="section-title" id="ev-title">আমাদের অনুষ্ঠানসমূহ</h2>
+        <p class="section-desc" id="ev-desc">সারা বছর আমরা বিভিন্ন সামাজিক ও সাংস্কৃতিক অনুষ্ঠান আয়োজন করি</p>
+      </div>
+      <div class="events-grid">
+        <div class="event-card fade-in">
+          <div class="event-img">
+            <!-- <img src="reunion.jpg" alt=""> -->
+            🎊
+          </div>
+          <div class="event-body">
+            <div class="event-tag" id="et1">বার্ষিক</div>
+            <h4 id="en1">পুনর্মিলনী অনুষ্ঠান</h4>
+            <p id="ep1">বার্ষিক বা মৌসুমী পুনর্মিলনী অনুষ্ঠান</p>
+          </div>
+        </div>
+        <div class="event-card fade-in">
+          <div class="event-img">
+            🌙
+          </div>
+          <div class="event-body">
+            <div class="event-tag" id="et2">রমজান</div>
+            <h4 id="en2">ইফতার মাহফিল</h4>
+            <p id="ep2">রমজানে ইফতার মাহফিলের আয়োজন</p>
+          </div>
+        </div>
+        <div class="event-card fade-in">
+          <div class="event-img">
+            🎭
+          </div>
+          <div class="event-body">
+            <div class="event-tag" id="et3">সাংস্কৃতিক</div>
+            <h4 id="en3">সাংস্কৃতিক অনুষ্ঠান</h4>
+            <p id="ep3">সংস্কৃতি ও ঐতিহ্য উদযাপন</p>
+          </div>
+        </div>
+        <div class="event-card fade-in">
+          <div class="event-img">
+            ❤️
+          </div>
+          <div class="event-body">
+            <div class="event-tag" id="et4">দাতব্য</div>
+            <h4 id="en4">দান ও সহায়তা</h4>
+            <p id="ep4">দাতব্য ও অনুদান কার্যক্রম</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- EMERGENCY -->
+  <section id="emergency">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag" id="emg-tag">জরুরি সহায়তা</div>
+        <div class="divider"></div>
+        <h2 class="section-title" id="emg-title">বিপদে পাশে আছি</h2>
+        <p class="section-desc" id="emg-desc">আপনার যেকোনো জরুরি প্রয়োজনে কমিউনিটি সবসময় পাশে আছে</p>
+      </div>
+      <div class="emergency-grid">
+        <div class="emergency-card fade-in">
+          <div class="icon">🩸</div>
+          <h4 id="eg1-title">রক্তদান</h4>
+          <p id="eg1-desc">জরুরি রক্তের প্রয়োজনে সাহায্যের জন্য পোস্ট করুন</p>
+        </div>
+        <div class="emergency-card fade-in">
+          <div class="icon">🏥</div>
+          <h4 id="eg2-title">চিকিৎসা সহায়তা</h4>
+          <p id="eg2-desc">চিকিৎসা জরুরি অবস্থায় সহায়তা ও গাইডেন্স</p>
+        </div>
+        <div class="emergency-card fade-in">
+          <div class="icon">💰</div>
+          <h4 id="eg3-title">আর্থিক সহায়তা</h4>
+          <p id="eg3-desc">কমিউনিটিভিত্তিক আর্থিক জরুরি সহায়তা</p>
+        </div>
+        <div class="emergency-card fade-in">
+          <div class="icon">📢</div>
+          <h4 id="eg4-title">জরুরি যোগাযোগ</h4>
+          <p id="eg4-desc">নিখোঁজ ব্যক্তি বা জরুরি যোগাযোগের প্রয়োজনে</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- MAP SECTION -->
+  <section id="map-section">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag" id="map-tag">আমাদের অবস্থান</div>
+        <div class="divider"></div>
+        <h2 class="section-title" id="map-title">বাংলাদেশের মানচিত্র</h2>
+        <p class="section-desc" id="map-desc">মেহেরপুর থেকে ঢাকা — দূরত্ব নয়, হৃদয়ের বন্ধন</p>
+      </div>
+      <div class="map-wrapper">
+        <div class="bd-map-container fade-in">
+          <svg viewBox="0 0 500 600" xmlns="http://www.w3.org/2000/svg" id="bdMap">
+            <!-- Bangladesh Districts SVG - simplified shapes by division -->
+            <!-- DHAKA DIVISION -->
+            <path class="district-path highlight-dhaka" data-name="ঢাকা"
+              d="M245,235 L265,225 L285,230 L295,250 L285,270 L265,278 L245,272 L235,255 Z" />
+            <path class="district-path" data-name="গাজীপুর"
+              d="M260,210 L285,205 L300,215 L295,230 L280,232 L265,225 Z" />
+            <path class="district-path" data-name="নারায়ণগঞ্জ"
+              d="M275,272 L295,268 L305,280 L295,295 L275,293 L265,280 Z" />
+            <path class="district-path" data-name="মুন্সীগঞ্জ" d="M260,290 L280,285 L290,300 L278,315 L258,312 Z" />
+            <path class="district-path" data-name="মানিকগঞ্জ" d="M215,255 L238,250 L242,268 L230,280 L210,275 Z" />
+            <path class="district-path" data-name="নরসিংদী" d="M295,220 L320,215 L330,230 L318,248 L298,245 Z" />
+            <path class="district-path" data-name="কিশোরগঞ্জ"
+              d="M305,195 L335,188 L355,200 L348,225 L320,228 L305,215 Z" />
+            <path class="district-path" data-name="টাঙ্গাইল"
+              d="M215,200 L250,192 L265,207 L260,225 L245,232 L220,228 Z" />
+            <path class="district-path" data-name="ময়মনসিংহ"
+              d="M248,155 L290,148 L310,162 L308,188 L285,200 L260,198 L242,180 Z" />
+            <path class="district-path" data-name="নেত্রকোণা"
+              d="M300,145 L340,138 L358,155 L350,178 L318,182 L302,165 Z" />
+            <path class="district-path" data-name="জামালপুর" d="M198,162 L232,155 L248,168 L242,192 L210,198 Z" />
+            <path class="district-path" data-name="শেরপুর" d="M235,135 L268,130 L282,145 L268,160 L238,158 Z" />
+            <path class="district-path" data-name="ফরিদপুর" d="M225,298 L255,290 L265,308 L255,328 L228,325 Z" />
+            <path class="district-path" data-name="রাজবাড়ী" d="M198,278 L225,272 L232,290 L220,305 L195,300 Z" />
+            <path class="district-path" data-name="মাদারীপুর" d="M248,325 L278,318 L285,338 L272,355 L248,350 Z" />
+            <path class="district-path" data-name="গোপালগঞ্জ" d="M225,335 L250,328 L258,348 L245,368 L222,362 Z" />
+            <path class="district-path" data-name="শরীয়তপুর" d="M278,305 L305,298 L312,318 L300,335 L278,330 Z" />
+
+            <!-- CHITTAGONG DIVISION -->
+            <path class="district-path" data-name="চট্টগ্রাম"
+              d="M382,348 L408,338 L425,355 L430,385 L415,405 L392,408 L375,390 Z" />
+            <path class="district-path" data-name="কক্সবাজার"
+              d="M395,408 L418,402 L432,420 L428,455 L408,468 L388,452 L382,428 Z" />
+            <path class="district-path" data-name="কুমিল্লা"
+              d="M335,298 L368,290 L382,308 L378,335 L348,340 L330,322 Z" />
+            <path class="district-path" data-name="ফেনী" d="M368,335 L392,328 L400,348 L388,365 L368,360 Z" />
+            <path class="district-path" data-name="নোয়াখালী" d="M335,338 L365,332 L372,355 L358,375 L332,370 Z" />
+            <path class="district-path" data-name="লক্ষ্মীপুর" d="M318,348 L340,342 L348,362 L335,378 L315,372 Z" />
+            <path class="district-path" data-name="চাঁদপুর" d="M308,318 L332,310 L340,330 L328,348 L305,342 Z" />
+            <path class="district-path" data-name="ব্রাহ্মণবাড়িয়া"
+              d="M348,260 L380,252 L392,270 L385,295 L355,298 L342,278 Z" />
+            <path class="district-path" data-name="খাগড়াছড়ি"
+              d="M382,300 L412,292 L428,312 L422,340 L398,345 L378,328 Z" />
+            <path class="district-path" data-name="রাঙামাটি"
+              d="M392,345 L425,338 L442,360 L438,398 L412,405 L390,388 Z" />
+            <path class="district-path" data-name="বান্দরবান" d="M405,405 L432,398 L448,420 L442,460 L418,468 Z" />
+
+            <!-- SYLHET DIVISION -->
+            <path class="district-path" data-name="সিলেট" d="M368,185 L408,178 L428,198 L422,228 L392,235 L365,218 Z" />
+            <path class="district-path" data-name="মৌলভীবাজার" d="M358,228 L390,222 L398,248 L382,268 L355,262 Z" />
+            <path class="district-path" data-name="হবিগঞ্জ" d="M335,235 L362,228 L370,252 L355,270 L330,262 Z" />
+            <path class="district-path" data-name="সুনামগঞ্জ" d="M330,165 L368,158 L382,178 L370,200 L338,205 Z" />
+
+            <!-- RAJSHAHI DIVISION -->
+            <path class="district-path highlight-meherpur" data-name="মেহেরপুর"
+              d="M118,272 L140,265 L148,280 L140,298 L118,295 Z" />
+            <path class="district-path" data-name="কুষ্টিয়া" d="M145,262 L172,255 L182,270 L175,292 L148,295 Z" />
+            <path class="district-path" data-name="চুয়াডাঙ্গা" d="M138,295 L165,288 L172,308 L160,325 L135,320 Z" />
+            <path class="district-path" data-name="ঝিনাইদহ" d="M165,295 L192,288 L200,308 L188,328 L162,325 Z" />
+            <path class="district-path" data-name="রাজশাহী" d="M148,195 L182,188 L195,205 L188,228 L158,232 Z" />
+            <path class="district-path" data-name="নাটোর" d="M178,195 L210,188 L220,205 L212,228 L182,230 Z" />
+            <path class="district-path" data-name="পাবনা" d="M185,228 L218,222 L228,242 L215,260 L185,258 Z" />
+            <path class="district-path" data-name="সিরাজগঞ্জ" d="M205,195 L235,188 L248,205 L240,228 L212,230 Z" />
+            <path class="district-path" data-name="নওগাঁ" d="M150,155 L190,148 L205,162 L198,185 L162,188 Z" />
+            <path class="district-path" data-name="চাঁপাইনবাবগঞ্জ" d="M118,168 L152,162 L160,178 L148,198 L120,195 Z" />
+            <path class="district-path" data-name="বগুড়া" d="M188,155 L222,148 L235,162 L228,185 L195,188 Z" />
+
+            <!-- KHULNA DIVISION -->
+            <path class="district-path" data-name="খুলনা" d="M175,328 L205,320 L212,342 L200,362 L175,358 Z" />
+            <path class="district-path" data-name="বাগেরহাট" d="M195,358 L225,350 L232,372 L220,392 L195,388 Z" />
+            <path class="district-path" data-name="সাতক্ষীরা" d="M148,335 L178,328 L185,350 L172,370 L148,365 Z" />
+            <path class="district-path" data-name="যশোর" d="M172,305 L202,298 L210,318 L198,338 L172,332 Z" />
+            <path class="district-path" data-name="মাগুরা" d="M195,308 L220,300 L228,320 L215,338 L192,332 Z" />
+            <path class="district-path" data-name="নড়াইল" d="M195,335 L220,328 L228,350 L215,368 L192,362 Z" />
+            <path class="district-path" data-name="পিরোজপুর" d="M205,368 L232,360 L240,382 L228,402 L205,398 Z" />
+            <path class="district-path" data-name="বরগুনা" d="M225,398 L255,390 L262,415 L248,435 L222,428 Z" />
+            <path class="district-path" data-name="ঝালকাঠি" d="M228,368 L255,360 L262,382 L248,400 L225,395 Z" />
+
+            <!-- BARISAL DIVISION -->
+            <path class="district-path" data-name="বরিশাল" d="M258,355 L288,348 L295,370 L282,390 L258,385 Z" />
+            <path class="district-path" data-name="পটুয়াখালী" d="M258,388 L290,380 L298,405 L282,425 L258,418 Z" />
+            <path class="district-path" data-name="ভোলা" d="M295,370 L325,362 L332,385 L318,405 L292,400 Z" />
+
+            <!-- RANGPUR DIVISION -->
+            <path class="district-path" data-name="রংপুর" d="M195,112 L225,105 L238,118 L232,138 L202,140 Z" />
+            <path class="district-path" data-name="দিনাজপুর" d="M158,108 L192,100 L205,115 L198,138 L165,140 Z" />
+            <path class="district-path" data-name="গাইবান্ধা" d="M195,138 L225,132 L238,148 L228,165 L198,165 Z" />
+            <path class="district-path" data-name="নীলফামারী" d="M182,88 L212,82 L225,95 L218,112 L188,115 Z" />
+            <path class="district-path" data-name="লালমনিরহাট" d="M210,88 L238,82 L250,95 L242,112 L215,115 Z" />
+            <path class="district-path" data-name="কুড়িগ্রাম" d="M222,100 L258,92 L268,108 L260,128 L228,130 Z" />
+            <path class="district-path" data-name="ঠাকুরগাঁও" d="M152,78 L185,72 L195,85 L188,105 L158,108 Z" />
+            <path class="district-path" data-name="পঞ্চগড়" d="M155,55 L188,48 L198,65 L188,80 L158,82 Z" />
+
+            <!-- MYMENSINGH DIVISION (partial) -->
+            <!-- already covered above -->
+
+            <!-- Tooltip label -->
+            <text id="mapTooltip" x="250" y="570" text-anchor="middle" fill="var(--pink)" font-size="13"
+              font-family="Hind Siliguri, sans-serif" font-weight="600"></text>
+          </svg>
+          <div class="map-legend">
+            <div class="legend-item">
+              <div class="legend-dot" style="background:var(--pink)"></div> <span id="leg-meherpur">মেহেরপুর</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot" style="background:var(--gold)"></div> <span id="leg-dhaka">ঢাকা</span>
+            </div>
+            <div class="legend-item">
+              <div class="legend-dot" style="background:var(--pink-soft); border:1px solid var(--border)"></div> <span
+                id="leg-other">অন্যান্য জেলা</span>
+            </div>
+          </div>
+        </div>
+        <div class="map-info fade-in">
+          <h3 id="map-two-cities">আমাদের দুই শহর</h3>
+          <div class="map-highlight-cards">
+            <div class="map-card">
+              <div class="badge meherpur" id="map-badge-meherpur">উৎপত্তিস্থল</div>
+              <h4 id="map-meherpur-title">🏡 মেহেরপুর জেলা</h4>
+              <p id="map-meherpur-desc">আমাদের শিকড়, আমাদের পরিচয়। মেহেরপুর বাংলাদেশের মুক্তিযুদ্ধের ইতিহাসের সঙ্গে
+                গভীরভাবে যুক্ত — এখানেই ১৯৭১ সালে প্রথম স্বাধীন সরকার গঠিত হয়েছিল।</p>
+            </div>
+            <div class="map-card dhaka">
+              <div class="badge dhaka" id="map-badge-dhaka">বর্তমান অবস্থান</div>
+              <h4 id="map-dhaka-title">🏙️ ঢাকা — রাজধানী</h4>
+              <p id="map-dhaka-desc">বাংলাদেশের রাজধানী ও সবচেয়ে বড় শহর। ঢাকায় মেহেরপুরের হাজারো মানুষ বসবাস করছেন —
+                তাদের নিয়েই আমাদের এই কমিউনিটি।</p>
+            </div>
+            <div class="map-card" style="border-left-color:var(--pink-light)">
+              <h4 id="map-64-title">📍 ৬৪টি জেলা, এক পরিবার</h4>
+              <p id="map-64-desc">বাংলাদেশের যেকোনো জেলায় জন্ম হোক — মেহেরপুরের সাথে সম্পর্ক থাকলে আমাদের কমিউনিটিতে
+                স্বাগত।</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRATION -->
+  <section id="registration">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag" id="reg-tag">সদস্য নিবন্ধন</div>
+        <div class="divider"></div>
+        <h2 class="section-title" id="reg-title">রেজিস্ট্রেশন করুন</h2>
+        <p class="section-desc" id="reg-desc">বিনামূল্যে নিবন্ধন করে কমিউনিটির পূর্ণ সুবিধা উপভোগ করুন</p>
+      </div>
+      <div class="reg-inner">
+        <div class="reg-info fade-in">
+          <h3 id="reg-why-title">কেন সদস্য হবেন?</h3>
+          <p id="reg-why-desc">মেহেরপুর জেলা কমিউনিটি ক্লাবের সদস্য হলে আপনি পাবেন ঢাকায় আপনার জেলার মানুষদের একটি
+            বিশাল নেটওয়ার্ক, সহায়তা ও সুযোগ।</p>
+          <ul class="reg-benefits">
+            <li id="rb1">চাকরি ও ব্যবসার সুযোগ সরাসরি পাওয়া</li>
+            <li id="rb2">জরুরি রক্তদান ও চিকিৎসা সহায়তা</li>
+            <li id="rb3">ইভেন্ট ও পুনর্মিলনীতে আমন্ত্রণ</li>
+            <li id="rb4">ঢাকায় নতুন এলে গাইডেন্স ও সহায়তা</li>
+            <li id="rb5">শিক্ষা ও দক্ষতা উন্নয়নের তথ্য</li>
+            <li id="rb6">সম্পূর্ণ বিনামূল্যে ও স্বেচ্ছাসেবী</li>
+          </ul>
+        </div>
+        <div class="reg-form-box fade-in">
+          <div id="regForm">
+            <h3 id="reg-form-title">📝 নিবন্ধন ফর্ম</h3>
+            <p class="sub" id="reg-form-sub">তথ্য পূরণ করুন, অ্যাডমিন যোগাযোগ করবেন</p>
+            <div class="form-row">
+              <div class="form-group">
+                <label id="lbl-name">পুরো নাম *</label>
+                <input type="text" id="regName" placeholder="আপনার নাম" required>
+              </div>
+              <div class="form-group">
+                <label id="lbl-phone">মোবাইল নম্বর *</label>
+                <input type="tel" id="regPhone" placeholder="01XXXXXXXXX" required>
+              </div>
+            </div>
+            <div class="form-group">
+              <label id="lbl-email">ইমেইল (ঐচ্ছিক)</label>
+              <input type="email" id="regEmail" placeholder="email@example.com">
+            </div>
+            <div class="form-row">
+              <div class="form-group">
+                <label id="lbl-upazila">মেহেরপুরের উপজেলা *</label>
+                <select id="regUpazila">
+                  <option value="" id="opt-select">বেছে নিন</option>
+                  <option id="opt-sadar">মেহেরপুর সদর</option>
+                  <option id="opt-gangni">গাংনী</option>
+                  <option id="opt-mujibnagar">মুজিবনগর</option>
+                </select>
+              </div>
+              <div class="form-group">
+                <label id="lbl-area">ঢাকায় এলাকা</label>
+                <input type="text" id="regArea" placeholder="যেমন: মিরপুর, উত্তরা">
+              </div>
+            </div>
+            <div class="form-group">
+              <label id="lbl-occ">পেশা</label>
+              <select id="regOccupation">
+                <option value="" id="occ-select">বেছে নিন</option>
+                <option id="occ-job">চাকরিজীবী</option>
+                <option id="occ-biz">ব্যবসায়ী</option>
+                <option id="occ-student">শিক্ষার্থী</option>
+                <option id="occ-free">ফ্রিল্যান্সার</option>
+                <option id="occ-other">অন্যান্য</option>
+              </select>
+            </div>
+            <button class="btn-reg" id="reg-btn" onclick="submitReg()">✅ নিবন্ধন সম্পন্ন করুন</button>
+            <p class="reg-note" id="reg-note">নিবন্ধনের পর আমাদের <a
+                href="https://www.facebook.com/groups/meherpurzilacommunityclub/" target="_blank"
+                style="color:var(--pink)" id="reg-fb-link">ফেসবুক গ্রুপে</a> যোগ দিতে ভুলবেন না</p>
+          </div>
+          <div class="reg-success" id="regSuccess">
+            <div class="check">🎉</div>
+            <h4 id="reg-success-title">নিবন্ধন সফল হয়েছে!</h4>
+            <p id="reg-success-desc">আপনার তথ্য পাঠানো হয়েছে। অ্যাডমিন শীঘ্রই যোগাযোগ করবেন।<br>এরপর ফেসবুক গ্রুপে যোগ
+              দিন।</p>
+            <a href="https://www.facebook.com/groups/meherpurzilacommunityclub/" target="_blank" class="btn-primary"
+              style="margin-top:1rem; display:inline-block" id="reg-success-btn">📘 ফেসবুক গ্রুপে যোগ দিন</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BANI (MESSAGES) SECTION -->
+  <section id="bani">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag" id="bani-tag">নেতৃবৃন্দের বাণী</div>
+        <div class="divider"></div>
+        <h2 class="section-title" id="bani-title">সভাপতি ও সম্পাদকের বাণী</h2>
+        <p class="section-desc" id="bani-desc">আমাদের নেতৃবৃন্দের অনুপ্রেরণামূলক বার্তা পড়ুন</p>
+      </div>
+      <div class="bani-grid">
+        <!-- PRESIDENT MESSAGE -->
+        <div class="bani-card fade-in">
+          <div class="bani-top">
+            <div class="bani-avatar">
+              <!-- <img src="./assests/president.jpg" alt="সভাপতি"> -->
+              👤
+            </div>
+            <div class="bani-person">
+              <div class="bani-name" id="bani-pres-name">[সভাপতির নাম]</div>
+              <div class="bani-role" id="bani-pres-role">সভাপতি</div>
+            </div>
+          </div>
+          <div class="bani-body">
+            <div class="bani-quote-icon">"</div>
+            <div class="bani-preview" id="bani-pres-preview">
+              আসসালামু আলাইকুম। মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা-এর পক্ষ থেকে সকল সদস্য, শুভানুধ্যায়ী এবং
+              মেহেরপুরবাসীকে আন্তরিক শুভেচ্ছা ও অভিনন্দন জানাই।
+            </div>
+            <div class="bani-full" id="bani-pres-full">
+              <br>মেহেরপুর জেলার ঢাকায় বসবাসরত মানুষের মধ্যে পারস্পরিক সম্প্রীতি, সহযোগিতা ও ভ্রাতৃত্ববোধ গড়ে তোলার
+              লক্ষ্য নিয়ে আমাদের এই সংগঠনের পথচলা। আমরা বিশ্বাস করি, ঐক্যবদ্ধ প্রচেষ্টা সমাজের উন্নয়ন এবং মানবকল্যাণে
+              গুরুত্বপূর্ণ ভূমিকা রাখতে পারে।<br><br>
+              আমাদের প্রত্যাশা, এই ক্লাব হবে ঢাকায় বসবাসরত মেহেরপুরবাসীর একটি নির্ভরযোগ্য ও আন্তরিক প্ল্যাটফর্ম, যেখানে
+              সবাই একে অপরের সুখ-দুঃখ ভাগাভাগি করবে এবং প্রয়োজনে পাশে দাঁড়াবে। বিশেষ করে যুবসমাজের দক্ষতা উন্নয়ন,
+              কর্মসংস্থান সহায়তা এবং সামাজিক দায়বদ্ধতা বৃদ্ধিতে আমরা আরও কার্যকর ভূমিকা রাখতে চাই।<br><br>
+              সকলের সহযোগিতা, পরামর্শ এবং সক্রিয় অংশগ্রহণের মাধ্যমে মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা আগামী দিনে আরও
+              সমৃদ্ধ ও শক্তিশালী হবে — এই প্রত্যাশা ব্যক্ত করছি। সকলের সুস্বাস্থ্য, সুখ এবং সমৃদ্ধি কামনা করছি।
+            </div>
+            <button class="bani-readmore" onclick="toggleBani(this, 'bani-pres-full')">
+              <span class="bani-readmore-text" id="bani-pres-btn">আরও পড়ুন</span>
+              <em class="arrow">▾</em>
+            </button>
+          </div>
+        </div>
+        <!-- SECRETARY MESSAGE -->
+        <div class="bani-card fade-in">
+          <div class="bani-top">
+            <div class="bani-avatar">
+              <img src="./assests/sadharon-sa-emon.jpg" alt="সাধারণ সম্পাদক">
+              
+            </div>
+            <div class="bani-person">
+              <div class="bani-name" id="bani-sec-name">এম.এ.এস ইমন </div>
+              <div class="bani-role" id="bani-sec-role">সাধারণ সম্পাদক</div>
+            </div>
+          </div>
+          <div class="bani-body">
+            <div class="bani-quote-icon">"</div>
+            <div class="bani-preview" id="bani-sec-preview">
+              আসসালামু আলাইকুম। মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা-এর পক্ষ থেকে সকল সদস্য, শুভানুধ্যায়ী এবং
+              দর্শনার্থীদের আন্তরিক শুভেচ্ছা জানাচ্ছি।
+            </div>
+            <div class="bani-full" id="bani-sec-full">
+              <br>এই সংগঠনটি শুধু একটি সামাজিক প্ল্যাটফর্ম নয়; এটি ঢাকায় বসবাসরত মেহেরপুরবাসীর মধ্যে পারস্পরিক
+              যোগাযোগ, সহযোগিতা এবং সৌহার্দ্যের একটি সেতুবন্ধন।<br><br>
+              সংগঠনের কার্যক্রমকে আরও গতিশীল, স্বচ্ছ এবং ফলপ্রসূ করার লক্ষ্যে আমরা নিয়মিত সভা, সামাজিক উদ্যোগ,
+              সাংস্কৃতিক অনুষ্ঠান, স্বাস্থ্যসেবা কার্যক্রম, মানবিক সহায়তা এবং বিভিন্ন উন্নয়নমূলক কর্মসূচি বাস্তবায়ন
+              করে চলেছি।<br><br>
+              আমাদের এই যাত্রায় সকল সদস্য, উপদেষ্টা, শুভানুধ্যায়ী এবং স্বেচ্ছাসেবকদের অবদান অত্যন্ত মূল্যবান। আসুন,
+              আমরা সবাই মিলে একটি ঐক্যবদ্ধ, মানবিক ও প্রগতিশীল কমিউনিটি গড়ে তুলি।
+            </div>
+            <button class="bani-readmore" onclick="toggleBani(this, 'bani-sec-full')">
+              <span class="bani-readmore-text" id="bani-sec-btn">আরও পড়ুন</span>
+              <em class="arrow">▾</em>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LEADERSHIP / COMMITTEE SECTION -->
+  <section id="leadership">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag" id="lead-tag">কমিটি</div>
+        <div class="divider"></div>
+        <h2 class="section-title" id="lead-title">আমাদের কমিটি</h2>
+        <p class="section-desc" id="lead-desc">মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা-এর নিবেদিতপ্রাণ কমিটি</p>
+      </div>
+      <div class="leadership-grid">
+        <div class="leader-card fade-in">
+          <div class="leader-avatar">👤</div>
+          <div class="leader-name" id="ldr1-name">[নাম]</div>
+          <div class="leader-role" id="ldr1-role">সভাপতি</div>
+        </div>
+        <div class="leader-card fade-in">
+          <div class="leader-avatar"><img src="./assests/shoho-sov.jpg" alt=""></div>
+          <div class="leader-name" id="ldr2-name">Golam Mortuza Bulbul</div>
+          <div class="leader-role" id="ldr2-role">সহ-সভাপতি</div>
+        </div>
+        <div class="leader-card fade-in">
+          <div class="leader-avatar"><img src="./assests/shosov-Md Goni Ul Azam.jpg" alt=""></div>
+          <div class="leader-name" id="ldr2-name">Md. Goni Ul Azam</div>
+          <div class="leader-role" id="ldr13-role">সহ-সভাপতি</div>
+        </div>
+        <div class="leader-card fade-in">
+          <div class="leader-avatar"><img src="./assests/sadharon-sa-emon.jpg" alt=""></div>
+          <div class="leader-name" id="ldr3-name">M.A.S Emon</div>
+          <div class="leader-role" id="ldr3-role">সাধারণ সম্পাদক</div>
+        </div>
+        <div class="leader-card fade-in">
+          <div class="leader-avatar">👤</div>
+          <div class="leader-name" id="ldr4-name">[নাম]</div>
+          <div class="leader-role" id="ldr4-role">যুগ্ম সম্পাদক</div>
+        </div>
+        <div class="leader-card fade-in">
+          <div class="leader-avatar"><img src="./assests/sangothonic.jpg" alt=""></div>
+          <div class="leader-name" id="ldr5-name">Shoeb Rahman</div>
+          <div class="leader-role" id="ldr5-role">সাংগঠনিক সম্পাদক</div>
+        </div>
+        <div class="leader-card fade-in">
+          <div class="leader-avatar">👤</div>
+          <div class="leader-name" id="ldr6-name">[নাম]</div>
+          <div class="leader-role" id="ldr6-role">অর্থ সম্পাদক</div>
+        </div>
+        <div class="leader-card fade-in">
+          <div class="leader-avatar">👤</div>
+          <div class="leader-name" id="ldr7-name">[নাম]</div>
+          <div class="leader-role" id="ldr7-role">সাংস্কৃতিক সম্পাদক</div>
+        </div>
+        <div class="leader-card fade-in">
+          <div class="leader-avatar">👤</div>
+          <div class="leader-name" id="ldr8-name">[নাম]</div>
+          <div class="leader-role" id="ldr8-role">তথ্য ও প্রযুক্তি সম্পাদক</div>
+        </div>
+        <div class="leader-card fade-in">
+          <div class="leader-avatar">👤</div>
+          <div class="leader-name" id="ldr9-name">[নাম]</div>
+          <div class="leader-role" id="ldr9-role">সদস্য</div>
+        </div>
+        <div class="leader-card fade-in">
+          <div class="leader-avatar">👤</div>
+          <div class="leader-name" id="ldr10-name">[নাম]</div>
+          <div class="leader-role" id="ldr10-role">সদস্য</div>
+        </div>
+        <div class="leader-card fade-in">
+          <div class="leader-avatar">👤</div>
+          <div class="leader-name" id="ldr11-name">[নাম]</div>
+          <div class="leader-role" id="ldr11-role">সদস্য</div>
+        </div>
+        <div class="leader-card fade-in">
+          <div class="leader-avatar">👤</div>
+          <div class="leader-name" id="ldr12-name">[নাম]</div>
+          <div class="leader-role" id="ldr12-role">উপদেষ্টা</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GALLERY -->
+  <section id="gallery">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag" id="gal-tag">গ্যালারি</div>
+        <div class="divider"></div>
+        <h2 class="section-title" id="gal-title">আমাদের মুহূর্তগুলো</h2>
+        <p class="section-desc" id="gal-desc">কমিউনিটির বিভিন্ন অনুষ্ঠান ও কার্যক্রমের ছবি</p>
+      </div>
+      <div class="gallery-grid">
+        <!-- Replace emojis with <img src="..."> inside each div -->
+        <div class="gallery-item wide fade-in"><img src="./assests/m1.jpg" alt="event pic"></div>
+        <div class="gallery-item fade-in"><img src="./assests/m2.jpg" alt="event pic"></div>
+        <div class="gallery-item fade-in"><img src="./assests/m3.jpg" alt="event pic"></div>
+        <div class="gallery-item fade-in"><img src="./assests/m4.jpg" alt="event pic"></div>
+        <div class="gallery-item fade-in"><img src="./assests/m5.jpg" alt="event pic"></div>
+        <div class="gallery-item wide fade-in"><img src="./assests/m6.jpg" alt="event pic"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <div class="section-header fade-in">
+        <div class="section-tag" id="con-tag">যোগাযোগ</div>
+        <div class="divider" style="background:#fff"></div>
+        <h2 class="section-title" id="con-title">আমাদের সাথে সংযুক্ত হন</h2>
+        <p class="section-desc" id="con-desc">আজই কমিউনিটিতে যোগ দিন এবং মেহেরপুরের বড় পরিবারের অংশ হন</p>
+      </div>
+      <div class="contact-grid">
+        <div class="contact-info fade-in">
+          <h3 id="con-info-title">📋 কমিউনিটি তথ্য</h3>
+          <div class="contact-item">
+            <div class="icon">🏷️</div>
+            <div class="detail">
+              <h5 id="ci1-label">নাম</h5>
+              <p id="ci1-val">মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">📍</div>
+            <div class="detail">
+              <h5 id="ci2-label">অবস্থান</h5>
+              <p id="ci2-val">ঢাকা, বাংলাদেশ</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">🌍</div>
+            <div class="detail">
+              <h5 id="ci3-label">উৎপত্তি</h5>
+              <p id="ci3-val">মেহেরপুর জেলা</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="icon">⚡</div>
+            <div class="detail">
+              <h5 id="ci4-label">প্রকৃতি</h5>
+              <p id="ci4-val">অরাজনৈতিক, স্বেচ্ছাসেবী সামাজিক সংগঠন</p>
+            </div>
+          </div>
+        </div>
+        <div class="contact-join fade-in">
+          <h3 id="join-title">🚀 কীভাবে যোগ দেবেন</h3>
+          <p id="join-desc">মাত্র কয়েকটি সহজ ধাপে আমাদের কমিউনিটির অংশ হয়ে যান:</p>
+          <ul class="join-steps">
+            <li>
+              <div class="step-num">১</div><span id="js1">ফেসবুক গ্রুপে যোগ দিন</span>
+            </li>
+            <li>
+              <div class="step-num">২</div><span id="js2">কমিউনিটি অ্যাডমিনের সাথে যোগাযোগ করুন</span>
+            </li>
+            <li>
+              <div class="step-num">৩</div><span id="js3">ইভেন্ট ও কার্যক্রমে অংশ নিন</span>
+            </li>
+            <li>
+              <div class="step-num">৪</div><span id="js4">ঢাকায় অন্যান্য মেহেরপুরবাসীকে আমন্ত্রণ জানান</span>
+            </li>
+          </ul>
+          <a href="https://www.facebook.com/groups/meherpurzilacommunityclub/" target="_blank" class="btn-white"
+            id="join-fb-btn">📘 ফেসবুক গ্রুপে যোগ দিন</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+
+    <!-- TOP GRID -->
+    <div class="footer-top">
+
+      <!-- Brand col -->
+      <div class="ft-brand">
+        <div class="ft-brand-row">
+          <div class="ft-logo-circle"><img class="nav-logo-img" src="./assests/logo.png" alt=""></div>
+          <div>
+            <div class="ft-brand-name" id="footer-logo">মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা</div>
+            <div class="ft-brand-sub" id="ft-brand-sub">ঢাকা, বাংলাদেশ</div>
+          </div>
+        </div>
+        <p class="ft-desc" id="ft-desc">ঢাকায় বসবাসকারী মেহেরপুর জেলার মানুষদের একটি অরাজনৈতিক, স্বেচ্ছাসেবী সামাজিক
+          প্ল্যাটফর্ম।</p>
+        <div class="ft-tagline" id="footer-tagline">"ঢাকায় প্রতিটি মেহেরপুরবাসীর জন্য — ঐক্য, সহায়তা ও সুযোগ"</div>
+        <div class="ft-social" style="margin-top:1.2rem">
+          <a href="https://www.facebook.com/groups/meherpurzilacommunityclub/" target="_blank" title="Facebook">📘</a>
+          <a href="https://wa.me/" target="_blank" title="WhatsApp">💬</a>
+          <a href="mailto:info@meherpurcommunity.org" title="Email">📧</a>
+        </div>
+      </div>
+
+      <!-- Quick links col -->
+      <div class="ft-col">
+        <h4 id="ft-links-title">দ্রুত লিংক</h4>
+        <ul>
+          <li><a href="#about" id="fl1">আমাদের সম্পর্কে</a></li>
+          <li><a href="#activities" id="fl2">কার্যক্রম</a></li>
+          <li><a href="#membership" id="fl3-mem">সদস্যপদ</a></li>
+          <li><a href="#events" id="fl3">ইভেন্ট</a></li>
+          <li><a href="#registration" id="fl-reg">নিবন্ধন</a></li>
+          <li><a href="#contact" id="fl4">যোগাযোগ</a></li>
+          <li><a href="https://facebook.com" target="_blank" id="fl5">ফেসবুক গ্রুপ</a></li>
+        </ul>
+      </div>
+
+      <!-- Contact col -->
+      <div class="ft-col">
+        <h4 id="ft-contact-title">যোগাযোগ</h4>
+        <div class="ft-contact-item">
+          <span class="ico">📍</span>
+          <p id="ft-addr">মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা, বাংলাদেশ</p>
+        </div>
+        <div class="ft-contact-item">
+          <span class="ico">📞</span>
+          <p>+৮৮০১৯২৯০৬৯৯৩১<br>+৮৮০১৭১১১৮১১২৬</p>
+        </div>
+        <div class="ft-contact-item">
+          <span class="ico">📘</span>
+          <p><a href="https://www.facebook.com/groups/meherpurzilacommunityclub/" target="_blank"
+              style="color:#6b9de8; text-decoration:none"
+              id="ft-fb-link">https://www.facebook.com/groups/meherpurzilacommunityclub/</a></p>
+        </div>
+        <div class="ft-contact-item">
+          <span class="ico">📋</span>
+          <p id="ft-nature">অরাজনৈতিক · স্বেচ্ছাসেবী · সামাজিক সংগঠন</p>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- IMPORTANT LINKS -->
+    <div class="footer-imp-links">
+      <h5 id="ft-imp-title">গুরুত্বপূর্ণ লিংক</h5>
+      <div class="imp-links-row">
+        <a href="#registration" class="imp-link-item">⭐ <span id="imp1">আবেদন ফর্ম</span></a>
+        <a href="#membership" class="imp-link-item">📜 <span id="imp2">কমিউনিটি নিয়ম</span></a>
+        <a href="#about" class="imp-link-item">ℹ️ <span id="imp3">এক নজরে মেহেরপুর</span></a>
+        <a href="#emergency" class="imp-link-item">🩸 <span id="imp4">রক্তদান</span></a>
+        <a href="#events" class="imp-link-item">🎉 <span id="imp5">ইভেন্ট</span></a>
+      </div>
+    </div>
+
+    <!-- SPONSOR STRIP -->
+    <div class="footer-sponsor" style="margin-top:1.5rem">
+      <div class="sponsor-inner">
+        <div class="sponsor-badge" id="ft-sponsored">Sponsored</div>
+        <a href="https://www.facebook.com/mahmudzohan" target="_blank" class="sponsor-card">
+          <div class="sponsor-avatar"><img src="./assests/profile.jpg" alt=""></div>
+          <div class="sponsor-info">
+            <div class="sponsor-name" id="sponsor-name">Hasan Mahmud</div>
+            <div class="sponsor-role" id="sponsor-role">Managing Director · Smart Soft Ltd.</div>
+            <span class="sponsor-fb">Facebook: <span
+                id="sponsor-fb-text">https://www.facebook.com/mahmudzohan</span></span>
+          </div>
+        </a>
+
+      </div>
+    </div>
+
+    <!-- BOTTOM BAR -->
+    <div class="footer-bottom">
+      <div class="footer-bottom-inner">
+        <div class="footer-copy" id="footer-copy">© ২০২৬ মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা। সর্বস্বত্ব সংরক্ষিত।</div>
+        <div class="footer-devby">
+          <span id="ft-devby-label">Developed by</span>
+          <a href="https://smartsoft.bd/" target="_blank" id="ft-devby-link">⚡ Smart Soft Ltd.</a>
+        </div>
+      </div>
+    </div>
+
+  </footer>
+
+  <script>
+// ── LANGUAGE ──────────────────────────────────────────────────────────
+let lang = 'bn';
+const translations = {
+  bn: {
+    'nav-title': 'মেহেরপুর জেলা কমিউনিটি ক্লাব',
+    'nav-sub': 'ঢাকা, বাংলাদেশ',
+    'nav-about': 'আমাদের সম্পর্কে', 'nav-activities': 'কার্যক্রম',
+    'nav-membership': 'সদস্যপদ', 'nav-events': 'ইভেন্ট',
+    'nav-gallery': 'গ্যালারি', 'nav-contact': 'যোগাযোগ',
+    'joinBtnNav': 'যোগ দিন', 'langBtn': 'EN',
+    'badge-text': 'সক্রিয় কমিউনিটি • ঢাকা',
+    'hero-title': 'মেহেরপুর জেলা<br><span style="color:var(--pink)">কমিউনিটি ক্লাব</span><br>ঢাকা',
+    'hero-subtitle': 'ঢাকায় বসবাসকারী মেহেরপুর জেলার মানুষদের একটি অরাজনৈতিক সামাজিক প্ল্যাটফর্ম — যেখানে পাওয়া যায় সহযোগিতা, সুযোগ ও আপনজনের সান্নিধ্য।',
+    'hero-tagline': '"ঢাকায় প্রতিটি মেহেরপুরবাসীর জন্য — ঐক্য, সহায়তা ও সুযোগ"',
+    'hero-join': '🤝 যোগ দিন', 'hero-learn': 'আরও জানুন →',
+    'stat1': 'সদস্য', 'stat2': 'বছর', 'stat3': 'ইভেন্ট',
+    'mc1': 'চাকরির সুযোগ', 'mc2': 'রক্তদান', 'mc3': 'শিক্ষা সহায়তা', 'mc4': 'সামাজিক অনুষ্ঠান',
+    'about-tag': 'আমাদের সম্পর্কে',
+    'about-title': 'মেহেরপুরবাসীদের ঢাকায় একটি পরিবার',
+    'about-p1': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা হলো মেহেরপুর জেলার মানুষদের দ্বারা গঠিত একটি জেলাভিত্তিক সামাজিক সংগঠন যারা বর্তমানে ঢাকায় বসবাস করছেন।',
+    'about-p2': 'এই কমিউনিটি যোগাযোগ, সহযোগিতা ও পারস্পরিক সহায়তার জন্য একটি শক্তিশালী নেটওয়ার্ক তৈরি করে মেহেরপুরের মানুষদের মধ্যে সেতুবন্ধন হিসেবে কাজ করে।',
+    'about-p3': 'এটি কোনো রাজনৈতিক সংগঠন নয় এবং কোনো সরকারি কর্তৃপক্ষের অধীনে পরিচালিত হয় না। এটি সম্পূর্ণ স্বেচ্ছাসেবী একটি সামাজিক উদ্যোগ।',
+    'mission-title': '🎯 মিশন', 'mission-text': 'ঢাকায় মেহেরপুরের মানুষদের জন্য একটি শক্তিশালী, ঐক্যবদ্ধ ও সহায়তামূলক নেটওয়ার্ক তৈরি করা।',
+    'vision-title': '👁️ ভিশন', 'vision-text': 'একটি সুসংগঠিত কমিউনিটি গড়ে তোলা যেখানে প্রতিটি সদস্য সহায়তা, সুযোগ ও আপনজনের সান্নিধ্য পাবেন।',
+    'act-tag': 'মূল কার্যক্রম', 'act-title': 'আমরা যা করি',
+    'act-desc': 'আমাদের কমিউনিটি সদস্যদের জীবনকে সহজ ও সুন্দর করতে বিভিন্ন কার্যক্রম পরিচালনা করে',
+    'a1-title': 'সামাজিক নেটওয়ার্কিং', 'a1-desc': 'ঢাকায় মেহেরপুরের মানুষদের মধ্যে পারস্পরিক যোগাযোগ ও সম্পর্ক তৈরি করা।',
+    'a2-title': 'নতুনদের সহায়তা', 'a2-desc': 'ঢাকায় নতুন আসা সদস্যদের থিতু হতে সহায়তা করা ও গাইড করা।',
+    'a3-title': 'চাকরির সুযোগ শেয়ার', 'a3-desc': 'ঢাকা ও সারাদেশে চাকরির সার্কুলার এবং ক্যারিয়ার আপডেট শেয়ার করা।',
+    'a4-title': 'শিক্ষা সহায়তা', 'a4-desc': 'শিক্ষামূলক সহায়তা, গাইডেন্স, টিউশন ও স্কলারশিপ তথ্য প্রদান।',
+    'a5-title': 'সামাজিক অনুষ্ঠান', 'a5-desc': 'সামাজিক ইভেন্ট ও সম্মিলনী আয়োজন করে পারস্পরিক বন্ধন দৃঢ় করা।',
+    'a6-title': 'জরুরি সহায়তা', 'a6-desc': 'রক্তদান, চিকিৎসা সহায়তা ও জরুরি প্রয়োজনে পাশে থাকা।',
+    'a7-title': 'সাংস্কৃতিক অনুষ্ঠান', 'a7-desc': 'সাংস্কৃতিক অনুষ্ঠান ও পুনর্মিলনী আয়োজন করে ঐতিহ্য ধরে রাখা।',
+    'a8-title': 'ফ্রিল্যান্স ও ব্যবসা', 'a8-desc': 'ফ্রিল্যান্স, ব্যবসা প্রমোশন ও দক্ষতা উন্নয়নের সুযোগ তৈরি করা।',
+    'mem-tag': 'সদস্যপদ', 'mem-title': 'আমাদের সাথে যোগ দিন', 'mem-desc': 'সদস্যপদ বিনামূল্যে এবং সম্পূর্ণ স্বেচ্ছাসেবী',
+    'who-can-join': 'যারা যোগ দিতে পারবেন',
+    'mq1': 'মেহেরপুর জেলার মূল বাসিন্দা', 'mq2': 'মেহেরপুরের সাথে শক্তিশালী সম্পর্ক আছে এমন যেকেউ',
+    'mq3': 'ঢাকায় বসবাসরত ও কমিউনিটিতে আগ্রহী যেকেউ', 'mq4': 'সদস্যপদ সম্পূর্ণ বিনামূল্যে ও স্বেচ্ছাসেবী',
+    'rules-title': 'কমিউনিটি নিয়ম',
+    'r1': 'সকল সদস্যের প্রতি সম্মান বজায় রাখুন', 'r2': 'কোনো রাজনৈতিক বিতর্ক বা ঘৃণামূলক বক্তব্য নয়',
+    'r3': 'স্প্যাম বা অপ্রাসঙ্গিক বিজ্ঞাপন দেবেন না', 'r4': 'শুধুমাত্র যাচাইকৃত ও উপকারী তথ্য শেয়ার করুন',
+    'r5': 'পোস্ট ও মন্তব্যে শৃঙ্খলা বজায় রাখুন', 'r6': 'কমিউনিটির মূল্যবোধ ও ঐক্য সমুন্নত রাখুন',
+    'ev-tag': 'ইভেন্ট ও অনুষ্ঠান', 'ev-title': 'আমাদের অনুষ্ঠানসমূহ',
+    'ev-desc': 'সারা বছর আমরা বিভিন্ন সামাজিক ও সাংস্কৃতিক অনুষ্ঠান আয়োজন করি',
+    'et1': 'বার্ষিক', 'en1': 'পুনর্মিলনী অনুষ্ঠান', 'ep1': 'বার্ষিক বা মৌসুমী পুনর্মিলনী অনুষ্ঠান',
+    'et2': 'রমজান', 'en2': 'ইফতার মাহফিল', 'ep2': 'রমজানে ইফতার মাহফিলের আয়োজন',
+    'et3': 'সাংস্কৃতিক', 'en3': 'সাংস্কৃতিক অনুষ্ঠান', 'ep3': 'সংস্কৃতি ও ঐতিহ্য উদযাপন',
+    'et4': 'দাতব্য', 'en4': 'দান ও সহায়তা', 'ep4': 'দাতব্য ও অনুদান কার্যক্রম',
+    'emg-tag': 'জরুরি সহায়তা', 'emg-title': 'বিপদে পাশে আছি',
+    'emg-desc': 'আপনার যেকোনো জরুরি প্রয়োজনে কমিউনিটি সবসময় পাশে আছে',
+    'eg1-title': 'রক্তদান', 'eg1-desc': 'জরুরি রক্তের প্রয়োজনে সাহায্যের জন্য পোস্ট করুন',
+    'eg2-title': 'চিকিৎসা সহায়তা', 'eg2-desc': 'চিকিৎসা জরুরি অবস্থায় সহায়তা ও গাইডেন্স',
+    'eg3-title': 'আর্থিক সহায়তা', 'eg3-desc': 'কমিউনিটিভিত্তিক আর্থিক জরুরি সহায়তা',
+    'eg4-title': 'জরুরি যোগাযোগ', 'eg4-desc': 'নিখোঁজ ব্যক্তি বা জরুরি যোগাযোগের প্রয়োজনে',
+    'gal-tag': 'গ্যালারি', 'gal-title': 'আমাদের মুহূর্তগুলো', 'gal-desc': 'কমিউনিটির বিভিন্ন অনুষ্ঠান ও কার্যক্রমের ছবি',
+    'con-tag': 'যোগাযোগ', 'con-title': 'আমাদের সাথে সংযুক্ত হন',
+    'con-desc': 'আজই কমিউনিটিতে যোগ দিন এবং মেহেরপুরের বড় পরিবারের অংশ হন',
+    'con-info-title': '📋 কমিউনিটি তথ্য',
+    'ci1-label': 'নাম', 'ci1-val': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা',
+    'ci2-label': 'অবস্থান', 'ci2-val': 'ঢাকা, বাংলাদেশ',
+    'ci3-label': 'উৎপত্তি', 'ci3-val': 'মেহেরপুর জেলা',
+    'ci4-label': 'প্রকৃতি', 'ci4-val': 'অরাজনৈতিক, স্বেচ্ছাসেবী সামাজিক সংগঠন',
+    'join-title': '🚀 কীভাবে যোগ দেবেন',
+    'join-desc': 'মাত্র কয়েকটি সহজ ধাপে আমাদের কমিউনিটির অংশ হয়ে যান:',
+    'js1': 'ফেসবুক গ্রুপে যোগ দিন', 'js2': 'কমিউনিটি অ্যাডমিনের সাথে যোগাযোগ করুন',
+    'js3': 'ইভেন্ট ও কার্যক্রমে অংশ নিন', 'js4': 'ঢাকায় অন্যান্য মেহেরপুরবাসীকে আমন্ত্রণ জানান',
+    'join-fb-btn': '📘 ফেসবুক গ্রুপে যোগ দিন',
+    'footer-tagline': '"ঢাকায় প্রতিটি মেহেরপুরবাসীর জন্য — ঐক্য, সহায়তা ও সুযোগ"',
+    'fl1': 'আমাদের সম্পর্কে', 'fl2': 'কার্যক্রম', 'fl3': 'ইভেন্ট', 'fl4': 'যোগাযোগ', 'fl5': 'ফেসবুক',
+    'mn-about': 'আমাদের সম্পর্কে', 'mn-activities': 'কার্যক্রম', 'mn-membership': 'সদস্যপদ',
+    'mn-events': 'ইভেন্ট', 'mn-gallery': 'গ্যালারি', 'mn-contact': 'যোগাযোগ', 'mn-join': 'যোগ দিন →',
+    'mn-bani': 'বাণী', 'mn-leadership': 'কমিটি',
+    'nav-bani': 'বাণী', 'nav-leadership': 'কমিটি',
+    // BANI SECTION
+    'bani-tag': 'নেতৃবৃন্দের বাণী', 'bani-title': 'সভাপতি ও সম্পাদকের বাণী',
+    'bani-desc': 'আমাদের নেতৃবৃন্দের অনুপ্রেরণামূলক বার্তা পড়ুন',
+    'bani-pres-name': '[সভাপতির নাম]', 'bani-pres-role': 'সভাপতি',
+    'bani-pres-preview': 'আসসালামু আলাইকুম। মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা-এর পক্ষ থেকে সকল সদস্য, শুভানুধ্যায়ী এবং মেহেরপুরবাসীকে আন্তরিক শুভেচ্ছা ও অভিনন্দন জানাই।',
+    'bani-pres-full': '<br>মেহেরপুর জেলার ঢাকায় বসবাসরত মানুষের মধ্যে পারস্পরিক সম্প্রীতি, সহযোগিতা ও ভ্রাতৃত্ববোধ গড়ে তোলার লক্ষ্য নিয়ে আমাদের এই সংগঠনের পথচলা।<br><br>আমাদের প্রত্যাশা, এই ক্লাব হবে ঢাকায় বসবাসরত মেহেরপুরবাসীর একটি নির্ভরযোগ্য ও আন্তরিক প্ল্যাটফর্ম। সকলের সুস্বাস্থ্য, সুখ এবং সমৃদ্ধি কামনা করছি।',
+    'bani-pres-btn': 'আরও পড়ুন',
+    'bani-sec-name': 'এম.এ.এস ইমন', 'bani-sec-role': 'সাধারণ সম্পাদক',
+    'bani-sec-preview': 'আসসালামু আলাইকুম। মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা-এর পক্ষ থেকে সকল সদস্য, শুভানুধ্যায়ী এবং দর্শনার্থীদের আন্তরিক শুভেচ্ছা জানাচ্ছি।',
+    'bani-sec-full': '<br>এই সংগঠনটি শুধু একটি সামাজিক প্ল্যাটফর্ম নয়; এটি ঢাকায় বসবাসরত মেহেরপুরবাসীর মধ্যে পারস্পরিক যোগাযোগ, সহযোগিতা এবং সৌহার্দ্যের একটি সেতুবন্ধন।<br><br>আসুন, আমরা সবাই মিলে একটি ঐক্যবদ্ধ, মানবিক ও প্রগতিশীল কমিউনিটি গড়ে তুলি।',
+    'bani-sec-btn': 'আরও পড়ুন',
+    // LEADERSHIP SECTION
+    'lead-tag': 'কমিটি', 'lead-title': 'আমাদের কমিটি',
+    'lead-desc': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা-এর নিবেদিতপ্রাণ কমিটি',
+    'ldr1-role': 'সভাপতি', 'ldr2-role': 'সহ-সভাপতি', 'ldr3-role': 'সাধারণ সম্পাদক',
+    'ldr4-role': 'যুগ্ম সম্পাদক', 'ldr5-role': 'সাংগঠনিক সম্পাদক', 'ldr6-role': 'অর্থ সম্পাদক',
+    'ldr7-role': 'সাংস্কৃতিক সম্পাদক', 'ldr8-role': 'তথ্য ও প্রযুক্তি সম্পাদক',
+    'ldr9-role': 'সদস্য', 'ldr10-role': 'সদস্য', 'ldr11-role': 'সদস্য', 'ldr12-role': 'উপদেষ্টা',
+    // MAP SECTION
+    'map-tag': 'আমাদের অবস্থান', 'map-title': 'বাংলাদেশের মানচিত্র',
+    'map-desc': 'মেহেরপুর থেকে ঢাকা — দূরত্ব নয়, হৃদয়ের বন্ধন',
+    'leg-meherpur': 'মেহেরপুর', 'leg-dhaka': 'ঢাকা', 'leg-other': 'অন্যান্য জেলা',
+    'map-two-cities': 'আমাদের দুই শহর',
+    'map-badge-meherpur': 'উৎপত্তিস্থল', 'map-meherpur-title': '🏡 মেহেরপুর জেলা',
+    'map-meherpur-desc': 'আমাদের শিকড়, আমাদের পরিচয়। মেহেরপুর বাংলাদেশের মুক্তিযুদ্ধের ইতিহাসের সঙ্গে গভীরভাবে যুক্ত — এখানেই ১৯৭১ সালে প্রথম স্বাধীন সরকার গঠিত হয়েছিল।',
+    'map-badge-dhaka': 'বর্তমান অবস্থান', 'map-dhaka-title': '🏙️ ঢাকা — রাজধানী',
+    'map-dhaka-desc': 'বাংলাদেশের রাজধানী ও সবচেয়ে বড় শহর। ঢাকায় মেহেরপুরের হাজারো মানুষ বসবাস করছেন — তাদের নিয়েই আমাদের এই কমিউনিটি।',
+    'map-64-title': '📍 ৬৪টি জেলা, এক পরিবার',
+    'map-64-desc': 'বাংলাদেশের যেকোনো জেলায় জন্ম হোক — মেহেরপুরের সাথে সম্পর্ক থাকলে আমাদের কমিউনিটিতে স্বাগত।',
+    // REGISTRATION SECTION
+    'reg-tag': 'সদস্য নিবন্ধন', 'reg-title': 'রেজিস্ট্রেশন করুন',
+    'reg-desc': 'বিনামূল্যে নিবন্ধন করে কমিউনিটির পূর্ণ সুবিধা উপভোগ করুন',
+    'reg-why-title': 'কেন সদস্য হবেন?',
+    'reg-why-desc': 'মেহেরপুর জেলা কমিউনিটি ক্লাবের সদস্য হলে আপনি পাবেন ঢাকায় আপনার জেলার মানুষদের একটি বিশাল নেটওয়ার্ক, সহায়তা ও সুযোগ।',
+    'rb1': 'চাকরি ও ব্যবসার সুযোগ সরাসরি পাওয়া', 'rb2': 'জরুরি রক্তদান ও চিকিৎসা সহায়তা',
+    'rb3': 'ইভেন্ট ও পুনর্মিলনীতে আমন্ত্রণ', 'rb4': 'ঢাকায় নতুন এলে গাইডেন্স ও সহায়তা',
+    'rb5': 'শিক্ষা ও দক্ষতা উন্নয়নের তথ্য', 'rb6': 'সম্পূর্ণ বিনামূল্যে ও স্বেচ্ছাসেবী',
+    'reg-form-title': '📝 নিবন্ধন ফর্ম', 'reg-form-sub': 'তথ্য পূরণ করুন, অ্যাডমিন যোগাযোগ করবেন',
+    'lbl-name': 'পুরো নাম *', 'lbl-phone': 'মোবাইল নম্বর *', 'lbl-email': 'ইমেইল (ঐচ্ছিক)',
+    'lbl-upazila': 'মেহেরপুরের উপজেলা *', 'lbl-area': 'ঢাকায় এলাকা', 'lbl-occ': 'পেশা',
+    'opt-select': 'বেছে নিন', 'opt-sadar': 'মেহেরপুর সদর', 'opt-gangni': 'গাংনী', 'opt-mujibnagar': 'মুজিবনগর',
+    'occ-select': 'বেছে নিন', 'occ-job': 'চাকরিজীবী', 'occ-biz': 'ব্যবসায়ী',
+    'occ-student': 'শিক্ষার্থী', 'occ-free': 'ফ্রিল্যান্সার', 'occ-other': 'অন্যান্য',
+    'reg-btn': '✅ নিবন্ধন সম্পন্ন করুন',
+    'reg-note': 'নিবন্ধনের পর আমাদের <a href="https://facebook.com/groups/meherpurcommunitydhaka" target="_blank" style="color:var(--pink)" id="reg-fb-link">ফেসবুক গ্রুপে</a> যোগ দিতে ভুলবেন না',
+    'reg-success-title': 'নিবন্ধন সফল হয়েছে!',
+    'reg-success-desc': 'আপনার তথ্য পাঠানো হয়েছে। অ্যাডমিন শীঘ্রই যোগাযোগ করবেন।<br>এরপর ফেসবুক গ্রুপে যোগ দিন।',
+    'reg-success-btn': '📘 ফেসবুক গ্রুপে যোগ দিন',
+    'footer-logo': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা',
+    'ft-brand-sub': 'ঢাকা, বাংলাদেশ',
+    'ft-desc': 'ঢাকায় বসবাসকারী মেহেরপুর জেলার মানুষদের একটি অরাজনৈতিক, স্বেচ্ছাসেবী সামাজিক প্ল্যাটফর্ম।',
+    'footer-copy': '© ২০২৬ মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা। সর্বস্বত্ব সংরক্ষিত।',
+    'ft-links-title': 'দ্রুত লিংক',
+    'fl1': 'আমাদের সম্পর্কে', 'fl2': 'কার্যক্রম', 'fl3-mem': 'সদস্যপদ',
+    'fl3': 'ইভেন্ট', 'fl-reg': 'নিবন্ধন', 'fl4': 'যোগাযোগ', 'fl5': 'ফেসবুক গ্রুপ',
+    'ft-contact-title': 'যোগাযোগ',
+    'ft-addr': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা, বাংলাদেশ',
+    'ft-fb-link': 'facebook.com/groups/meherpurcommunitydhaka',
+    'ft-nature': 'অরাজনৈতিক · স্বেচ্ছাসেবী · সামাজিক সংগঠন',
+    'ft-imp-title': 'গুরুত্বপূর্ণ লিংক',
+    'imp1': 'আবেদন ফর্ম', 'imp2': 'কমিউনিটি নিয়ম', 'imp3': 'এক নজরে মেহেরপুর',
+    'imp4': 'রক্তদান', 'imp5': 'ইভেন্ট',
+    'ft-sponsored': 'স্পনসর',
+    'sponsor-name': 'হাসান মাহমুদ',
+    'sponsor-role': 'ম্যানেজিং ডিরেক্টর · স্মার্ট সফট লিমিটেড',
+    'sponsor-fb-text': 'https://www.facebook.com/mahmudzohan',
+    'ft-sponsor-note': 'স্পন্সর হতে চান? <a href="mailto:info@meherpurcommunity.org" style="color:var(--pink); text-decoration:none" id="ft-sponsor-link">যোগাযোগ করুন</a>',
+    'ft-devby-label': 'ডেভেলপ করেছেন',
+    'ft-devby-link': '⚡ Smart Soft Ltd.',
+    'nav-reg': 'নিবন্ধন',
+  },
+  en: {
+    'nav-title': 'Meherpur Zila Community Club',
+    'nav-sub': 'Dhaka, Bangladesh',
+    'nav-about': 'About', 'nav-activities': 'Activities',
+    'nav-membership': 'Membership', 'nav-events': 'Events',
+    'nav-gallery': 'Gallery', 'nav-contact': 'Contact',
+    'joinBtnNav': 'Join Us', 'langBtn': 'বাং',
+    'badge-text': 'Active Community • Dhaka',
+    'hero-title': 'Meherpur Zila<br><span style="color:var(--pink)">Community Club</span><br>Dhaka',
+    'hero-subtitle': 'A non-political social platform connecting people from Meherpur district living in Dhaka — fostering cooperation, opportunity, and community.',
+    'hero-tagline': '"Unity, Support & Opportunity for Every Meherpurian in Dhaka"',
+    'hero-join': '🤝 Join Now', 'hero-learn': 'Learn More →',
+    'stat1': 'Members', 'stat2': 'Years', 'stat3': 'Events',
+    'mc1': 'Job Opportunities', 'mc2': 'Blood Donation', 'mc3': 'Education Support', 'mc4': 'Social Events',
+    'about-tag': 'About Us',
+    'about-title': 'A Family for Meherpurians in Dhaka',
+    'about-p1': 'Meherpur Zila Community Club, Dhaka is a district-based social organization formed by people originally from Meherpur district who currently live in Dhaka.',
+    'about-p2': 'The community works as a bridge between people of Meherpur by creating a strong network for communication, cooperation, and mutual support.',
+    'about-p3': 'It is not a political organization and does not operate under any government authority. It is a voluntary social initiative.',
+    'mission-title': '🎯 Mission', 'mission-text': 'To create a strong, united, and supportive network for the people of Meherpur living in Dhaka.',
+    'vision-title': '👁️ Vision', 'vision-text': 'To build a well-connected community where every member can get support, opportunities, and a sense of belonging.',
+    'act-tag': 'Core Activities', 'act-title': 'What We Do',
+    'act-desc': 'Our community runs various programs to make life easier and better for members',
+    'a1-title': 'Social Networking', 'a1-desc': 'Building connections among Meherpur people living in Dhaka.',
+    'a2-title': 'Help Newcomers', 'a2-desc': 'Assisting new members to settle down in Dhaka with guidance.',
+    'a3-title': 'Job Sharing', 'a3-desc': 'Sharing job circulars and career updates across Dhaka and nationwide.',
+    'a4-title': 'Education Support', 'a4-desc': 'Providing educational support, tuition, and scholarship information.',
+    'a5-title': 'Social Events', 'a5-desc': 'Organizing social events and gatherings to strengthen bonds.',
+    'a6-title': 'Emergency Support', 'a6-desc': 'Blood donation, medical help, and emergency assistance.',
+    'a7-title': 'Cultural Programs', 'a7-desc': 'Organizing cultural events and reunions to preserve heritage.',
+    'a8-title': 'Freelance & Business', 'a8-desc': 'Creating opportunities for freelancing, business promotion, and skill development.',
+    'mem-tag': 'Membership', 'mem-title': 'Join Our Community', 'mem-desc': 'Membership is free and completely voluntary',
+    'who-can-join': 'Who Can Join',
+    'mq1': 'Originally from Meherpur district', 'mq2': 'Anyone with strong connection to Meherpur',
+    'mq3': 'Living in Dhaka and interested in the community', 'mq4': 'Membership is free and voluntary',
+    'rules-title': 'Community Rules',
+    'r1': 'Be respectful to all members', 'r2': 'No political arguments or hate speech',
+    'r3': 'No spam or irrelevant advertising', 'r4': 'Only share verified or useful information',
+    'r5': 'Maintain discipline in posts and comments', 'r6': 'Support community values and unity',
+    'ev-tag': 'Events & Programs', 'ev-title': 'Our Programs',
+    'ev-desc': 'Throughout the year we organize various social and cultural events',
+    'et1': 'Annual', 'en1': 'Reunion Program', 'ep1': 'Annual or seasonal reunion gathering',
+    'et2': 'Ramadan', 'en2': 'Iftar Mahfil', 'ep2': 'Iftar gathering during Ramadan',
+    'et3': 'Cultural', 'en3': 'Cultural Program', 'ep3': 'Celebrating culture and heritage',
+    'et4': 'Charity', 'en4': 'Donation Drive', 'ep4': 'Charity and donation programs',
+    'emg-tag': 'Emergency Support', 'emg-title': 'We Stand By You',
+    'emg-desc': 'The community is always ready to help in any emergency situation',
+    'eg1-title': 'Blood Donation', 'eg1-desc': 'Post a request for urgent blood donation needs',
+    'eg2-title': 'Medical Help', 'eg2-desc': 'Guidance and support during medical emergencies',
+    'eg3-title': 'Financial Aid', 'eg3-desc': 'Community-based financial emergency assistance',
+    'eg4-title': 'Urgent Contact', 'eg4-desc': 'For missing persons or urgent communication needs',
+    'gal-tag': 'Gallery', 'gal-title': 'Our Moments', 'gal-desc': 'Photos from community events and activities',
+    'con-tag': 'Contact', 'con-title': 'Connect With Us',
+    'con-desc': 'Join our community today and be part of the big Meherpur family in Dhaka',
+    'con-info-title': '📋 Community Info',
+    'ci1-label': 'Name', 'ci1-val': 'Meherpur Zila Community Club, Dhaka',
+    'ci2-label': 'Location', 'ci2-val': 'Dhaka, Bangladesh',
+    'ci3-label': 'Origin', 'ci3-val': 'Meherpur District',
+    'ci4-label': 'Nature', 'ci4-val': 'Non-political, voluntary social organization',
+    'join-title': '🚀 How to Join',
+    'join-desc': 'Become part of our community in just a few easy steps:',
+    'js1': 'Join via Facebook Group', 'js2': 'Contact community admins',
+    'js3': 'Participate in events and activities', 'js4': 'Invite other Meherpur people in Dhaka',
+    'join-fb-btn': '📘 Join Facebook Group',
+    'footer-tagline': '"Unity, Support & Opportunity for Every Meherpurian in Dhaka"',
+    'fl1': 'About', 'fl2': 'Activities', 'fl3': 'Events', 'fl4': 'Contact', 'fl5': 'Facebook',
+    'mn-about': 'About', 'mn-activities': 'Activities', 'mn-membership': 'Membership',
+    'mn-events': 'Events', 'mn-gallery': 'Gallery', 'mn-contact': 'Contact', 'mn-join': 'Join Us →',
+    'mn-bani': 'Messages', 'mn-leadership': 'Committee',
+    'nav-bani': 'Messages', 'nav-leadership': 'Committee',
+    // BANI SECTION
+    'bani-tag': 'Leadership Messages', 'bani-title': 'Messages from Our Leaders',
+    'bani-desc': 'Read inspiring messages from our president and secretary',
+    'bani-pres-name': '[President\'s Name]', 'bani-pres-role': 'President',
+    'bani-pres-preview': 'Assalamu Alaikum. On behalf of Meherpur Zila Community Club, Dhaka, I extend warm greetings and congratulations to all members, well-wishers, and the people of Meherpur.',
+    'bani-pres-full': '<br>Our organization was founded with the goal of fostering mutual harmony, cooperation and brotherhood among the people of Meherpur district living in Dhaka. We believe that united efforts can play a vital role in social development and human welfare.<br><br>It is our hope that this club will become a reliable and heartfelt platform for Meherpurians living in Dhaka, where everyone shares joys and sorrows and stands by each other when needed. We wish everyone good health, happiness and prosperity.',
+    'bani-pres-btn': 'Read More',
+    'bani-sec-name': 'M.A.S Emon', 'bani-sec-role': 'General Secretary',
+    'bani-sec-preview': 'Assalamu Alaikum. On behalf of Meherpur Zila Community Club, Dhaka, I extend heartfelt greetings to all members, well-wishers and visitors.',
+    'bani-sec-full': '<br>This organization is not just a social platform; it is a bridge of communication, cooperation and goodwill among the Meherpurians living in Dhaka.<br><br>Let us all together build a united, humane and progressive community.',
+    'bani-sec-btn': 'Read More',
+    // LEADERSHIP SECTION
+    'lead-tag': 'Committee', 'lead-title': 'Our Committee',
+    'lead-desc': 'The dedicated committee of Meherpur Zila Community Club, Dhaka',
+    'ldr1-role': 'President', 'ldr2-role': 'Vice President',  'ldr3-role': 'General Secretary',
+    'ldr4-role': 'Joint Secretary', 'ldr5-role': 'Organizational Secretary', 'ldr6-role': 'Finance Secretary',
+    'ldr7-role': 'Cultural Secretary', 'ldr8-role': 'IT Secretary',
+    'ldr9-role': 'Member', 'ldr10-role': 'Member', 'ldr11-role': 'Member', 'ldr12-role': 'Advisor', 'ldr13-role': 'Vice President',
+    // MAP SECTION
+    'map-tag': 'Our Location', 'map-title': 'Map of Bangladesh',
+    'map-desc': 'From Meherpur to Dhaka — not distance, but a bond of hearts',
+    'leg-meherpur': 'Meherpur', 'leg-dhaka': 'Dhaka', 'leg-other': 'Other Districts',
+    'map-two-cities': 'Our Two Cities',
+    'map-badge-meherpur': 'Origin', 'map-meherpur-title': '🏡 Meherpur District',
+    'map-meherpur-desc': 'Our roots, our identity. Meherpur is deeply tied to Bangladesh\'s liberation history — the first independent government was formed here in 1971.',
+    'map-badge-dhaka': 'Current Location', 'map-dhaka-title': '🏙️ Dhaka — The Capital',
+    'map-dhaka-desc': 'The capital and largest city of Bangladesh. Thousands of Meherpurians live in Dhaka — and this community is for them.',
+    'map-64-title': '📍 64 Districts, One Family',
+    'map-64-desc': 'No matter which district you were born in — if you have a connection to Meherpur, you are welcome in our community.',
+    // REGISTRATION SECTION
+    'reg-tag': 'Member Registration', 'reg-title': 'Register Now',
+    'reg-desc': 'Register for free and enjoy the full benefits of the community',
+    'reg-why-title': 'Why Become a Member?',
+    'reg-why-desc': 'By joining the Meherpur Zila Community Club, you gain access to a vast network of people from your district in Dhaka, along with support and opportunities.',
+    'rb1': 'Direct access to job & business opportunities', 'rb2': 'Emergency blood donation & medical support',
+    'rb3': 'Invitations to events & reunions', 'rb4': 'Guidance & support when new to Dhaka',
+    'rb5': 'Education & skill development resources', 'rb6': 'Completely free & voluntary',
+    'reg-form-title': '📝 Registration Form', 'reg-form-sub': 'Fill in your details, an admin will contact you',
+    'lbl-name': 'Full Name *', 'lbl-phone': 'Mobile Number *', 'lbl-email': 'Email (optional)',
+    'lbl-upazila': 'Upazila in Meherpur *', 'lbl-area': 'Area in Dhaka', 'lbl-occ': 'Occupation',
+    'opt-select': 'Select', 'opt-sadar': 'Meherpur Sadar', 'opt-gangni': 'Gangni', 'opt-mujibnagar': 'Mujibnagar',
+    'occ-select': 'Select', 'occ-job': 'Service Holder', 'occ-biz': 'Businessman',
+    'occ-student': 'Student', 'occ-free': 'Freelancer', 'occ-other': 'Other',
+    'reg-btn': '✅ Complete Registration',
+    'reg-note': 'After registering, don\'t forget to join our <a href="https://www.facebook.com/share/g/1AD8y8vKsT/?mibextid=wwXIfr" target="_blank" style="color:var(--pink)" id="reg-fb-link">Facebook Group</a>',
+    'reg-success-title': 'Registration Successful!',
+    'reg-success-desc': 'Your information has been submitted. An admin will contact you soon.<br>Please join the Facebook group next.',
+    'reg-success-btn': '📘 Join Facebook Group',
+    'footer-logo': 'Meherpur Zila Community Club, Dhaka ',
+    'footer-copy': '© 2026 Meherpur Zila Community Club, Dhaka. All rights reserved.',
+    'nav-reg': 'Register',
+    'ft-brand-sub': 'Dhaka, Bangladesh',
+    'ft-desc': 'A non-political, voluntary social platform for people from Meherpur district living in Dhaka.',
+    'ft-links-title': 'Quick Links',
+    'fl1': 'About', 'fl2': 'Activities', 'fl3-mem': 'Membership',
+    'fl3': 'Events', 'fl-reg': 'Register', 'fl4': 'Contact', 'fl5': 'Facebook Group',
+    'ft-contact-title': 'Contact',
+    'ft-addr': 'Meherpur Zila Community Club, Dhaka, Bangladesh',
+    'ft-fb-link': 'facebook.com/groups/meherpurzilacommunityclub',
+    'ft-nature': 'Non-political · Voluntary · Social Organization',
+    'ft-imp-title': 'Important Links',
+    'imp1': 'Application Form', 'imp2': 'Community Rules', 'imp3': 'About Meherpur',
+    'imp4': 'Blood Donation', 'imp5': 'Events',
+    'ft-sponsored': 'Sponsored',
+    'sponsor-name': 'Hasan Mahmud',
+    'sponsor-role': 'Managing Director · Smart Soft Ltd.',
+    'sponsor-fb-text': 'https://www.facebook.com/mahmudzohan',
+    'ft-sponsor-note': 'Want to sponsor? <a href="mailto:info@meherpurcommunity.org" style="color:var(--pink); text-decoration:none" id="ft-sponsor-link">Contact us</a>',
+    'ft-devby-label': 'Developed by',
+    'ft-devby-link': '⚡ Smart Soft Ltd.',
+  }
+};
+
+function toggleLang() {
+  lang = lang === 'bn' ? 'en' : 'bn';
+  document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
+  const t = translations[lang];
+  Object.entries(t).forEach(([id, val]) => {
+    const el = document.getElementById(id);
+    if (el) el.innerHTML = val;
+  });
+  // swap input placeholders
+  const isBn = lang === 'bn';
+  document.getElementById('regName').placeholder  = isBn ? 'আপনার নাম'          : 'Your full name';
+  document.getElementById('regPhone').placeholder = isBn ? '01XXXXXXXXX'         : '01XXXXXXXXX';
+  document.getElementById('regEmail').placeholder = isBn ? 'email@example.com'   : 'email@example.com';
+  document.getElementById('regArea').placeholder  = isBn ? 'যেমন: মিরপুর, উত্তরা' : 'e.g. Mirpur, Uttara';
+  // Update read-more button labels based on current open/closed state
+  document.querySelectorAll('.bani-readmore').forEach(btn => {
+    const isOpen = btn.classList.contains('open');
+    const textEl = btn.querySelector('.bani-readmore-text');
+    if (textEl) {
+      if (isOpen) {
+        textEl.textContent = isBn ? 'সংক্ষেপ করুন' : 'Show Less';
+      } else {
+        textEl.textContent = isBn ? 'আরও পড়ুন' : 'Read More';
+      }
+    }
+  });
+}
+
+// ── BANI TOGGLE ────────────────────────────────────────────────────────
+function toggleBani(btn, fullId) {
+  const fullEl = document.getElementById(fullId);
+  const textEl = btn.querySelector('.bani-readmore-text');
+  const isOpen = fullEl.classList.toggle('open');
+  btn.classList.toggle('open', isOpen);
+  const isBn = lang === 'bn';
+  textEl.textContent = isOpen
+    ? (isBn ? 'সংক্ষেপ করুন' : 'Show Less')
+    : (isBn ? 'আরও পড়ুন' : 'Read More');
+}
+
+// ── THEME ──────────────────────────────────────────────────────────────
+function toggleTheme() {
+  const html = document.documentElement;
+  const isDark = html.getAttribute('data-theme') === 'dark';
+  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+  document.getElementById('themeBtn').textContent = isDark ? '🌙' : '☀️';
+}
+
+// ── MOBILE MENU ────────────────────────────────────────────────────────
+function toggleMenu() {
+  document.getElementById('mobileNav').classList.toggle('open');
+}
+function closeMenu() {
+  document.getElementById('mobileNav').classList.remove('open');
+}
+
+// ── REGISTRATION FORM ──────────────────────────────────────────────────
+function submitReg() {
+  const name = document.getElementById('regName').value.trim();
+  const phone = document.getElementById('regPhone').value.trim();
+  const upazila = document.getElementById('regUpazila').value;
+  if (!name || !phone || !upazila) {
+    alert(lang === 'bn'
+      ? 'অনুগ্রহ করে নাম, মোবাইল ও উপজেলা পূরণ করুন।'
+      : 'Please fill in your name, mobile number, and upazila.');
+    return;
+  }
+  document.getElementById('regForm').style.display = 'none';
+  document.getElementById('regSuccess').style.display = 'block';
+}
+
+// ── MAP TOOLTIP ────────────────────────────────────────────────────────
+document.querySelectorAll('.district-path').forEach(path => {
+  path.addEventListener('mouseenter', function() {
+    const tooltip = document.getElementById('mapTooltip');
+    if (tooltip) tooltip.textContent = this.dataset.name || '';
+  });
+  path.addEventListener('mouseleave', function() {
+    const tooltip = document.getElementById('mapTooltip');
+    if (tooltip) tooltip.textContent = '';
+  });
+});
+
+// ── SCROLL ANIMATIONS ──────────────────────────────────────────────────
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach((e, i) => {
+    if (e.isIntersecting) {
+      setTimeout(() => e.target.classList.add('visible'), i * 60);
+    }
+  });
+}, { threshold: 0.1 });
+document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+</body>
+
+</html>
