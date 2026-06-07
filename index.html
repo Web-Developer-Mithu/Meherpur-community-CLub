@@ -9,7 +9,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&family=Playfair+Display:wght@700;800&family=Noto+Serif+Bengali:wght@400;600;700&display=swap"
     rel="stylesheet">
-    <link rel="shortcut icon" href="./assests/logo.png" type="image/x-icon">
+  <link rel="shortcut icon" href="./assests/logo.png" type="image/x-icon">
   <style>
     :root {
       --pink: #c0185a;
@@ -1124,10 +1124,22 @@
 
     /* sponsor strip */
     .footer-sponsor {
-      border-top: 1px solid rgba(255, 255, 255, 0.08);
-      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-      background: rgba(255, 255, 255, 0.04);
-      padding: 1rem 1.5rem;
+      border-top: 2px solid var(--gold);
+      border-bottom: 2px solid var(--gold);
+      background: linear-gradient(90deg, rgba(212, 160, 23, 0.08) 0%, rgba(255, 255, 255, 0.06) 50%, rgba(212, 160, 23, 0.08) 100%);
+      padding: 1.2rem 1.5rem;
+      position: relative;
+    }
+
+    .footer-sponsor::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: var(--gold);
+      border-radius: 0 4px 4px 0;
     }
 
     .sponsor-inner {
@@ -1153,18 +1165,63 @@
 
     .sponsor-card {
       display: flex;
-      align-items: center;
+      align-items: flex-start;
       gap: 0.75rem;
-      background: rgba(255, 255, 255, 0.06);
-      border: 1px solid rgba(255, 255, 255, 0.1);
-      border-radius: 10px;
-      padding: 0.55rem 1rem;
+      background: linear-gradient(135deg, #1a3a6b 0%, #0d2247 100%);
+      border: 1px solid var(--gold);
+      border-radius: 12px;
+      padding: 0.75rem 1rem;
       text-decoration: none;
       transition: background 0.2s;
+      min-width: 0;
+      flex: 1;
+      max-width: 480px;
     }
 
     .sponsor-card:hover {
-      background: rgba(255, 255, 255, 0.12);
+      background: linear-gradient(135deg, #1e4480 0%, #102a58 100%);
+    }
+
+    .sponsor-name-link {
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: #ffd570;
+      text-decoration: none;
+      display: block;
+      margin-bottom: 0.15rem;
+      transition: color 0.2s;
+    }
+
+    .sponsor-name-link:hover {
+      color: #fff;
+      text-decoration: underline;
+    }
+
+    .sponsor-links {
+      display: flex;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+      margin-top: 0.35rem;
+    }
+
+    .sponsor-link-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.25rem;
+      font-size: 0.72rem;
+      color: #a8c8f0;
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 20px;
+      padding: 0.2rem 0.6rem;
+      text-decoration: none;
+      white-space: nowrap;
+      transition: background 0.2s, color 0.2s;
+    }
+
+    .sponsor-link-item:hover {
+      background: rgba(255, 255, 255, 0.22);
+      color: #fff;
     }
 
     .sponsor-avatar {
@@ -1187,17 +1244,21 @@
       border-radius: 50%;
     }
 
-    .sponsor-info {}
+    .sponsor-info {
+      min-width: 0;
+      flex: 1;
+    }
 
     .sponsor-name {
       font-size: 0.88rem;
       font-weight: 700;
-      color: #fff;
+      color: #ffd570;
     }
 
     .sponsor-role {
       font-size: 0.72rem;
-      color: #8eaad4;
+      color: #a8c8f0;
+      margin-top: 0.1rem;
     }
 
     .sponsor-fb {
@@ -1314,7 +1375,131 @@
       }
     }
 
-    /* MOBILE NAV DRAWER */
+    /* SLIDESHOW */
+    .hero-slideshow {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-slideshow .slide {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      opacity: 0;
+      transition: opacity 0.7s ease-in-out;
+    }
+
+    .hero-slideshow .slide.active {
+      opacity: 1;
+      position: relative;
+    }
+
+    .slide-dots {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      gap: 6px;
+      z-index: 10;
+    }
+
+    .slide-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.5);
+      cursor: pointer;
+      transition: background 0.3s;
+      border: none;
+      padding: 0;
+    }
+
+    .slide-dot.active {
+      background: #fff;
+    }
+
+    /* SPONSOR AREA FOCUS */
+    .footer-sponsor {
+      transition: box-shadow 0.3s;
+    }
+
+    .footer-sponsor:hover {
+      box-shadow: 0 0 0 2px var(--gold);
+    }
+
+    /* MOBILE HORIZONTAL SCROLL FIX */
+    html,
+    body {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+
+    section,
+    footer,
+    nav,
+    .container,
+    .hero-content,
+    .footer-top,
+    .sponsor-inner,
+    .imp-links-row {
+      max-width: 100%;
+      overflow-x: hidden;
+    }
+
+    @media (max-width: 600px) {
+      .activities-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .events-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .emergency-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .gallery-item.wide {
+        grid-column: span 2;
+      }
+
+      .hero-cards {
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .ft-fb-link,
+      .ft-contact-item p {
+        word-break: break-all;
+        font-size: 0.75rem;
+      }
+
+      .imp-links-row {
+        flex-wrap: wrap;
+      }
+
+      .sponsor-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .sponsor-card {
+        width: 100%;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
+      .sponsor-links {
+        flex-wrap: wrap;
+      }
+    }
+
     .mobile-nav {
       display: none;
       position: fixed;
@@ -1673,6 +1858,7 @@
     .bd-map-container {
       position: relative;
       width: 100%;
+      overflow: hidden;
     }
 
     .bd-map-container svg {
@@ -1993,7 +2179,8 @@
     <div class="nav-actions">
       <button class="lang-btn" onclick="toggleLang()" id="langBtn">EN</button>
       <button class="theme-btn" onclick="toggleTheme()" id="themeBtn">🌙</button>
-      <a href="https://facebook.com" target="_blank" class="join-btn-nav desktop" id="joinBtnNav">যোগ দিন</a>
+      <a href="https://www.facebook.com/groups/meherpurzilacommunityclub/" target="_blank" class="join-btn-nav desktop"
+        id="joinBtnNav">যোগ দিন</a>
       <button class="hamburger" onclick="toggleMenu()" id="hamburger">
         <span></span><span></span><span></span>
       </button>
@@ -2011,7 +2198,8 @@
     <a href="#gallery" onclick="closeMenu()" id="mn-gallery">গ্যালারি</a>
     <a href="#registration" onclick="closeMenu()">নিবন্ধন</a>
     <a href="#contact" onclick="closeMenu()" id="mn-contact">যোগাযোগ</a>
-    <a href="https://facebook.com" target="_blank" class="join-btn-nav" id="mn-join">যোগ দিন →</a>
+    <a href="https://www.facebook.com/groups/meherpurzilacommunityclub/" target="_blank" class="join-btn-nav"
+      id="mn-join">যোগ দিন →</a>
   </div>
 
   <!-- HERO -->
@@ -2036,46 +2224,36 @@
           "ঢাকায় প্রতিটি মেহেরপুরবাসীর জন্য — ঐক্য, সহায়তা ও সুযোগ"
         </div>
         <div class="hero-btns">
-          <a href="
-facebook.com/groups/meherpurzilacommunityclub" target="_blank" class="btn-primary" id="hero-join">🤝 যোগ দিন</a>
+          <a href="https://www.facebook.com/groups/meherpurzilacommunityclub/" target="_blank" class="btn-primary"
+            id="hero-join">🤝 যোগ দিন</a>
           <a href="#about" class="btn-outline" id="hero-learn">আরও জানুন →</a>
         </div>
-        <div class="hero-stats">
-          <div class="stat">
-            <div class="stat-num">৫০০+</div>
-            <div class="stat-label" id="stat1">সদস্য</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">৫+</div>
-            <div class="stat-label" id="stat2">বছর</div>
-          </div>
-          <div class="stat">
-            <div class="stat-num">৩০+</div>
-            <div class="stat-label" id="stat3">ইভেন্ট</div>
-          </div>
-        </div>
+
       </div>
       <div class="hero-visual">
-        <div class="hero-img-main">
-          <img src="./assests/cover.jpg" alt="">
-          
+        <div class="hero-img-main hero-slideshow" id="heroSlideshow">
+          <img src="./assests/cover.jpg" alt="" class="slide active">
+          <img src="./assests/m1.jpg" alt="" class="slide">
+          <img src="./assests/m2.jpg" alt="" class="slide">
+          <img src="./assests/m3.jpg" alt="" class="slide">
+          <img src="./assests/m4.jpg" alt="" class="slide">
+          <div class="slide-dots" id="slideDots"></div>
         </div>
         <div class="hero-cards">
           <div class="hero-mini-card">
-            <div class="icon">💼</div>
-            <div class="label" id="mc1">চাকরির সুযোগ</div>
+            <div class="icon">👥</div>
+            <div class="label" id="stat1">সদস্য</div>
+            <div class="stat-num" style="font-size:1.1rem">৫০০+</div>
           </div>
           <div class="hero-mini-card">
-            <div class="icon">🩸</div>
-            <div class="label" id="mc2">রক্তদান</div>
+            <div class="icon">🏛️</div>
+            <div class="label" id="stat-com">কমিটি</div>
+            <div class="stat-num" style="font-size:1.1rem">১৩</div>
           </div>
-          <div class="hero-mini-card">
-            <div class="icon">🎓</div>
-            <div class="label" id="mc3">শিক্ষা সহায়তা</div>
-          </div>
-          <div class="hero-mini-card">
+          <div class="hero-mini-card" style="grid-column: span 2;">
             <div class="icon">🎉</div>
-            <div class="label" id="mc4">সামাজিক অনুষ্ঠান</div>
+            <div class="label" id="stat3">ইভেন্ট</div>
+            <div class="stat-num" style="font-size:1.1rem">বার্ষিক</div>
           </div>
         </div>
       </div>
@@ -2088,7 +2266,7 @@ facebook.com/groups/meherpurzilacommunityclub" target="_blank" class="btn-primar
       <div class="about-grid">
         <div class="about-img fade-in">
           <img src="./assests/m1.jpg" alt="About picture">
-          
+
         </div>
         <div class="about-text fade-in">
           <div class="section-tag" id="about-tag">আমাদের সম্পর্কে</div>
@@ -2544,7 +2722,7 @@ facebook.com/groups/meherpurzilacommunityclub" target="_blank" class="btn-primar
           <div class="bani-top">
             <div class="bani-avatar">
               <img src="./assests/president.jpg" alt="সভাপতি">
-              
+
             </div>
             <div class="bani-person">
               <div class="bani-name" id="bani-pres-name">সেলিম আহমেদ</div>
@@ -2578,7 +2756,7 @@ facebook.com/groups/meherpurzilacommunityclub" target="_blank" class="btn-primar
           <div class="bani-top">
             <div class="bani-avatar">
               <img src="./assests/sadharon-sa-emon.jpg" alt="সাধারণ সম্পাদক">
-              
+
             </div>
             <div class="bani-person">
               <div class="bani-name" id="bani-sec-name">এম.এ.এস ইমন </div>
@@ -2663,7 +2841,7 @@ facebook.com/groups/meherpurzilacommunityclub" target="_blank" class="btn-primar
         <div class="leader-card fade-in">
           <div class="leader-avatar"><img src="./assests/yugmo-sompadok.jpg" alt=""></div>
           <div class="leader-name" id="ldr8-name">Monzurul Alam Milon</div>
-          <div class="leader-role" id="ldr8-role">যুগ্ম  সম্পাদক</div>
+          <div class="leader-role" id="ldr8-role">যুগ্ম সম্পাদক</div>
         </div>
         <div class="leader-card fade-in">
           <div class="leader-avatar"><img src="./assests/sangothonic-Azizul Haque.jpg" alt=""></div>
@@ -2711,7 +2889,7 @@ facebook.com/groups/meherpurzilacommunityclub" target="_blank" class="btn-primar
         <div class="gallery-item wide fade-in"><img src="./assests/m9.jpg" alt="event pic"></div>
         <div class="gallery-item wide fade-in"><img src="./assests/m10.jpg" alt="event pic"></div>
         <div class="gallery-item wide fade-in"><img src="./assests/cover.jpg" alt="event pic"></div>
-        
+
       </div>
     </div>
   </section>
@@ -2801,7 +2979,7 @@ facebook.com/groups/meherpurzilacommunityclub" target="_blank" class="btn-primar
         <div class="ft-tagline" id="footer-tagline">"ঢাকায় প্রতিটি মেহেরপুরবাসীর জন্য — ঐক্য, সহায়তা ও সুযোগ"</div>
         <div class="ft-social" style="margin-top:1.2rem">
           <a href="https://www.facebook.com/groups/meherpurzilacommunityclub/" target="_blank" title="Facebook">📘</a>
-          <a href="https://wa.me/" target="_blank" title="WhatsApp">💬</a>
+          <a href="https://wa.me/8801725713675" target="_blank" title="WhatsApp">💬</a>
           <a href="mailto:info@meherpurcommunity.org" title="Email">📧</a>
         </div>
       </div>
@@ -2816,7 +2994,8 @@ facebook.com/groups/meherpurzilacommunityclub" target="_blank" class="btn-primar
           <li><a href="#events" id="fl3">ইভেন্ট</a></li>
           <li><a href="#registration" id="fl-reg">নিবন্ধন</a></li>
           <li><a href="#contact" id="fl4">যোগাযোগ</a></li>
-          <li><a href="https://facebook.com" target="_blank" id="fl5">ফেসবুক গ্রুপ</a></li>
+          <li><a href="https://www.facebook.com/groups/meherpurzilacommunityclub/" target="_blank" id="fl5">ফেসবুক
+              গ্রুপ</a></li>
         </ul>
       </div>
 
@@ -2829,7 +3008,7 @@ facebook.com/groups/meherpurzilacommunityclub" target="_blank" class="btn-primar
         </div>
         <div class="ft-contact-item">
           <span class="ico">📞</span>
-          <p>+৮৮০১৯২৯০৬৯৯৩১<br>+৮৮০১৭১১১৮১১২৬</p>
+          <p>01725713675</p>
         </div>
         <div class="ft-contact-item">
           <span class="ico">📘</span>
@@ -2861,16 +3040,19 @@ facebook.com/groups/meherpurzilacommunityclub" target="_blank" class="btn-primar
     <div class="footer-sponsor" style="margin-top:1.5rem">
       <div class="sponsor-inner">
         <div class="sponsor-badge" id="ft-sponsored">Sponsored</div>
-        <a href="https://www.facebook.com/mahmudzohan" target="_blank" class="sponsor-card">
+        <div class="sponsor-card">
           <div class="sponsor-avatar"><img src="./assests/profile.jpg" alt=""></div>
           <div class="sponsor-info">
-            <div class="sponsor-name" id="sponsor-name">Hasan Mahmud</div>
+            <a href="https://smartsoft.bd/" target="_blank" class="sponsor-name-link" id="sponsor-name">Hasan Mahmud</a>
             <div class="sponsor-role" id="sponsor-role">Managing Director · Smart Soft Ltd.</div>
-            <span class="sponsor-fb">Facebook: <span
-                id="sponsor-fb-text">https://www.facebook.com/mahmudzohan</span></span>
+            <div class="sponsor-links">
+              <a href="https://www.facebook.com/mahmudzohan" target="_blank" class="sponsor-link-item">📘 <span
+                  id="sponsor-fb-text">Facebook</span></a>
+              <a href="https://wa.me/8801725713675" target="_blank" class="sponsor-link-item">💬
+                <span>WhatsApp</span></a>
+            </div>
           </div>
-        </a>
-
+        </div>
       </div>
     </div>
 
@@ -2888,385 +3070,418 @@ facebook.com/groups/meherpurzilacommunityclub" target="_blank" class="btn-primar
   </footer>
 
   <script>
-// ── LANGUAGE ──────────────────────────────────────────────────────────
-let lang = 'bn';
-const translations = {
-  bn: {
-    'nav-title': 'মেহেরপুর জেলা কমিউনিটি ক্লাব',
-    'nav-sub': 'ঢাকা, বাংলাদেশ',
-    'nav-about': 'আমাদের সম্পর্কে', 'nav-activities': 'কার্যক্রম',
-    'nav-membership': 'সদস্যপদ', 'nav-events': 'ইভেন্ট',
-    'nav-gallery': 'গ্যালারি', 'nav-contact': 'যোগাযোগ',
-    'joinBtnNav': 'যোগ দিন', 'langBtn': 'EN',
-    'badge-text': 'সক্রিয় কমিউনিটি • ঢাকা',
-    'hero-title': 'মেহেরপুর জেলা<br><span style="color:var(--pink)">কমিউনিটি ক্লাব</span><br>ঢাকা',
-    'hero-subtitle': 'ঢাকায় বসবাসকারী মেহেরপুর জেলার মানুষদের একটি অরাজনৈতিক সামাজিক প্ল্যাটফর্ম — যেখানে পাওয়া যায় সহযোগিতা, সুযোগ ও আপনজনের সান্নিধ্য।',
-    'hero-tagline': '"ঢাকায় প্রতিটি মেহেরপুরবাসীর জন্য — ঐক্য, সহায়তা ও সুযোগ"',
-    'hero-join': '🤝 যোগ দিন', 'hero-learn': 'আরও জানুন →',
-    'stat1': 'সদস্য', 'stat2': 'বছর', 'stat3': 'ইভেন্ট',
-    'mc1': 'চাকরির সুযোগ', 'mc2': 'রক্তদান', 'mc3': 'শিক্ষা সহায়তা', 'mc4': 'সামাজিক অনুষ্ঠান',
-    'about-tag': 'আমাদের সম্পর্কে',
-    'about-title': 'মেহেরপুরবাসীদের ঢাকায় একটি পরিবার',
-    'about-p1': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা হলো মেহেরপুর জেলার মানুষদের দ্বারা গঠিত একটি জেলাভিত্তিক সামাজিক সংগঠন যারা বর্তমানে ঢাকায় বসবাস করছেন।',
-    'about-p2': 'এই কমিউনিটি যোগাযোগ, সহযোগিতা ও পারস্পরিক সহায়তার জন্য একটি শক্তিশালী নেটওয়ার্ক তৈরি করে মেহেরপুরের মানুষদের মধ্যে সেতুবন্ধন হিসেবে কাজ করে।',
-    'about-p3': 'এটি কোনো রাজনৈতিক সংগঠন নয় এবং কোনো সরকারি কর্তৃপক্ষের অধীনে পরিচালিত হয় না। এটি সম্পূর্ণ স্বেচ্ছাসেবী একটি সামাজিক উদ্যোগ।',
-    'mission-title': '🎯 মিশন', 'mission-text': 'ঢাকায় মেহেরপুরের মানুষদের জন্য একটি শক্তিশালী, ঐক্যবদ্ধ ও সহায়তামূলক নেটওয়ার্ক তৈরি করা।',
-    'vision-title': '👁️ ভিশন', 'vision-text': 'একটি সুসংগঠিত কমিউনিটি গড়ে তোলা যেখানে প্রতিটি সদস্য সহায়তা, সুযোগ ও আপনজনের সান্নিধ্য পাবেন।',
-    'act-tag': 'মূল কার্যক্রম', 'act-title': 'আমরা যা করি',
-    'act-desc': 'আমাদের কমিউনিটি সদস্যদের জীবনকে সহজ ও সুন্দর করতে বিভিন্ন কার্যক্রম পরিচালনা করে',
-    'a1-title': 'সামাজিক নেটওয়ার্কিং', 'a1-desc': 'ঢাকায় মেহেরপুরের মানুষদের মধ্যে পারস্পরিক যোগাযোগ ও সম্পর্ক তৈরি করা।',
-    'a2-title': 'নতুনদের সহায়তা', 'a2-desc': 'ঢাকায় নতুন আসা সদস্যদের থিতু হতে সহায়তা করা ও গাইড করা।',
-    'a3-title': 'চাকরির সুযোগ শেয়ার', 'a3-desc': 'ঢাকা ও সারাদেশে চাকরির সার্কুলার এবং ক্যারিয়ার আপডেট শেয়ার করা।',
-    'a4-title': 'শিক্ষা সহায়তা', 'a4-desc': 'শিক্ষামূলক সহায়তা, গাইডেন্স, টিউশন ও স্কলারশিপ তথ্য প্রদান।',
-    'a5-title': 'সামাজিক অনুষ্ঠান', 'a5-desc': 'সামাজিক ইভেন্ট ও সম্মিলনী আয়োজন করে পারস্পরিক বন্ধন দৃঢ় করা।',
-    'a6-title': 'জরুরি সহায়তা', 'a6-desc': 'রক্তদান, চিকিৎসা সহায়তা ও জরুরি প্রয়োজনে পাশে থাকা।',
-    'a7-title': 'সাংস্কৃতিক অনুষ্ঠান', 'a7-desc': 'সাংস্কৃতিক অনুষ্ঠান ও পুনর্মিলনী আয়োজন করে ঐতিহ্য ধরে রাখা।',
-    'a8-title': 'ফ্রিল্যান্স ও ব্যবসা', 'a8-desc': 'ফ্রিল্যান্স, ব্যবসা প্রমোশন ও দক্ষতা উন্নয়নের সুযোগ তৈরি করা।',
-    'mem-tag': 'সদস্যপদ', 'mem-title': 'আমাদের সাথে যোগ দিন', 'mem-desc': 'সদস্যপদ বিনামূল্যে এবং সম্পূর্ণ স্বেচ্ছাসেবী',
-    'who-can-join': 'যারা যোগ দিতে পারবেন',
-    'mq1': 'মেহেরপুর জেলার মূল বাসিন্দা', 'mq2': 'মেহেরপুরের সাথে শক্তিশালী সম্পর্ক আছে এমন যেকেউ',
-    'mq3': 'ঢাকায় বসবাসরত ও কমিউনিটিতে আগ্রহী যেকেউ', 'mq4': 'সদস্যপদ সম্পূর্ণ বিনামূল্যে ও স্বেচ্ছাসেবী',
-    'rules-title': 'কমিউনিটি নিয়ম',
-    'r1': 'সকল সদস্যের প্রতি সম্মান বজায় রাখুন', 'r2': 'কোনো রাজনৈতিক বিতর্ক বা ঘৃণামূলক বক্তব্য নয়',
-    'r3': 'স্প্যাম বা অপ্রাসঙ্গিক বিজ্ঞাপন দেবেন না', 'r4': 'শুধুমাত্র যাচাইকৃত ও উপকারী তথ্য শেয়ার করুন',
-    'r5': 'পোস্ট ও মন্তব্যে শৃঙ্খলা বজায় রাখুন', 'r6': 'কমিউনিটির মূল্যবোধ ও ঐক্য সমুন্নত রাখুন',
-    'ev-tag': 'ইভেন্ট ও অনুষ্ঠান', 'ev-title': 'আমাদের অনুষ্ঠানসমূহ',
-    'ev-desc': 'সারা বছর আমরা বিভিন্ন সামাজিক ও সাংস্কৃতিক অনুষ্ঠান আয়োজন করি',
-    'et1': 'বার্ষিক', 'en1': 'পুনর্মিলনী অনুষ্ঠান', 'ep1': 'বার্ষিক বা মৌসুমী পুনর্মিলনী অনুষ্ঠান',
-    'et2': 'রমজান', 'en2': 'ইফতার মাহফিল', 'ep2': 'রমজানে ইফতার মাহফিলের আয়োজন',
-    'et3': 'সাংস্কৃতিক', 'en3': 'সাংস্কৃতিক অনুষ্ঠান', 'ep3': 'সংস্কৃতি ও ঐতিহ্য উদযাপন',
-    'et4': 'দাতব্য', 'en4': 'দান ও সহায়তা', 'ep4': 'দাতব্য ও অনুদান কার্যক্রম',
-    'emg-tag': 'জরুরি সহায়তা', 'emg-title': 'বিপদে পাশে আছি',
-    'emg-desc': 'আপনার যেকোনো জরুরি প্রয়োজনে কমিউনিটি সবসময় পাশে আছে',
-    'eg1-title': 'রক্তদান', 'eg1-desc': 'জরুরি রক্তের প্রয়োজনে সাহায্যের জন্য পোস্ট করুন',
-    'eg2-title': 'চিকিৎসা সহায়তা', 'eg2-desc': 'চিকিৎসা জরুরি অবস্থায় সহায়তা ও গাইডেন্স',
-    'eg3-title': 'আর্থিক সহায়তা', 'eg3-desc': 'কমিউনিটিভিত্তিক আর্থিক জরুরি সহায়তা',
-    'eg4-title': 'জরুরি যোগাযোগ', 'eg4-desc': 'নিখোঁজ ব্যক্তি বা জরুরি যোগাযোগের প্রয়োজনে',
-    'gal-tag': 'গ্যালারি', 'gal-title': 'আমাদের মুহূর্তগুলো', 'gal-desc': 'কমিউনিটির বিভিন্ন অনুষ্ঠান ও কার্যক্রমের ছবি',
-    'con-tag': 'যোগাযোগ', 'con-title': 'আমাদের সাথে সংযুক্ত হন',
-    'con-desc': 'আজই কমিউনিটিতে যোগ দিন এবং মেহেরপুরের বড় পরিবারের অংশ হন',
-    'con-info-title': '📋 কমিউনিটি তথ্য',
-    'ci1-label': 'নাম', 'ci1-val': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা',
-    'ci2-label': 'অবস্থান', 'ci2-val': 'ঢাকা, বাংলাদেশ',
-    'ci3-label': 'উৎপত্তি', 'ci3-val': 'মেহেরপুর জেলা',
-    'ci4-label': 'প্রকৃতি', 'ci4-val': 'অরাজনৈতিক, স্বেচ্ছাসেবী সামাজিক সংগঠন',
-    'join-title': '🚀 কীভাবে যোগ দেবেন',
-    'join-desc': 'মাত্র কয়েকটি সহজ ধাপে আমাদের কমিউনিটির অংশ হয়ে যান:',
-    'js1': 'ফেসবুক গ্রুপে যোগ দিন', 'js2': 'কমিউনিটি অ্যাডমিনের সাথে যোগাযোগ করুন',
-    'js3': 'ইভেন্ট ও কার্যক্রমে অংশ নিন', 'js4': 'ঢাকায় অন্যান্য মেহেরপুরবাসীকে আমন্ত্রণ জানান',
-    'join-fb-btn': '📘 ফেসবুক গ্রুপে যোগ দিন',
-    'footer-tagline': '"ঢাকায় প্রতিটি মেহেরপুরবাসীর জন্য — ঐক্য, সহায়তা ও সুযোগ"',
-    'fl1': 'আমাদের সম্পর্কে', 'fl2': 'কার্যক্রম', 'fl3': 'ইভেন্ট', 'fl4': 'যোগাযোগ', 'fl5': 'ফেসবুক',
-    'mn-about': 'আমাদের সম্পর্কে', 'mn-activities': 'কার্যক্রম', 'mn-membership': 'সদস্যপদ',
-    'mn-events': 'ইভেন্ট', 'mn-gallery': 'গ্যালারি', 'mn-contact': 'যোগাযোগ', 'mn-join': 'যোগ দিন →',
-    'mn-bani': 'বাণী', 'mn-leadership': 'কমিটি',
-    'nav-bani': 'বাণী', 'nav-leadership': 'কমিটি',
-    // BANI SECTION
-    'bani-tag': 'নেতৃবৃন্দের বাণী', 'bani-title': 'সভাপতি ও সম্পাদকের বাণী',
-    'bani-desc': 'আমাদের নেতৃবৃন্দের অনুপ্রেরণামূলক বার্তা পড়ুন',
-    'bani-pres-name': '[সভাপতির নাম]', 'bani-pres-role': 'সভাপতি',
-    'bani-pres-preview': 'আসসালামু আলাইকুম। মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা-এর পক্ষ থেকে সকল সদস্য, শুভানুধ্যায়ী এবং মেহেরপুরবাসীকে আন্তরিক শুভেচ্ছা ও অভিনন্দন জানাই।',
-    'bani-pres-full': '<br>মেহেরপুর জেলার ঢাকায় বসবাসরত মানুষের মধ্যে পারস্পরিক সম্প্রীতি, সহযোগিতা ও ভ্রাতৃত্ববোধ গড়ে তোলার লক্ষ্য নিয়ে আমাদের এই সংগঠনের পথচলা।<br><br>আমাদের প্রত্যাশা, এই ক্লাব হবে ঢাকায় বসবাসরত মেহেরপুরবাসীর একটি নির্ভরযোগ্য ও আন্তরিক প্ল্যাটফর্ম। সকলের সুস্বাস্থ্য, সুখ এবং সমৃদ্ধি কামনা করছি।',
-    'bani-pres-btn': 'আরও পড়ুন',
-    'bani-sec-name': 'এম.এ.এস ইমন', 'bani-sec-role': 'সাধারণ সম্পাদক',
-    'bani-sec-preview': 'আসসালামু আলাইকুম। মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা-এর পক্ষ থেকে সকল সদস্য, শুভানুধ্যায়ী এবং দর্শনার্থীদের আন্তরিক শুভেচ্ছা জানাচ্ছি।',
-    'bani-sec-full': '<br>এই সংগঠনটি শুধু একটি সামাজিক প্ল্যাটফর্ম নয়; এটি ঢাকায় বসবাসরত মেহেরপুরবাসীর মধ্যে পারস্পরিক যোগাযোগ, সহযোগিতা এবং সৌহার্দ্যের একটি সেতুবন্ধন।<br><br>আসুন, আমরা সবাই মিলে একটি ঐক্যবদ্ধ, মানবিক ও প্রগতিশীল কমিউনিটি গড়ে তুলি।',
-    'bani-sec-btn': 'আরও পড়ুন',
-    // LEADERSHIP SECTION
-    'lead-tag': 'কমিটি', 'lead-title': 'আমাদের কমিটি',
-    'lead-desc': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা-এর নিবেদিতপ্রাণ কমিটি',
-    'ldr1-role': 'সভাপতি', 'ldr2-role': 'সহ-সভাপতি', 'ldr3-role': 'সাধারণ সম্পাদক',
-    'ldr4-role': 'মহিলা বিষয়ক সম্পাদক', 'ldr5-role': 'সাংগঠনিক সম্পাদক', 'ldr6-role': 'সিনিয়র সহ-সভাপতি',
-    'ldr7-role': 'প্রচার সম্পাদক', 'ldr8-role': 'যুগ্ম  সম্পাদক',
-    'ldr9-role': 'সাংগঠনিক সম্পাদক', 'ldr10-role': 'সাংগঠনিক সম্পাদক', 'ldr11-role': 'পাঠাগার সম্পাদক', 'ldr12-role': 'মুখপাত্র', 'ldr13-role': 'সহ-সভাপতি',
-    // MAP SECTION
-    'map-tag': 'আমাদের অবস্থান', 'map-title': 'বাংলাদেশের মানচিত্র',
-    'map-desc': 'মেহেরপুর থেকে ঢাকা — দূরত্ব নয়, হৃদয়ের বন্ধন',
-    'leg-meherpur': 'মেহেরপুর', 'leg-dhaka': 'ঢাকা', 'leg-other': 'অন্যান্য জেলা',
-    'map-two-cities': 'আমাদের দুই শহর',
-    'map-badge-meherpur': 'উৎপত্তিস্থল', 'map-meherpur-title': '🏡 মেহেরপুর জেলা',
-    'map-meherpur-desc': 'আমাদের শিকড়, আমাদের পরিচয়। মেহেরপুর বাংলাদেশের মুক্তিযুদ্ধের ইতিহাসের সঙ্গে গভীরভাবে যুক্ত — এখানেই ১৯৭১ সালে প্রথম স্বাধীন সরকার গঠিত হয়েছিল।',
-    'map-badge-dhaka': 'বর্তমান অবস্থান', 'map-dhaka-title': '🏙️ ঢাকা — রাজধানী',
-    'map-dhaka-desc': 'বাংলাদেশের রাজধানী ও সবচেয়ে বড় শহর। ঢাকায় মেহেরপুরের হাজারো মানুষ বসবাস করছেন — তাদের নিয়েই আমাদের এই কমিউনিটি।',
-    'map-64-title': '📍 ৬৪টি জেলা, এক পরিবার',
-    'map-64-desc': 'বাংলাদেশের যেকোনো জেলায় জন্ম হোক — মেহেরপুরের সাথে সম্পর্ক থাকলে আমাদের কমিউনিটিতে স্বাগত।',
-    // REGISTRATION SECTION
-    'reg-tag': 'সদস্য নিবন্ধন', 'reg-title': 'রেজিস্ট্রেশন করুন',
-    'reg-desc': 'বিনামূল্যে নিবন্ধন করে কমিউনিটির পূর্ণ সুবিধা উপভোগ করুন',
-    'reg-why-title': 'কেন সদস্য হবেন?',
-    'reg-why-desc': 'মেহেরপুর জেলা কমিউনিটি ক্লাবের সদস্য হলে আপনি পাবেন ঢাকায় আপনার জেলার মানুষদের একটি বিশাল নেটওয়ার্ক, সহায়তা ও সুযোগ।',
-    'rb1': 'চাকরি ও ব্যবসার সুযোগ সরাসরি পাওয়া', 'rb2': 'জরুরি রক্তদান ও চিকিৎসা সহায়তা',
-    'rb3': 'ইভেন্ট ও পুনর্মিলনীতে আমন্ত্রণ', 'rb4': 'ঢাকায় নতুন এলে গাইডেন্স ও সহায়তা',
-    'rb5': 'শিক্ষা ও দক্ষতা উন্নয়নের তথ্য', 'rb6': 'সম্পূর্ণ বিনামূল্যে ও স্বেচ্ছাসেবী',
-    'reg-form-title': '📝 নিবন্ধন ফর্ম', 'reg-form-sub': 'তথ্য পূরণ করুন, অ্যাডমিন যোগাযোগ করবেন',
-    'lbl-name': 'পুরো নাম *', 'lbl-phone': 'মোবাইল নম্বর *', 'lbl-email': 'ইমেইল (ঐচ্ছিক)',
-    'lbl-upazila': 'মেহেরপুরের উপজেলা *', 'lbl-area': 'ঢাকায় এলাকা', 'lbl-occ': 'পেশা',
-    'opt-select': 'বেছে নিন', 'opt-sadar': 'মেহেরপুর সদর', 'opt-gangni': 'গাংনী', 'opt-mujibnagar': 'মুজিবনগর',
-    'occ-select': 'বেছে নিন', 'occ-job': 'চাকরিজীবী', 'occ-biz': 'ব্যবসায়ী',
-    'occ-student': 'শিক্ষার্থী', 'occ-free': 'ফ্রিল্যান্সার', 'occ-other': 'অন্যান্য',
-    'reg-btn': '✅ নিবন্ধন সম্পন্ন করুন',
-    'reg-note': 'নিবন্ধনের পর আমাদের <a href="https://facebook.com/groups/meherpurcommunitydhaka" target="_blank" style="color:var(--pink)" id="reg-fb-link">ফেসবুক গ্রুপে</a> যোগ দিতে ভুলবেন না',
-    'reg-success-title': 'নিবন্ধন সফল হয়েছে!',
-    'reg-success-desc': 'আপনার তথ্য পাঠানো হয়েছে। অ্যাডমিন শীঘ্রই যোগাযোগ করবেন।<br>এরপর ফেসবুক গ্রুপে যোগ দিন।',
-    'reg-success-btn': '📘 ফেসবুক গ্রুপে যোগ দিন',
-    'footer-logo': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা',
-    'ft-brand-sub': 'ঢাকা, বাংলাদেশ',
-    'ft-desc': 'ঢাকায় বসবাসকারী মেহেরপুর জেলার মানুষদের একটি অরাজনৈতিক, স্বেচ্ছাসেবী সামাজিক প্ল্যাটফর্ম।',
-    'footer-copy': '© ২০২৬ মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা। সর্বস্বত্ব সংরক্ষিত।',
-    'ft-links-title': 'দ্রুত লিংক',
-    'fl1': 'আমাদের সম্পর্কে', 'fl2': 'কার্যক্রম', 'fl3-mem': 'সদস্যপদ',
-    'fl3': 'ইভেন্ট', 'fl-reg': 'নিবন্ধন', 'fl4': 'যোগাযোগ', 'fl5': 'ফেসবুক গ্রুপ',
-    'ft-contact-title': 'যোগাযোগ',
-    'ft-addr': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা, বাংলাদেশ',
-    'ft-fb-link': 'facebook.com/groups/meherpurcommunitydhaka',
-    'ft-nature': 'অরাজনৈতিক · স্বেচ্ছাসেবী · সামাজিক সংগঠন',
-    'ft-imp-title': 'গুরুত্বপূর্ণ লিংক',
-    'imp1': 'আবেদন ফর্ম', 'imp2': 'কমিউনিটি নিয়ম', 'imp3': 'এক নজরে মেহেরপুর',
-    'imp4': 'রক্তদান', 'imp5': 'ইভেন্ট',
-    'ft-sponsored': 'স্পনসর',
-    'sponsor-name': 'হাসান মাহমুদ',
-    'sponsor-role': 'ম্যানেজিং ডিরেক্টর · স্মার্ট সফট লিমিটেড',
-    'sponsor-fb-text': 'https://www.facebook.com/mahmudzohan',
-    'ft-sponsor-note': 'স্পন্সর হতে চান? <a href="mailto:info@meherpurcommunity.org" style="color:var(--pink); text-decoration:none" id="ft-sponsor-link">যোগাযোগ করুন</a>',
-    'ft-devby-label': 'ডেভেলপ করেছেন',
-    'ft-devby-link': '⚡ Smart Soft Ltd.',
-    'nav-reg': 'নিবন্ধন',
-  },
-  en: {
-    'nav-title': 'Meherpur Zila Community Club',
-    'nav-sub': 'Dhaka, Bangladesh',
-    'nav-about': 'About', 'nav-activities': 'Activities',
-    'nav-membership': 'Membership', 'nav-events': 'Events',
-    'nav-gallery': 'Gallery', 'nav-contact': 'Contact',
-    'joinBtnNav': 'Join Us', 'langBtn': 'বাং',
-    'badge-text': 'Active Community • Dhaka',
-    'hero-title': 'Meherpur Zila<br><span style="color:var(--pink)">Community Club</span><br>Dhaka',
-    'hero-subtitle': 'A non-political social platform connecting people from Meherpur district living in Dhaka — fostering cooperation, opportunity, and community.',
-    'hero-tagline': '"Unity, Support & Opportunity for Every Meherpurian in Dhaka"',
-    'hero-join': '🤝 Join Now', 'hero-learn': 'Learn More →',
-    'stat1': 'Members', 'stat2': 'Years', 'stat3': 'Events',
-    'mc1': 'Job Opportunities', 'mc2': 'Blood Donation', 'mc3': 'Education Support', 'mc4': 'Social Events',
-    'about-tag': 'About Us',
-    'about-title': 'A Family for Meherpurians in Dhaka',
-    'about-p1': 'Meherpur Zila Community Club, Dhaka is a district-based social organization formed by people originally from Meherpur district who currently live in Dhaka.',
-    'about-p2': 'The community works as a bridge between people of Meherpur by creating a strong network for communication, cooperation, and mutual support.',
-    'about-p3': 'It is not a political organization and does not operate under any government authority. It is a voluntary social initiative.',
-    'mission-title': '🎯 Mission', 'mission-text': 'To create a strong, united, and supportive network for the people of Meherpur living in Dhaka.',
-    'vision-title': '👁️ Vision', 'vision-text': 'To build a well-connected community where every member can get support, opportunities, and a sense of belonging.',
-    'act-tag': 'Core Activities', 'act-title': 'What We Do',
-    'act-desc': 'Our community runs various programs to make life easier and better for members',
-    'a1-title': 'Social Networking', 'a1-desc': 'Building connections among Meherpur people living in Dhaka.',
-    'a2-title': 'Help Newcomers', 'a2-desc': 'Assisting new members to settle down in Dhaka with guidance.',
-    'a3-title': 'Job Sharing', 'a3-desc': 'Sharing job circulars and career updates across Dhaka and nationwide.',
-    'a4-title': 'Education Support', 'a4-desc': 'Providing educational support, tuition, and scholarship information.',
-    'a5-title': 'Social Events', 'a5-desc': 'Organizing social events and gatherings to strengthen bonds.',
-    'a6-title': 'Emergency Support', 'a6-desc': 'Blood donation, medical help, and emergency assistance.',
-    'a7-title': 'Cultural Programs', 'a7-desc': 'Organizing cultural events and reunions to preserve heritage.',
-    'a8-title': 'Freelance & Business', 'a8-desc': 'Creating opportunities for freelancing, business promotion, and skill development.',
-    'mem-tag': 'Membership', 'mem-title': 'Join Our Community', 'mem-desc': 'Membership is free and completely voluntary',
-    'who-can-join': 'Who Can Join',
-    'mq1': 'Originally from Meherpur district', 'mq2': 'Anyone with strong connection to Meherpur',
-    'mq3': 'Living in Dhaka and interested in the community', 'mq4': 'Membership is free and voluntary',
-    'rules-title': 'Community Rules',
-    'r1': 'Be respectful to all members', 'r2': 'No political arguments or hate speech',
-    'r3': 'No spam or irrelevant advertising', 'r4': 'Only share verified or useful information',
-    'r5': 'Maintain discipline in posts and comments', 'r6': 'Support community values and unity',
-    'ev-tag': 'Events & Programs', 'ev-title': 'Our Programs',
-    'ev-desc': 'Throughout the year we organize various social and cultural events',
-    'et1': 'Annual', 'en1': 'Reunion Program', 'ep1': 'Annual or seasonal reunion gathering',
-    'et2': 'Ramadan', 'en2': 'Iftar Mahfil', 'ep2': 'Iftar gathering during Ramadan',
-    'et3': 'Cultural', 'en3': 'Cultural Program', 'ep3': 'Celebrating culture and heritage',
-    'et4': 'Charity', 'en4': 'Donation Drive', 'ep4': 'Charity and donation programs',
-    'emg-tag': 'Emergency Support', 'emg-title': 'We Stand By You',
-    'emg-desc': 'The community is always ready to help in any emergency situation',
-    'eg1-title': 'Blood Donation', 'eg1-desc': 'Post a request for urgent blood donation needs',
-    'eg2-title': 'Medical Help', 'eg2-desc': 'Guidance and support during medical emergencies',
-    'eg3-title': 'Financial Aid', 'eg3-desc': 'Community-based financial emergency assistance',
-    'eg4-title': 'Urgent Contact', 'eg4-desc': 'For missing persons or urgent communication needs',
-    'gal-tag': 'Gallery', 'gal-title': 'Our Moments', 'gal-desc': 'Photos from community events and activities',
-    'con-tag': 'Contact', 'con-title': 'Connect With Us',
-    'con-desc': 'Join our community today and be part of the big Meherpur family in Dhaka',
-    'con-info-title': '📋 Community Info',
-    'ci1-label': 'Name', 'ci1-val': 'Meherpur Zila Community Club, Dhaka',
-    'ci2-label': 'Location', 'ci2-val': 'Dhaka, Bangladesh',
-    'ci3-label': 'Origin', 'ci3-val': 'Meherpur District',
-    'ci4-label': 'Nature', 'ci4-val': 'Non-political, voluntary social organization',
-    'join-title': '🚀 How to Join',
-    'join-desc': 'Become part of our community in just a few easy steps:',
-    'js1': 'Join via Facebook Group', 'js2': 'Contact community admins',
-    'js3': 'Participate in events and activities', 'js4': 'Invite other Meherpur people in Dhaka',
-    'join-fb-btn': '📘 Join Facebook Group',
-    'footer-tagline': '"Unity, Support & Opportunity for Every Meherpurian in Dhaka"',
-    'fl1': 'About', 'fl2': 'Activities', 'fl3': 'Events', 'fl4': 'Contact', 'fl5': 'Facebook',
-    'mn-about': 'About', 'mn-activities': 'Activities', 'mn-membership': 'Membership',
-    'mn-events': 'Events', 'mn-gallery': 'Gallery', 'mn-contact': 'Contact', 'mn-join': 'Join Us →',
-    'mn-bani': 'Messages', 'mn-leadership': 'Committee',
-    'nav-bani': 'Messages', 'nav-leadership': 'Committee',
-    // BANI SECTION
-    'bani-tag': 'Leadership Messages', 'bani-title': 'Messages from Our Leaders',
-    'bani-desc': 'Read inspiring messages from our president and secretary',
-    'bani-pres-name': 'Selim Ahmed', 'bani-pres-role': 'President',
-    'bani-pres-preview': 'Assalamu Alaikum. On behalf of Meherpur Zila Community Club, Dhaka, I extend warm greetings and congratulations to all members, well-wishers, and the people of Meherpur.',
-    'bani-pres-full': '<br>Our organization was founded with the goal of fostering mutual harmony, cooperation and brotherhood among the people of Meherpur district living in Dhaka. We believe that united efforts can play a vital role in social development and human welfare.<br><br>It is our hope that this club will become a reliable and heartfelt platform for Meherpurians living in Dhaka, where everyone shares joys and sorrows and stands by each other when needed. We wish everyone good health, happiness and prosperity.',
-    'bani-pres-btn': 'Read More',
-    'bani-sec-name': 'M.A.S Emon', 'bani-sec-role': 'General Secretary',
-    'bani-sec-preview': 'Assalamu Alaikum. On behalf of Meherpur Zila Community Club, Dhaka, I extend heartfelt greetings to all members, well-wishers and visitors.',
-    'bani-sec-full': '<br>This organization is not just a social platform; it is a bridge of communication, cooperation and goodwill among the Meherpurians living in Dhaka.<br><br>Let us all together build a united, humane and progressive community.',
-    'bani-sec-btn': 'Read More',
-    // LEADERSHIP SECTION
-    'lead-tag': 'Committee', 'lead-title': 'Our Committee',
-    'lead-desc': 'The dedicated committee of Meherpur Zila Community Club, Dhaka',
-    'ldr1-role': 'President', 'ldr2-role': 'Vice President',  'ldr3-role': 'General Secretary',
-    'ldr4-role': 'Women\'s Affairs Editor', 'ldr5-role': 'Organizational Secretary', 'ldr6-role': 'Senior Vice President',
-    'ldr7-role': 'Publicity Secretary', 'ldr8-role': 'Joint Secretary',
-    'ldr9-role': 'Organizational Secretary', 'ldr10-role': 'Organizational Secretary', 'ldr11-role': 'Library Secretary', 'ldr12-role': 'Spokesperson', 'ldr13-role': 'Vice President',
-    // MAP SECTION
-    'map-tag': 'Our Location', 'map-title': 'Map of Bangladesh',
-    'map-desc': 'From Meherpur to Dhaka — not distance, but a bond of hearts',
-    'leg-meherpur': 'Meherpur', 'leg-dhaka': 'Dhaka', 'leg-other': 'Other Districts',
-    'map-two-cities': 'Our Two Cities',
-    'map-badge-meherpur': 'Origin', 'map-meherpur-title': '🏡 Meherpur District',
-    'map-meherpur-desc': 'Our roots, our identity. Meherpur is deeply tied to Bangladesh\'s liberation history — the first independent government was formed here in 1971.',
-    'map-badge-dhaka': 'Current Location', 'map-dhaka-title': '🏙️ Dhaka — The Capital',
-    'map-dhaka-desc': 'The capital and largest city of Bangladesh. Thousands of Meherpurians live in Dhaka — and this community is for them.',
-    'map-64-title': '📍 64 Districts, One Family',
-    'map-64-desc': 'No matter which district you were born in — if you have a connection to Meherpur, you are welcome in our community.',
-    // REGISTRATION SECTION
-    'reg-tag': 'Member Registration', 'reg-title': 'Register Now',
-    'reg-desc': 'Register for free and enjoy the full benefits of the community',
-    'reg-why-title': 'Why Become a Member?',
-    'reg-why-desc': 'By joining the Meherpur Zila Community Club, you gain access to a vast network of people from your district in Dhaka, along with support and opportunities.',
-    'rb1': 'Direct access to job & business opportunities', 'rb2': 'Emergency blood donation & medical support',
-    'rb3': 'Invitations to events & reunions', 'rb4': 'Guidance & support when new to Dhaka',
-    'rb5': 'Education & skill development resources', 'rb6': 'Completely free & voluntary',
-    'reg-form-title': '📝 Registration Form', 'reg-form-sub': 'Fill in your details, an admin will contact you',
-    'lbl-name': 'Full Name *', 'lbl-phone': 'Mobile Number *', 'lbl-email': 'Email (optional)',
-    'lbl-upazila': 'Upazila in Meherpur *', 'lbl-area': 'Area in Dhaka', 'lbl-occ': 'Occupation',
-    'opt-select': 'Select', 'opt-sadar': 'Meherpur Sadar', 'opt-gangni': 'Gangni', 'opt-mujibnagar': 'Mujibnagar',
-    'occ-select': 'Select', 'occ-job': 'Service Holder', 'occ-biz': 'Businessman',
-    'occ-student': 'Student', 'occ-free': 'Freelancer', 'occ-other': 'Other',
-    'reg-btn': '✅ Complete Registration',
-    'reg-note': 'After registering, don\'t forget to join our <a href="https://www.facebook.com/share/g/1AD8y8vKsT/?mibextid=wwXIfr" target="_blank" style="color:var(--pink)" id="reg-fb-link">Facebook Group</a>',
-    'reg-success-title': 'Registration Successful!',
-    'reg-success-desc': 'Your information has been submitted. An admin will contact you soon.<br>Please join the Facebook group next.',
-    'reg-success-btn': '📘 Join Facebook Group',
-    'footer-logo': 'Meherpur Zila Community Club, Dhaka ',
-    'footer-copy': '© 2026 Meherpur Zila Community Club, Dhaka. All rights reserved.',
-    'nav-reg': 'Register',
-    'ft-brand-sub': 'Dhaka, Bangladesh',
-    'ft-desc': 'A non-political, voluntary social platform for people from Meherpur district living in Dhaka.',
-    'ft-links-title': 'Quick Links',
-    'fl1': 'About', 'fl2': 'Activities', 'fl3-mem': 'Membership',
-    'fl3': 'Events', 'fl-reg': 'Register', 'fl4': 'Contact', 'fl5': 'Facebook Group',
-    'ft-contact-title': 'Contact',
-    'ft-addr': 'Meherpur Zila Community Club, Dhaka, Bangladesh',
-    'ft-fb-link': 'facebook.com/groups/meherpurzilacommunityclub',
-    'ft-nature': 'Non-political · Voluntary · Social Organization',
-    'ft-imp-title': 'Important Links',
-    'imp1': 'Application Form', 'imp2': 'Community Rules', 'imp3': 'About Meherpur',
-    'imp4': 'Blood Donation', 'imp5': 'Events',
-    'ft-sponsored': 'Sponsored',
-    'sponsor-name': 'Hasan Mahmud',
-    'sponsor-role': 'Managing Director · Smart Soft Ltd.',
-    'sponsor-fb-text': 'https://www.facebook.com/mahmudzohan',
-    'ft-sponsor-note': 'Want to sponsor? <a href="mailto:info@meherpurcommunity.org" style="color:var(--pink); text-decoration:none" id="ft-sponsor-link">Contact us</a>',
-    'ft-devby-label': 'Developed by',
-    'ft-devby-link': '⚡ Smart Soft Ltd.',
-  }
-};
-
-function toggleLang() {
-  lang = lang === 'bn' ? 'en' : 'bn';
-  document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
-  const t = translations[lang];
-  Object.entries(t).forEach(([id, val]) => {
-    const el = document.getElementById(id);
-    if (el) el.innerHTML = val;
-  });
-  // swap input placeholders
-  const isBn = lang === 'bn';
-  document.getElementById('regName').placeholder  = isBn ? 'আপনার নাম'          : 'Your full name';
-  document.getElementById('regPhone').placeholder = isBn ? '01XXXXXXXXX'         : '01XXXXXXXXX';
-  document.getElementById('regEmail').placeholder = isBn ? 'email@example.com'   : 'email@example.com';
-  document.getElementById('regArea').placeholder  = isBn ? 'যেমন: মিরপুর, উত্তরা' : 'e.g. Mirpur, Uttara';
-  // Update read-more button labels based on current open/closed state
-  document.querySelectorAll('.bani-readmore').forEach(btn => {
-    const isOpen = btn.classList.contains('open');
-    const textEl = btn.querySelector('.bani-readmore-text');
-    if (textEl) {
-      if (isOpen) {
-        textEl.textContent = isBn ? 'সংক্ষেপ করুন' : 'Show Less';
-      } else {
-        textEl.textContent = isBn ? 'আরও পড়ুন' : 'Read More';
+    // ── LANGUAGE ──────────────────────────────────────────────────────────
+    let lang = 'bn';
+    const translations = {
+      bn: {
+        'nav-title': 'মেহেরপুর জেলা কমিউনিটি ক্লাব',
+        'nav-sub': 'ঢাকা, বাংলাদেশ',
+        'nav-about': 'আমাদের সম্পর্কে', 'nav-activities': 'কার্যক্রম',
+        'nav-membership': 'সদস্যপদ', 'nav-events': 'ইভেন্ট',
+        'nav-gallery': 'গ্যালারি', 'nav-contact': 'যোগাযোগ',
+        'joinBtnNav': 'যোগ দিন', 'langBtn': 'EN',
+        'badge-text': 'সক্রিয় কমিউনিটি • ঢাকা',
+        'hero-title': 'মেহেরপুর জেলা<br><span style="color:var(--pink)">কমিউনিটি ক্লাব</span><br>ঢাকা',
+        'hero-subtitle': 'ঢাকায় বসবাসকারী মেহেরপুর জেলার মানুষদের একটি অরাজনৈতিক সামাজিক প্ল্যাটফর্ম — যেখানে পাওয়া যায় সহযোগিতা, সুযোগ ও আপনজনের সান্নিধ্য।',
+        'hero-tagline': '"ঢাকায় প্রতিটি মেহেরপুরবাসীর জন্য — ঐক্য, সহায়তা ও সুযোগ"',
+        'hero-join': '🤝 যোগ দিন', 'hero-learn': 'আরও জানুন →',
+        'stat1': 'সদস্য', 'stat2': 'বছর', 'stat3': 'ইভেন্ট', 'stat-com': 'কমিটি',
+        'mc1': 'চাকরির সুযোগ', 'mc2': 'রক্তদান', 'mc3': 'শিক্ষা সহায়তা', 'mc4': 'সামাজিক অনুষ্ঠান',
+        'about-tag': 'আমাদের সম্পর্কে',
+        'about-title': 'মেহেরপুরবাসীদের ঢাকায় একটি পরিবার',
+        'about-p1': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা হলো মেহেরপুর জেলার মানুষদের দ্বারা গঠিত একটি জেলাভিত্তিক সামাজিক সংগঠন যারা বর্তমানে ঢাকায় বসবাস করছেন।',
+        'about-p2': 'এই কমিউনিটি যোগাযোগ, সহযোগিতা ও পারস্পরিক সহায়তার জন্য একটি শক্তিশালী নেটওয়ার্ক তৈরি করে মেহেরপুরের মানুষদের মধ্যে সেতুবন্ধন হিসেবে কাজ করে।',
+        'about-p3': 'এটি কোনো রাজনৈতিক সংগঠন নয় এবং কোনো সরকারি কর্তৃপক্ষের অধীনে পরিচালিত হয় না। এটি সম্পূর্ণ স্বেচ্ছাসেবী একটি সামাজিক উদ্যোগ।',
+        'mission-title': '🎯 মিশন', 'mission-text': 'ঢাকায় মেহেরপুরের মানুষদের জন্য একটি শক্তিশালী, ঐক্যবদ্ধ ও সহায়তামূলক নেটওয়ার্ক তৈরি করা।',
+        'vision-title': '👁️ ভিশন', 'vision-text': 'একটি সুসংগঠিত কমিউনিটি গড়ে তোলা যেখানে প্রতিটি সদস্য সহায়তা, সুযোগ ও আপনজনের সান্নিধ্য পাবেন।',
+        'act-tag': 'মূল কার্যক্রম', 'act-title': 'আমরা যা করি',
+        'act-desc': 'আমাদের কমিউনিটি সদস্যদের জীবনকে সহজ ও সুন্দর করতে বিভিন্ন কার্যক্রম পরিচালনা করে',
+        'a1-title': 'সামাজিক নেটওয়ার্কিং', 'a1-desc': 'ঢাকায় মেহেরপুরের মানুষদের মধ্যে পারস্পরিক যোগাযোগ ও সম্পর্ক তৈরি করা।',
+        'a2-title': 'নতুনদের সহায়তা', 'a2-desc': 'ঢাকায় নতুন আসা সদস্যদের থিতু হতে সহায়তা করা ও গাইড করা।',
+        'a3-title': 'চাকরির সুযোগ শেয়ার', 'a3-desc': 'ঢাকা ও সারাদেশে চাকরির সার্কুলার এবং ক্যারিয়ার আপডেট শেয়ার করা।',
+        'a4-title': 'শিক্ষা সহায়তা', 'a4-desc': 'শিক্ষামূলক সহায়তা, গাইডেন্স, টিউশন ও স্কলারশিপ তথ্য প্রদান।',
+        'a5-title': 'সামাজিক অনুষ্ঠান', 'a5-desc': 'সামাজিক ইভেন্ট ও সম্মিলনী আয়োজন করে পারস্পরিক বন্ধন দৃঢ় করা।',
+        'a6-title': 'জরুরি সহায়তা', 'a6-desc': 'রক্তদান, চিকিৎসা সহায়তা ও জরুরি প্রয়োজনে পাশে থাকা।',
+        'a7-title': 'সাংস্কৃতিক অনুষ্ঠান', 'a7-desc': 'সাংস্কৃতিক অনুষ্ঠান ও পুনর্মিলনী আয়োজন করে ঐতিহ্য ধরে রাখা।',
+        'a8-title': 'ফ্রিল্যান্স ও ব্যবসা', 'a8-desc': 'ফ্রিল্যান্স, ব্যবসা প্রমোশন ও দক্ষতা উন্নয়নের সুযোগ তৈরি করা।',
+        'mem-tag': 'সদস্যপদ', 'mem-title': 'আমাদের সাথে যোগ দিন', 'mem-desc': 'সদস্যপদ বিনামূল্যে এবং সম্পূর্ণ স্বেচ্ছাসেবী',
+        'who-can-join': 'যারা যোগ দিতে পারবেন',
+        'mq1': 'মেহেরপুর জেলার মূল বাসিন্দা', 'mq2': 'মেহেরপুরের সাথে শক্তিশালী সম্পর্ক আছে এমন যেকেউ',
+        'mq3': 'ঢাকায় বসবাসরত ও কমিউনিটিতে আগ্রহী যেকেউ', 'mq4': 'সদস্যপদ সম্পূর্ণ বিনামূল্যে ও স্বেচ্ছাসেবী',
+        'rules-title': 'কমিউনিটি নিয়ম',
+        'r1': 'সকল সদস্যের প্রতি সম্মান বজায় রাখুন', 'r2': 'কোনো রাজনৈতিক বিতর্ক বা ঘৃণামূলক বক্তব্য নয়',
+        'r3': 'স্প্যাম বা অপ্রাসঙ্গিক বিজ্ঞাপন দেবেন না', 'r4': 'শুধুমাত্র যাচাইকৃত ও উপকারী তথ্য শেয়ার করুন',
+        'r5': 'পোস্ট ও মন্তব্যে শৃঙ্খলা বজায় রাখুন', 'r6': 'কমিউনিটির মূল্যবোধ ও ঐক্য সমুন্নত রাখুন',
+        'ev-tag': 'ইভেন্ট ও অনুষ্ঠান', 'ev-title': 'আমাদের অনুষ্ঠানসমূহ',
+        'ev-desc': 'সারা বছর আমরা বিভিন্ন সামাজিক ও সাংস্কৃতিক অনুষ্ঠান আয়োজন করি',
+        'et1': 'বার্ষিক', 'en1': 'পুনর্মিলনী অনুষ্ঠান', 'ep1': 'বার্ষিক বা মৌসুমী পুনর্মিলনী অনুষ্ঠান',
+        'et2': 'রমজান', 'en2': 'ইফতার মাহফিল', 'ep2': 'রমজানে ইফতার মাহফিলের আয়োজন',
+        'et3': 'সাংস্কৃতিক', 'en3': 'সাংস্কৃতিক অনুষ্ঠান', 'ep3': 'সংস্কৃতি ও ঐতিহ্য উদযাপন',
+        'et4': 'দাতব্য', 'en4': 'দান ও সহায়তা', 'ep4': 'দাতব্য ও অনুদান কার্যক্রম',
+        'emg-tag': 'জরুরি সহায়তা', 'emg-title': 'বিপদে পাশে আছি',
+        'emg-desc': 'আপনার যেকোনো জরুরি প্রয়োজনে কমিউনিটি সবসময় পাশে আছে',
+        'eg1-title': 'রক্তদান', 'eg1-desc': 'জরুরি রক্তের প্রয়োজনে সাহায্যের জন্য পোস্ট করুন',
+        'eg2-title': 'চিকিৎসা সহায়তা', 'eg2-desc': 'চিকিৎসা জরুরি অবস্থায় সহায়তা ও গাইডেন্স',
+        'eg3-title': 'আর্থিক সহায়তা', 'eg3-desc': 'কমিউনিটিভিত্তিক আর্থিক জরুরি সহায়তা',
+        'eg4-title': 'জরুরি যোগাযোগ', 'eg4-desc': 'নিখোঁজ ব্যক্তি বা জরুরি যোগাযোগের প্রয়োজনে',
+        'gal-tag': 'গ্যালারি', 'gal-title': 'আমাদের মুহূর্তগুলো', 'gal-desc': 'কমিউনিটির বিভিন্ন অনুষ্ঠান ও কার্যক্রমের ছবি',
+        'con-tag': 'যোগাযোগ', 'con-title': 'আমাদের সাথে সংযুক্ত হন',
+        'con-desc': 'আজই কমিউনিটিতে যোগ দিন এবং মেহেরপুরের বড় পরিবারের অংশ হন',
+        'con-info-title': '📋 কমিউনিটি তথ্য',
+        'ci1-label': 'নাম', 'ci1-val': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা',
+        'ci2-label': 'অবস্থান', 'ci2-val': 'ঢাকা, বাংলাদেশ',
+        'ci3-label': 'উৎপত্তি', 'ci3-val': 'মেহেরপুর জেলা',
+        'ci4-label': 'প্রকৃতি', 'ci4-val': 'অরাজনৈতিক, স্বেচ্ছাসেবী সামাজিক সংগঠন',
+        'join-title': '🚀 কীভাবে যোগ দেবেন',
+        'join-desc': 'মাত্র কয়েকটি সহজ ধাপে আমাদের কমিউনিটির অংশ হয়ে যান:',
+        'js1': 'ফেসবুক গ্রুপে যোগ দিন', 'js2': 'কমিউনিটি অ্যাডমিনের সাথে যোগাযোগ করুন',
+        'js3': 'ইভেন্ট ও কার্যক্রমে অংশ নিন', 'js4': 'ঢাকায় অন্যান্য মেহেরপুরবাসীকে আমন্ত্রণ জানান',
+        'join-fb-btn': '📘 ফেসবুক গ্রুপে যোগ দিন',
+        'footer-tagline': '"ঢাকায় প্রতিটি মেহেরপুরবাসীর জন্য — ঐক্য, সহায়তা ও সুযোগ"',
+        'fl1': 'আমাদের সম্পর্কে', 'fl2': 'কার্যক্রম', 'fl3': 'ইভেন্ট', 'fl4': 'যোগাযোগ', 'fl5': 'ফেসবুক',
+        'mn-about': 'আমাদের সম্পর্কে', 'mn-activities': 'কার্যক্রম', 'mn-membership': 'সদস্যপদ',
+        'mn-events': 'ইভেন্ট', 'mn-gallery': 'গ্যালারি', 'mn-contact': 'যোগাযোগ', 'mn-join': 'যোগ দিন →',
+        'mn-bani': 'বাণী', 'mn-leadership': 'কমিটি',
+        'nav-bani': 'বাণী', 'nav-leadership': 'কমিটি',
+        // BANI SECTION
+        'bani-tag': 'নেতৃবৃন্দের বাণী', 'bani-title': 'সভাপতি ও সম্পাদকের বাণী',
+        'bani-desc': 'আমাদের নেতৃবৃন্দের অনুপ্রেরণামূলক বার্তা পড়ুন',
+        'bani-pres-name': '[সভাপতির নাম]', 'bani-pres-role': 'সভাপতি',
+        'bani-pres-preview': 'আসসালামু আলাইকুম। মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা-এর পক্ষ থেকে সকল সদস্য, শুভানুধ্যায়ী এবং মেহেরপুরবাসীকে আন্তরিক শুভেচ্ছা ও অভিনন্দন জানাই।',
+        'bani-pres-full': '<br>মেহেরপুর জেলার ঢাকায় বসবাসরত মানুষের মধ্যে পারস্পরিক সম্প্রীতি, সহযোগিতা ও ভ্রাতৃত্ববোধ গড়ে তোলার লক্ষ্য নিয়ে আমাদের এই সংগঠনের পথচলা।<br><br>আমাদের প্রত্যাশা, এই ক্লাব হবে ঢাকায় বসবাসরত মেহেরপুরবাসীর একটি নির্ভরযোগ্য ও আন্তরিক প্ল্যাটফর্ম। সকলের সুস্বাস্থ্য, সুখ এবং সমৃদ্ধি কামনা করছি।',
+        'bani-pres-btn': 'আরও পড়ুন',
+        'bani-sec-name': 'এম.এ.এস ইমন', 'bani-sec-role': 'সাধারণ সম্পাদক',
+        'bani-sec-preview': 'আসসালামু আলাইকুম। মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা-এর পক্ষ থেকে সকল সদস্য, শুভানুধ্যায়ী এবং দর্শনার্থীদের আন্তরিক শুভেচ্ছা জানাচ্ছি।',
+        'bani-sec-full': '<br>এই সংগঠনটি শুধু একটি সামাজিক প্ল্যাটফর্ম নয়; এটি ঢাকায় বসবাসরত মেহেরপুরবাসীর মধ্যে পারস্পরিক যোগাযোগ, সহযোগিতা এবং সৌহার্দ্যের একটি সেতুবন্ধন।<br><br>আসুন, আমরা সবাই মিলে একটি ঐক্যবদ্ধ, মানবিক ও প্রগতিশীল কমিউনিটি গড়ে তুলি।',
+        'bani-sec-btn': 'আরও পড়ুন',
+        // LEADERSHIP SECTION
+        'lead-tag': 'কমিটি', 'lead-title': 'আমাদের কমিটি',
+        'lead-desc': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা-এর নিবেদিতপ্রাণ কমিটি',
+        'ldr1-role': 'সভাপতি', 'ldr2-role': 'সহ-সভাপতি', 'ldr3-role': 'সাধারণ সম্পাদক',
+        'ldr4-role': 'মহিলা বিষয়ক সম্পাদক', 'ldr5-role': 'সাংগঠনিক সম্পাদক', 'ldr6-role': 'সিনিয়র সহ-সভাপতি',
+        'ldr7-role': 'প্রচার সম্পাদক', 'ldr8-role': 'যুগ্ম  সম্পাদক',
+        'ldr9-role': 'সাংগঠনিক সম্পাদক', 'ldr10-role': 'সাংগঠনিক সম্পাদক', 'ldr11-role': 'পাঠাগার সম্পাদক', 'ldr12-role': 'মুখপাত্র', 'ldr13-role': 'সহ-সভাপতি',
+        // MAP SECTION
+        'map-tag': 'আমাদের অবস্থান', 'map-title': 'বাংলাদেশের মানচিত্র',
+        'map-desc': 'মেহেরপুর থেকে ঢাকা — দূরত্ব নয়, হৃদয়ের বন্ধন',
+        'leg-meherpur': 'মেহেরপুর', 'leg-dhaka': 'ঢাকা', 'leg-other': 'অন্যান্য জেলা',
+        'map-two-cities': 'আমাদের দুই শহর',
+        'map-badge-meherpur': 'উৎপত্তিস্থল', 'map-meherpur-title': '🏡 মেহেরপুর জেলা',
+        'map-meherpur-desc': 'আমাদের শিকড়, আমাদের পরিচয়। মেহেরপুর বাংলাদেশের মুক্তিযুদ্ধের ইতিহাসের সঙ্গে গভীরভাবে যুক্ত — এখানেই ১৯৭১ সালে প্রথম স্বাধীন সরকার গঠিত হয়েছিল।',
+        'map-badge-dhaka': 'বর্তমান অবস্থান', 'map-dhaka-title': '🏙️ ঢাকা — রাজধানী',
+        'map-dhaka-desc': 'বাংলাদেশের রাজধানী ও সবচেয়ে বড় শহর। ঢাকায় মেহেরপুরের হাজারো মানুষ বসবাস করছেন — তাদের নিয়েই আমাদের এই কমিউনিটি।',
+        'map-64-title': '📍 ৬৪টি জেলা, এক পরিবার',
+        'map-64-desc': 'বাংলাদেশের যেকোনো জেলায় জন্ম হোক — মেহেরপুরের সাথে সম্পর্ক থাকলে আমাদের কমিউনিটিতে স্বাগত।',
+        // REGISTRATION SECTION
+        'reg-tag': 'সদস্য নিবন্ধন', 'reg-title': 'রেজিস্ট্রেশন করুন',
+        'reg-desc': 'বিনামূল্যে নিবন্ধন করে কমিউনিটির পূর্ণ সুবিধা উপভোগ করুন',
+        'reg-why-title': 'কেন সদস্য হবেন?',
+        'reg-why-desc': 'মেহেরপুর জেলা কমিউনিটি ক্লাবের সদস্য হলে আপনি পাবেন ঢাকায় আপনার জেলার মানুষদের একটি বিশাল নেটওয়ার্ক, সহায়তা ও সুযোগ।',
+        'rb1': 'চাকরি ও ব্যবসার সুযোগ সরাসরি পাওয়া', 'rb2': 'জরুরি রক্তদান ও চিকিৎসা সহায়তা',
+        'rb3': 'ইভেন্ট ও পুনর্মিলনীতে আমন্ত্রণ', 'rb4': 'ঢাকায় নতুন এলে গাইডেন্স ও সহায়তা',
+        'rb5': 'শিক্ষা ও দক্ষতা উন্নয়নের তথ্য', 'rb6': 'সম্পূর্ণ বিনামূল্যে ও স্বেচ্ছাসেবী',
+        'reg-form-title': '📝 নিবন্ধন ফর্ম', 'reg-form-sub': 'তথ্য পূরণ করুন, অ্যাডমিন যোগাযোগ করবেন',
+        'lbl-name': 'পুরো নাম *', 'lbl-phone': 'মোবাইল নম্বর *', 'lbl-email': 'ইমেইল (ঐচ্ছিক)',
+        'lbl-upazila': 'মেহেরপুরের উপজেলা *', 'lbl-area': 'ঢাকায় এলাকা', 'lbl-occ': 'পেশা',
+        'opt-select': 'বেছে নিন', 'opt-sadar': 'মেহেরপুর সদর', 'opt-gangni': 'গাংনী', 'opt-mujibnagar': 'মুজিবনগর',
+        'occ-select': 'বেছে নিন', 'occ-job': 'চাকরিজীবী', 'occ-biz': 'ব্যবসায়ী',
+        'occ-student': 'শিক্ষার্থী', 'occ-free': 'ফ্রিল্যান্সার', 'occ-other': 'অন্যান্য',
+        'reg-btn': '✅ নিবন্ধন সম্পন্ন করুন',
+        'reg-note': 'নিবন্ধনের পর আমাদের <a href="https://facebook.com/groups/meherpurcommunitydhaka" target="_blank" style="color:var(--pink)" id="reg-fb-link">ফেসবুক গ্রুপে</a> যোগ দিতে ভুলবেন না',
+        'reg-success-title': 'নিবন্ধন সফল হয়েছে!',
+        'reg-success-desc': 'আপনার তথ্য পাঠানো হয়েছে। অ্যাডমিন শীঘ্রই যোগাযোগ করবেন।<br>এরপর ফেসবুক গ্রুপে যোগ দিন।',
+        'reg-success-btn': '📘 ফেসবুক গ্রুপে যোগ দিন',
+        'footer-logo': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা',
+        'ft-brand-sub': 'ঢাকা, বাংলাদেশ',
+        'ft-desc': 'ঢাকায় বসবাসকারী মেহেরপুর জেলার মানুষদের একটি অরাজনৈতিক, স্বেচ্ছাসেবী সামাজিক প্ল্যাটফর্ম।',
+        'footer-copy': '© ২০২৬ মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা। সর্বস্বত্ব সংরক্ষিত।',
+        'ft-links-title': 'দ্রুত লিংক',
+        'fl1': 'আমাদের সম্পর্কে', 'fl2': 'কার্যক্রম', 'fl3-mem': 'সদস্যপদ',
+        'fl3': 'ইভেন্ট', 'fl-reg': 'নিবন্ধন', 'fl4': 'যোগাযোগ', 'fl5': 'ফেসবুক গ্রুপ',
+        'ft-contact-title': 'যোগাযোগ',
+        'ft-addr': 'মেহেরপুর জেলা কমিউনিটি ক্লাব, ঢাকা, বাংলাদেশ',
+        'ft-fb-link': 'facebook.com/groups/meherpurcommunitydhaka',
+        'ft-nature': 'অরাজনৈতিক · স্বেচ্ছাসেবী · সামাজিক সংগঠন',
+        'ft-imp-title': 'গুরুত্বপূর্ণ লিংক',
+        'imp1': 'আবেদন ফর্ম', 'imp2': 'কমিউনিটি নিয়ম', 'imp3': 'এক নজরে মেহেরপুর',
+        'imp4': 'রক্তদান', 'imp5': 'ইভেন্ট',
+        'ft-sponsored': 'স্পনসর',
+        'sponsor-name': 'হাসান মাহমুদ',
+        'sponsor-role': 'ম্যানেজিং ডিরেক্টর · স্মার্ট সফট লিমিটেড',
+        'sponsor-fb-text': 'https://www.facebook.com/mahmudzohan',
+        'ft-sponsor-note': 'স্পন্সর হতে চান? <a href="mailto:info@meherpurcommunity.org" style="color:var(--pink); text-decoration:none" id="ft-sponsor-link">যোগাযোগ করুন</a>',
+        'ft-devby-label': 'ডেভেলপ করেছেন',
+        'ft-devby-link': '⚡ Smart Soft Ltd.',
+        'nav-reg': 'নিবন্ধন',
+      },
+      en: {
+        'nav-title': 'Meherpur Zila Community Club',
+        'nav-sub': 'Dhaka, Bangladesh',
+        'nav-about': 'About', 'nav-activities': 'Activities',
+        'nav-membership': 'Membership', 'nav-events': 'Events',
+        'nav-gallery': 'Gallery', 'nav-contact': 'Contact',
+        'joinBtnNav': 'Join Us', 'langBtn': 'বাং',
+        'badge-text': 'Active Community • Dhaka',
+        'hero-title': 'Meherpur Zila<br><span style="color:var(--pink)">Community Club</span><br>Dhaka',
+        'hero-subtitle': 'A non-political social platform connecting people from Meherpur district living in Dhaka — fostering cooperation, opportunity, and community.',
+        'hero-tagline': '"Unity, Support & Opportunity for Every Meherpurian in Dhaka"',
+        'hero-join': '🤝 Join Now', 'hero-learn': 'Learn More →',
+        'stat1': 'Members', 'stat2': 'Years', 'stat3': 'Events', 'stat-com': 'Committee',
+        'mc1': 'Job Opportunities', 'mc2': 'Blood Donation', 'mc3': 'Education Support', 'mc4': 'Social Events',
+        'about-tag': 'About Us',
+        'about-title': 'A Family for Meherpurians in Dhaka',
+        'about-p1': 'Meherpur Zila Community Club, Dhaka is a district-based social organization formed by people originally from Meherpur district who currently live in Dhaka.',
+        'about-p2': 'The community works as a bridge between people of Meherpur by creating a strong network for communication, cooperation, and mutual support.',
+        'about-p3': 'It is not a political organization and does not operate under any government authority. It is a voluntary social initiative.',
+        'mission-title': '🎯 Mission', 'mission-text': 'To create a strong, united, and supportive network for the people of Meherpur living in Dhaka.',
+        'vision-title': '👁️ Vision', 'vision-text': 'To build a well-connected community where every member can get support, opportunities, and a sense of belonging.',
+        'act-tag': 'Core Activities', 'act-title': 'What We Do',
+        'act-desc': 'Our community runs various programs to make life easier and better for members',
+        'a1-title': 'Social Networking', 'a1-desc': 'Building connections among Meherpur people living in Dhaka.',
+        'a2-title': 'Help Newcomers', 'a2-desc': 'Assisting new members to settle down in Dhaka with guidance.',
+        'a3-title': 'Job Sharing', 'a3-desc': 'Sharing job circulars and career updates across Dhaka and nationwide.',
+        'a4-title': 'Education Support', 'a4-desc': 'Providing educational support, tuition, and scholarship information.',
+        'a5-title': 'Social Events', 'a5-desc': 'Organizing social events and gatherings to strengthen bonds.',
+        'a6-title': 'Emergency Support', 'a6-desc': 'Blood donation, medical help, and emergency assistance.',
+        'a7-title': 'Cultural Programs', 'a7-desc': 'Organizing cultural events and reunions to preserve heritage.',
+        'a8-title': 'Freelance & Business', 'a8-desc': 'Creating opportunities for freelancing, business promotion, and skill development.',
+        'mem-tag': 'Membership', 'mem-title': 'Join Our Community', 'mem-desc': 'Membership is free and completely voluntary',
+        'who-can-join': 'Who Can Join',
+        'mq1': 'Originally from Meherpur district', 'mq2': 'Anyone with strong connection to Meherpur',
+        'mq3': 'Living in Dhaka and interested in the community', 'mq4': 'Membership is free and voluntary',
+        'rules-title': 'Community Rules',
+        'r1': 'Be respectful to all members', 'r2': 'No political arguments or hate speech',
+        'r3': 'No spam or irrelevant advertising', 'r4': 'Only share verified or useful information',
+        'r5': 'Maintain discipline in posts and comments', 'r6': 'Support community values and unity',
+        'ev-tag': 'Events & Programs', 'ev-title': 'Our Programs',
+        'ev-desc': 'Throughout the year we organize various social and cultural events',
+        'et1': 'Annual', 'en1': 'Reunion Program', 'ep1': 'Annual or seasonal reunion gathering',
+        'et2': 'Ramadan', 'en2': 'Iftar Mahfil', 'ep2': 'Iftar gathering during Ramadan',
+        'et3': 'Cultural', 'en3': 'Cultural Program', 'ep3': 'Celebrating culture and heritage',
+        'et4': 'Charity', 'en4': 'Donation Drive', 'ep4': 'Charity and donation programs',
+        'emg-tag': 'Emergency Support', 'emg-title': 'We Stand By You',
+        'emg-desc': 'The community is always ready to help in any emergency situation',
+        'eg1-title': 'Blood Donation', 'eg1-desc': 'Post a request for urgent blood donation needs',
+        'eg2-title': 'Medical Help', 'eg2-desc': 'Guidance and support during medical emergencies',
+        'eg3-title': 'Financial Aid', 'eg3-desc': 'Community-based financial emergency assistance',
+        'eg4-title': 'Urgent Contact', 'eg4-desc': 'For missing persons or urgent communication needs',
+        'gal-tag': 'Gallery', 'gal-title': 'Our Moments', 'gal-desc': 'Photos from community events and activities',
+        'con-tag': 'Contact', 'con-title': 'Connect With Us',
+        'con-desc': 'Join our community today and be part of the big Meherpur family in Dhaka',
+        'con-info-title': '📋 Community Info',
+        'ci1-label': 'Name', 'ci1-val': 'Meherpur Zila Community Club, Dhaka',
+        'ci2-label': 'Location', 'ci2-val': 'Dhaka, Bangladesh',
+        'ci3-label': 'Origin', 'ci3-val': 'Meherpur District',
+        'ci4-label': 'Nature', 'ci4-val': 'Non-political, voluntary social organization',
+        'join-title': '🚀 How to Join',
+        'join-desc': 'Become part of our community in just a few easy steps:',
+        'js1': 'Join via Facebook Group', 'js2': 'Contact community admins',
+        'js3': 'Participate in events and activities', 'js4': 'Invite other Meherpur people in Dhaka',
+        'join-fb-btn': '📘 Join Facebook Group',
+        'footer-tagline': '"Unity, Support & Opportunity for Every Meherpurian in Dhaka"',
+        'fl1': 'About', 'fl2': 'Activities', 'fl3': 'Events', 'fl4': 'Contact', 'fl5': 'Facebook',
+        'mn-about': 'About', 'mn-activities': 'Activities', 'mn-membership': 'Membership',
+        'mn-events': 'Events', 'mn-gallery': 'Gallery', 'mn-contact': 'Contact', 'mn-join': 'Join Us →',
+        'mn-bani': 'Messages', 'mn-leadership': 'Committee',
+        'nav-bani': 'Messages', 'nav-leadership': 'Committee',
+        // BANI SECTION
+        'bani-tag': 'Leadership Messages', 'bani-title': 'Messages from Our Leaders',
+        'bani-desc': 'Read inspiring messages from our president and secretary',
+        'bani-pres-name': 'Selim Ahmed', 'bani-pres-role': 'President',
+        'bani-pres-preview': 'Assalamu Alaikum. On behalf of Meherpur Zila Community Club, Dhaka, I extend warm greetings and congratulations to all members, well-wishers, and the people of Meherpur.',
+        'bani-pres-full': '<br>Our organization was founded with the goal of fostering mutual harmony, cooperation and brotherhood among the people of Meherpur district living in Dhaka. We believe that united efforts can play a vital role in social development and human welfare.<br><br>It is our hope that this club will become a reliable and heartfelt platform for Meherpurians living in Dhaka, where everyone shares joys and sorrows and stands by each other when needed. We wish everyone good health, happiness and prosperity.',
+        'bani-pres-btn': 'Read More',
+        'bani-sec-name': 'M.A.S Emon', 'bani-sec-role': 'General Secretary',
+        'bani-sec-preview': 'Assalamu Alaikum. On behalf of Meherpur Zila Community Club, Dhaka, I extend heartfelt greetings to all members, well-wishers and visitors.',
+        'bani-sec-full': '<br>This organization is not just a social platform; it is a bridge of communication, cooperation and goodwill among the Meherpurians living in Dhaka.<br><br>Let us all together build a united, humane and progressive community.',
+        'bani-sec-btn': 'Read More',
+        // LEADERSHIP SECTION
+        'lead-tag': 'Committee', 'lead-title': 'Our Committee',
+        'lead-desc': 'The dedicated committee of Meherpur Zila Community Club, Dhaka',
+        'ldr1-role': 'President', 'ldr2-role': 'Vice President', 'ldr3-role': 'General Secretary',
+        'ldr4-role': 'Women\'s Affairs Editor', 'ldr5-role': 'Organizational Secretary', 'ldr6-role': 'Senior Vice President',
+        'ldr7-role': 'Publicity Secretary', 'ldr8-role': 'Joint Secretary',
+        'ldr9-role': 'Organizational Secretary', 'ldr10-role': 'Organizational Secretary', 'ldr11-role': 'Library Secretary', 'ldr12-role': 'Spokesperson', 'ldr13-role': 'Vice President',
+        // MAP SECTION
+        'map-tag': 'Our Location', 'map-title': 'Map of Bangladesh',
+        'map-desc': 'From Meherpur to Dhaka — not distance, but a bond of hearts',
+        'leg-meherpur': 'Meherpur', 'leg-dhaka': 'Dhaka', 'leg-other': 'Other Districts',
+        'map-two-cities': 'Our Two Cities',
+        'map-badge-meherpur': 'Origin', 'map-meherpur-title': '🏡 Meherpur District',
+        'map-meherpur-desc': 'Our roots, our identity. Meherpur is deeply tied to Bangladesh\'s liberation history — the first independent government was formed here in 1971.',
+        'map-badge-dhaka': 'Current Location', 'map-dhaka-title': '🏙️ Dhaka — The Capital',
+        'map-dhaka-desc': 'The capital and largest city of Bangladesh. Thousands of Meherpurians live in Dhaka — and this community is for them.',
+        'map-64-title': '📍 64 Districts, One Family',
+        'map-64-desc': 'No matter which district you were born in — if you have a connection to Meherpur, you are welcome in our community.',
+        // REGISTRATION SECTION
+        'reg-tag': 'Member Registration', 'reg-title': 'Register Now',
+        'reg-desc': 'Register for free and enjoy the full benefits of the community',
+        'reg-why-title': 'Why Become a Member?',
+        'reg-why-desc': 'By joining the Meherpur Zila Community Club, you gain access to a vast network of people from your district in Dhaka, along with support and opportunities.',
+        'rb1': 'Direct access to job & business opportunities', 'rb2': 'Emergency blood donation & medical support',
+        'rb3': 'Invitations to events & reunions', 'rb4': 'Guidance & support when new to Dhaka',
+        'rb5': 'Education & skill development resources', 'rb6': 'Completely free & voluntary',
+        'reg-form-title': '📝 Registration Form', 'reg-form-sub': 'Fill in your details, an admin will contact you',
+        'lbl-name': 'Full Name *', 'lbl-phone': 'Mobile Number *', 'lbl-email': 'Email (optional)',
+        'lbl-upazila': 'Upazila in Meherpur *', 'lbl-area': 'Area in Dhaka', 'lbl-occ': 'Occupation',
+        'opt-select': 'Select', 'opt-sadar': 'Meherpur Sadar', 'opt-gangni': 'Gangni', 'opt-mujibnagar': 'Mujibnagar',
+        'occ-select': 'Select', 'occ-job': 'Service Holder', 'occ-biz': 'Businessman',
+        'occ-student': 'Student', 'occ-free': 'Freelancer', 'occ-other': 'Other',
+        'reg-btn': '✅ Complete Registration',
+        'reg-note': 'After registering, don\'t forget to join our <a href="https://www.facebook.com/share/g/1AD8y8vKsT/?mibextid=wwXIfr" target="_blank" style="color:var(--pink)" id="reg-fb-link">Facebook Group</a>',
+        'reg-success-title': 'Registration Successful!',
+        'reg-success-desc': 'Your information has been submitted. An admin will contact you soon.<br>Please join the Facebook group next.',
+        'reg-success-btn': '📘 Join Facebook Group',
+        'footer-logo': 'Meherpur Zila Community Club, Dhaka ',
+        'footer-copy': '© 2026 Meherpur Zila Community Club, Dhaka. All rights reserved.',
+        'nav-reg': 'Register',
+        'ft-brand-sub': 'Dhaka, Bangladesh',
+        'ft-desc': 'A non-political, voluntary social platform for people from Meherpur district living in Dhaka.',
+        'ft-links-title': 'Quick Links',
+        'fl1': 'About', 'fl2': 'Activities', 'fl3-mem': 'Membership',
+        'fl3': 'Events', 'fl-reg': 'Register', 'fl4': 'Contact', 'fl5': 'Facebook Group',
+        'ft-contact-title': 'Contact',
+        'ft-addr': 'Meherpur Zila Community Club, Dhaka, Bangladesh',
+        'ft-fb-link': 'facebook.com/groups/meherpurzilacommunityclub',
+        'ft-nature': 'Non-political · Voluntary · Social Organization',
+        'ft-imp-title': 'Important Links',
+        'imp1': 'Application Form', 'imp2': 'Community Rules', 'imp3': 'About Meherpur',
+        'imp4': 'Blood Donation', 'imp5': 'Events',
+        'ft-sponsored': 'Sponsored',
+        'sponsor-name': 'Hasan Mahmud',
+        'sponsor-role': 'Managing Director · Smart Soft Ltd.',
+        'sponsor-fb-text': 'https://www.facebook.com/mahmudzohan',
+        'ft-sponsor-note': 'Want to sponsor? <a href="mailto:info@meherpurcommunity.org" style="color:var(--pink); text-decoration:none" id="ft-sponsor-link">Contact us</a>',
+        'ft-devby-label': 'Developed by',
+        'ft-devby-link': '⚡ Smart Soft Ltd.',
       }
+    };
+
+    function toggleLang() {
+      lang = lang === 'bn' ? 'en' : 'bn';
+      document.documentElement.lang = lang === 'bn' ? 'bn' : 'en';
+      const t = translations[lang];
+      Object.entries(t).forEach(([id, val]) => {
+        const el = document.getElementById(id);
+        if (el) el.innerHTML = val;
+      });
+      // swap input placeholders
+      const isBn = lang === 'bn';
+      document.getElementById('regName').placeholder = isBn ? 'আপনার নাম' : 'Your full name';
+      document.getElementById('regPhone').placeholder = isBn ? '01XXXXXXXXX' : '01XXXXXXXXX';
+      document.getElementById('regEmail').placeholder = isBn ? 'email@example.com' : 'email@example.com';
+      document.getElementById('regArea').placeholder = isBn ? 'যেমন: মিরপুর, উত্তরা' : 'e.g. Mirpur, Uttara';
+      // Update read-more button labels based on current open/closed state
+      document.querySelectorAll('.bani-readmore').forEach(btn => {
+        const isOpen = btn.classList.contains('open');
+        const textEl = btn.querySelector('.bani-readmore-text');
+        if (textEl) {
+          if (isOpen) {
+            textEl.textContent = isBn ? 'সংক্ষেপ করুন' : 'Show Less';
+          } else {
+            textEl.textContent = isBn ? 'আরও পড়ুন' : 'Read More';
+          }
+        }
+      });
     }
-  });
-}
 
-// ── BANI TOGGLE ────────────────────────────────────────────────────────
-function toggleBani(btn, fullId) {
-  const fullEl = document.getElementById(fullId);
-  const textEl = btn.querySelector('.bani-readmore-text');
-  const isOpen = fullEl.classList.toggle('open');
-  btn.classList.toggle('open', isOpen);
-  const isBn = lang === 'bn';
-  textEl.textContent = isOpen
-    ? (isBn ? 'সংক্ষেপ করুন' : 'Show Less')
-    : (isBn ? 'আরও পড়ুন' : 'Read More');
-}
-
-// ── THEME ──────────────────────────────────────────────────────────────
-function toggleTheme() {
-  const html = document.documentElement;
-  const isDark = html.getAttribute('data-theme') === 'dark';
-  html.setAttribute('data-theme', isDark ? 'light' : 'dark');
-  document.getElementById('themeBtn').textContent = isDark ? '🌙' : '☀️';
-}
-
-// ── MOBILE MENU ────────────────────────────────────────────────────────
-function toggleMenu() {
-  document.getElementById('mobileNav').classList.toggle('open');
-}
-function closeMenu() {
-  document.getElementById('mobileNav').classList.remove('open');
-}
-
-// ── REGISTRATION FORM ──────────────────────────────────────────────────
-function submitReg() {
-  const name = document.getElementById('regName').value.trim();
-  const phone = document.getElementById('regPhone').value.trim();
-  const upazila = document.getElementById('regUpazila').value;
-  if (!name || !phone || !upazila) {
-    alert(lang === 'bn'
-      ? 'অনুগ্রহ করে নাম, মোবাইল ও উপজেলা পূরণ করুন।'
-      : 'Please fill in your name, mobile number, and upazila.');
-    return;
-  }
-  document.getElementById('regForm').style.display = 'none';
-  document.getElementById('regSuccess').style.display = 'block';
-}
-
-// ── MAP TOOLTIP ────────────────────────────────────────────────────────
-document.querySelectorAll('.district-path').forEach(path => {
-  path.addEventListener('mouseenter', function() {
-    const tooltip = document.getElementById('mapTooltip');
-    if (tooltip) tooltip.textContent = this.dataset.name || '';
-  });
-  path.addEventListener('mouseleave', function() {
-    const tooltip = document.getElementById('mapTooltip');
-    if (tooltip) tooltip.textContent = '';
-  });
-});
-
-// ── SCROLL ANIMATIONS ──────────────────────────────────────────────────
-const observer = new IntersectionObserver((entries) => {
-  entries.forEach((e, i) => {
-    if (e.isIntersecting) {
-      setTimeout(() => e.target.classList.add('visible'), i * 60);
+    // ── BANI TOGGLE ────────────────────────────────────────────────────────
+    function toggleBani(btn, fullId) {
+      const fullEl = document.getElementById(fullId);
+      const textEl = btn.querySelector('.bani-readmore-text');
+      const isOpen = fullEl.classList.toggle('open');
+      btn.classList.toggle('open', isOpen);
+      const isBn = lang === 'bn';
+      textEl.textContent = isOpen
+        ? (isBn ? 'সংক্ষেপ করুন' : 'Show Less')
+        : (isBn ? 'আরও পড়ুন' : 'Read More');
     }
-  });
-}, { threshold: 0.1 });
-document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+    // ── THEME ──────────────────────────────────────────────────────────────
+    function toggleTheme() {
+      const html = document.documentElement;
+      const isDark = html.getAttribute('data-theme') === 'dark';
+      html.setAttribute('data-theme', isDark ? 'light' : 'dark');
+      document.getElementById('themeBtn').textContent = isDark ? '🌙' : '☀️';
+    }
+
+    // ── MOBILE MENU ────────────────────────────────────────────────────────
+    function toggleMenu() {
+      document.getElementById('mobileNav').classList.toggle('open');
+    }
+    function closeMenu() {
+      document.getElementById('mobileNav').classList.remove('open');
+    }
+
+    // ── REGISTRATION FORM ──────────────────────────────────────────────────
+    function submitReg() {
+      const name = document.getElementById('regName').value.trim();
+      const phone = document.getElementById('regPhone').value.trim();
+      const upazila = document.getElementById('regUpazila').value;
+      if (!name || !phone || !upazila) {
+        alert(lang === 'bn'
+          ? 'অনুগ্রহ করে নাম, মোবাইল ও উপজেলা পূরণ করুন।'
+          : 'Please fill in your name, mobile number, and upazila.');
+        return;
+      }
+      document.getElementById('regForm').style.display = 'none';
+      document.getElementById('regSuccess').style.display = 'block';
+    }
+
+    // ── MAP TOOLTIP ────────────────────────────────────────────────────────
+    document.querySelectorAll('.district-path').forEach(path => {
+      path.addEventListener('mouseenter', function () {
+        const tooltip = document.getElementById('mapTooltip');
+        if (tooltip) tooltip.textContent = this.dataset.name || '';
+      });
+      path.addEventListener('mouseleave', function () {
+        const tooltip = document.getElementById('mapTooltip');
+        if (tooltip) tooltip.textContent = '';
+      });
+    });
+
+    // ── HERO SLIDESHOW ─────────────────────────────────────────────────────
+    (function () {
+      const slideshow = document.getElementById('heroSlideshow');
+      if (!slideshow) return;
+      const slides = slideshow.querySelectorAll('.slide');
+      const dotsContainer = document.getElementById('slideDots');
+      let current = 0;
+
+      // Create dots
+      slides.forEach((_, i) => {
+        const dot = document.createElement('button');
+        dot.className = 'slide-dot' + (i === 0 ? ' active' : '');
+        dot.setAttribute('aria-label', 'Slide ' + (i + 1));
+        dot.addEventListener('click', () => goTo(i));
+        dotsContainer.appendChild(dot);
+      });
+
+      function goTo(idx) {
+        slides[current].classList.remove('active');
+        dotsContainer.children[current].classList.remove('active');
+        slides[current].style.position = 'absolute';
+        current = idx;
+        slides[current].style.position = 'relative';
+        slides[current].classList.add('active');
+        dotsContainer.children[current].classList.add('active');
+      }
+
+      // Auto-advance every 3.5 seconds
+      setInterval(() => {
+        goTo((current + 1) % slides.length);
+      }, 3500);
+    })();
+
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((e, i) => {
+        if (e.isIntersecting) {
+          setTimeout(() => e.target.classList.add('visible'), i * 60);
+        }
+      });
+    }, { threshold: 0.1 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
   </script>
 </body>
 
